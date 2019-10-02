@@ -27,3 +27,14 @@ etterem_Cim_Kiszallitas_Varosok varchar(35),
 etterem_Tipus varchar(30),
 etterem_fizetesi_Modok varchar(25)
 );
+
+create table Foglalas_Adatok (
+foglalas_Szama int,
+foglalas_Ideje date,
+foglalas_Foglalt_Datum date,
+foglalas_Foglalt_Idopont time,
+foreign key (vendeg_Etkezok_szama) references Vendeg_Adatok(venged_Etkezok_Szama),
+foreign key (vendeg_Nev) references Vendeg_Adatok(vendeg_Nev),
+foreign key (vendeg_Fizetesi_Mod refences Vendeg_Adatok(vendeg_Fizetesi_Mod),
+foreign key (etterem_Nev) references Etterem_Adatok(etterem_Nev),
+);
