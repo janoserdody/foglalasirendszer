@@ -1,0 +1,29 @@
+﻿create table Vendeg_Adatok (
+vendeg_Nev char(30) primary key,
+vendeg_Telefon varchar(12),
+vendeg_Etkezok_Szama tinyint,
+vendeg_Szallitasi_Cim_Megye varchar(15),
+vendeg_Szallitasi_Cim_Varos varchar(35),
+vendeg_Szallitasi_Cim_Utca varchar(50),
+vendeg_Szallitasi_Cim_Hszam tinyint,
+vendeg_Szallitasi_Cim_Egyeb varchar(35),
+vendeg_fizetesi_Mod varchar(25),
+vendeg_Megjegyzes varchar(75),
+vendeg_Preferalt_Etel_Tipus varchar(25)
+);
+
+create table Etterem_Adatok (
+etterem_Nev char(30) primary key,
+etterem_Telefon varchar(12),
+etterem_Webcim varchar (50),
+etterem_Etkezok_Szam_Min tinyint,
+etterem_Etkezok_Szam_Max tinyint,
+etterem_Cim_Megye varchar(15),
+etterem_Cim_Varos varchar(35),
+etterem_Cim_Utca varchar(50),
+etterem_Cim_Hszam tinyint,
+etterem_Cim_Egyeb varchar(35),
+etterem_Cim_Kiszallitas_Varosok varchar(35),
+etterem_Tipus varchar(30),
+etterem_fizetesi_Modok varchar(25)
+);
