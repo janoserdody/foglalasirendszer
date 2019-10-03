@@ -2,11 +2,11 @@ package viewcontrol;
 
 import javax.swing.*;
 
-public class Foglalas {
+public class FoglalasUI {
     private JLabel labelFoglalas;
     public JPanel foglalasPanel;
 
-    public Foglalas(){
+    public FoglalasUI(){
 
 
     }
