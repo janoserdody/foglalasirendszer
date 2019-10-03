@@ -1,9 +1,9 @@
-package com.foglalasirendszer;
+package viewcontrol;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class loginClass extends JFrame {
+public class LoginClass extends JFrame {
     JPanel panel;
     JLabel titleLabel;
     JLabel nameLabel;
@@ -13,7 +13,7 @@ public class loginClass extends JFrame {
     JButton registrationButton;
     FlowLayout flo;
 
-    public  loginClass(){
+    public  LoginClass(){
         super("Sign in");
         this.setSize(400,550);
         Dimension tLabelSize=new Dimension(250,60);
