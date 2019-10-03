@@ -16,8 +16,11 @@
       <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/Foglalas.form" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/Foglalas.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java" afterDir="false" />
+    <list default="true" id="6d3cb81f-4632-4bf6-94cf-5280d5d1c7bb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/foglalasirendszer/loginClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/foglalasirendszer/loginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/foglalasirendszer/loginForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/foglalasirendszer/loginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/foglalasirendszer/loginForm.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -380,6 +383,10 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  <component name="ProjectId" id="1RgmHt6gm3MdYfmfTBBYvsVGytY" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -394,12 +401,12 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="viewcontrol.App" />
-      <module name="ViewControlLayer" />
+    <configuration name="loginForm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.foglalasirendszer.loginForm" />
+      <module name="foglalasirendszer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="viewcontrol.*" />
+          <option name="PATTERN" value="com.foglalasirendszer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -409,7 +416,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
+        <item itemvalue="Application.loginForm" />
       </list>
     </recent_temporary>
   </component>
@@ -418,8 +425,8 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="536642a4-b5bd-4162-b334-39e639bf7172" name="Default Changelist" comment="" />
-      <created>1569611051307</created>
+      <changelist id="6d3cb81f-4632-4bf6-94cf-5280d5d1c7bb" name="Default Changelist" comment="" />
+      <created>1570097028915</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569611051307</updated>
@@ -731,5 +738,27 @@
         </settings>
       </state>
     </states>
+      <updated>1570097028915</updated>
+      <workItem from="1570097035639" duration="15000" />
+      <workItem from="1570097136541" duration="1848000" />
+      <workItem from="1570118183791" duration="7257000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
