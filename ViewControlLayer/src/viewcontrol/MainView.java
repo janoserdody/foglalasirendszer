@@ -9,8 +9,11 @@ public class MainView {
     private App fooldal;
 
     public MainView(){
-        fooldal = new App();
+        foglalasNezet = new FoglalasUI();
 
+        ugyfelekNezet = new UgyfelekUI();
+
+        fooldal = new App(foglalasNezet, ugyfelekNezet);
     }
 
 }

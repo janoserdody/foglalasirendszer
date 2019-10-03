@@ -8,10 +8,14 @@ import java.awt.event.ActionListener;
 public class App {
     private JButton buttonMsg;
     private JPanel panelMain;
-    private static JFrame frame;
+    private JFrame frame;
+    private FoglalasUI foglalasNezet;
+    private UgyfelekUI ugyfelekNezet;
 
     // constructor
-    public App() {
+    public App(FoglalasUI foglalasNezet, UgyfelekUI ugyfelekNezet) {
+        this.foglalasNezet = foglalasNezet;
+        this.ugyfelekNezet = ugyfelekNezet;
         frame = new JFrame("App");
         frame.setContentPane(this.panelMain);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -25,7 +29,6 @@ public class App {
         JMenuBar menubar = new JMenuBar();
         JMenu menu = getjMenu();
         menubar.add(menu);
-
 
         frame.setJMenuBar(menubar);
         frame.setSize(1000,800);
@@ -46,30 +49,23 @@ public class App {
         UIManager.put("MenuItem.font", f);
     }
 
-    private static void displayFoglalasBevitele() {
-        JFrame foglalas = new JFrame("Foglalás");
-        foglalas.setContentPane(new FoglalasUI().foglalasPanel);
-        foglalas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        foglalas.pack();
-        foglalas.setVisible(true);
-        foglalas.setSize(500,500);
+    private void displayFoglalasBevitele() {
+        foglalasNezet.foglalas.setContentPane(foglalasNezet.foglalasPanel);
+        foglalasNezet.foglalas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        foglalasNezet.foglalas.pack();
+        foglalasNezet.foglalas.setVisible(true);
+        foglalasNezet.foglalas.setSize(500,500);
     }
 
-    private static void displayUgyfelekListaja() {
-        JFrame ugyfelekListaja = new JFrame("Ügyfelek listája");
-        ugyfelekListaja.setContentPane(new UgyfelekUI().ugyfelekPane);
-        ugyfelekListaja.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        ugyfelekListaja.pack();
-        ugyfelekListaja.setVisible(true);
-        ugyfelekListaja.setSize(500,500);
+    private void displayUgyfelekListaja() {
+        ugyfelekNezet.ugyfelekListaja.setContentPane(new UgyfelekUI().ugyfelekPane);
+        ugyfelekNezet.ugyfelekListaja.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        ugyfelekNezet.ugyfelekListaja.pack();
+        ugyfelekNezet.ugyfelekListaja.setVisible(true);
+        ugyfelekNezet.ugyfelekListaja.setSize(500,500);
     }
 
-    // public static void main(String[] args) {
-        // setMainWindow();
-
-//    }
-
-    private static JMenu getjMenu() {
+    private JMenu getjMenu() {
         JMenu menu = new JMenu("Főmenü");
         menu.setSize(800,20);
         JMenuItem menuItemFoglalas = new JMenuItem("Foglalás bevitele");
@@ -83,7 +79,7 @@ public class App {
         return menu;
     }
 
-    private static void addMenuItemUgyfelek(JMenuItem menuItemUgyelek) {
+    private void addMenuItemUgyfelek(JMenuItem menuItemUgyelek) {
         menuItemUgyelek.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -92,7 +88,7 @@ public class App {
         });
     }
 
-    private static void addMenuItemFoglalas(JMenuItem menuItemFoglalas) {
+    private  void addMenuItemFoglalas(JMenuItem menuItemFoglalas) {
         menuItemFoglalas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -100,10 +96,4 @@ public class App {
             }
         });
     }
-
-    private static void setMainWindow() {
-
-    }
-
-
 }
