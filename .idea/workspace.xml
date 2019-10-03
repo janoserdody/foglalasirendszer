@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d3cb81f-4632-4bf6-94cf-5280d5d1c7bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/foglalasirendszer/loginForm.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/foglalasirendszer/loginForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/foglalasirendszer/loginClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/foglalasirendszer/loginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/foglalasirendszer/loginForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/foglalasirendszer/loginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/foglalasirendszer/loginForm.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,6 +72,7 @@
       <updated>1570097028915</updated>
       <workItem from="1570097035639" duration="15000" />
       <workItem from="1570097136541" duration="1848000" />
+      <workItem from="1570118183791" duration="7257000" />
     </task>
     <servers />
   </component>
