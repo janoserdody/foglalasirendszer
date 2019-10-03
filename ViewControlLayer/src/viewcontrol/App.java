@@ -12,9 +12,23 @@ public class App {
 
     // constructor
     public App() {
+        frame = new JFrame("App");
+        frame.setContentPane(this.panelMain);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+
         addButtonAction();
 
         setMainView();
+
+        JMenuBar menubar = new JMenuBar();
+        JMenu menu = getjMenu();
+        menubar.add(menu);
+
+
+        frame.setJMenuBar(menubar);
+        frame.setSize(1000,800);
     }
 
     private void addButtonAction() {
@@ -50,17 +64,10 @@ public class App {
         ugyfelekListaja.setSize(500,500);
     }
 
-    public static void main(String[] args) {
-        setMainWindow();
+    // public static void main(String[] args) {
+        // setMainWindow();
 
-        JMenuBar menubar = new JMenuBar();
-        JMenu menu = getjMenu();
-        menubar.add(menu);
-
-
-        frame.setJMenuBar(menubar);
-        frame.setSize(1000,800);
-    }
+//    }
 
     private static JMenu getjMenu() {
         JMenu menu = new JMenu("Főmenü");
@@ -95,11 +102,7 @@ public class App {
     }
 
     private static void setMainWindow() {
-        frame = new JFrame("App");
-        frame.setContentPane(new App().panelMain);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+
     }
 
 

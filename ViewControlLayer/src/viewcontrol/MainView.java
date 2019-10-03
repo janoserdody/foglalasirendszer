@@ -9,6 +9,7 @@ public class MainView {
     private App fooldal;
 
     public MainView(){
+        fooldal = new App();
 
     }
 
