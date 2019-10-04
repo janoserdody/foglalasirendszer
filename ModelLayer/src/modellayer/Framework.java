@@ -3,7 +3,6 @@ package modellayer;
 import common.Ugyfel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Framework implements IFramework{
 
@@ -14,7 +13,6 @@ public class Framework implements IFramework{
         ugyfelLista.add(new Ugyfel("Kisasszony","Gabi", "Kis", "jhgfjhgf@freemail.hu", "1234567"));
         ugyfelLista.add(new Ugyfel("Úrhölgy","Julcsi", "Nagy", "uzuzt@freemail.hu", "9879654"));
     }
-
 
     public void hozzaadUgyfel(Ugyfel ugyfel){
         ugyfelLista.add(ugyfel);
