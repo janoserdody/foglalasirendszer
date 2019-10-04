@@ -1,8 +1,10 @@
-package modellayer;
+package common;
 
 import java.util.Date;
 
 public class Ugyfel {
+
+    private int id;
 
     private String megszolitas;
 
@@ -22,8 +24,21 @@ public class Ugyfel {
 
     private Date utolsoLatogatas;
 
-    public Ugyfel(){
+    public Ugyfel(String megszolitas,
+            String keresztNev,
+            String vezetekNev,
+            String email,
+            String telefon){
 
+        this.megszolitas = megszolitas;
+
+        this.keresztNev = keresztNev;
+
+        this.vezetekNev = vezetekNev;
+
+        this.email = email;
+
+        this.telefon = telefon;
     }
 
     public String getMegszolitas() {

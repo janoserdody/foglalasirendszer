@@ -1,4 +1,4 @@
-package modellayer;
+package common;
 
 public enum Allergia {
     Gluten,

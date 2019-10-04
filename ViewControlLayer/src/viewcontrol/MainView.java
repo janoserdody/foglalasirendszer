@@ -1,5 +1,7 @@
 package viewcontrol;
 
+import modellayer.Framework;
+
 public class MainView {
 
     private FoglalasUI foglalasNezet;
@@ -8,12 +10,16 @@ public class MainView {
 
     private App fooldal;
 
+    private Framework framework;
+
     public MainView(){
-        foglalasNezet = new FoglalasUI();
 
-        ugyfelekNezet = new UgyfelekUI();
+        framework = new Framework();
 
-        fooldal = new App(foglalasNezet, ugyfelekNezet);
+        foglalasNezet = new FoglalasUI(framework);
+
+        ugyfelekNezet = new UgyfelekUI(framework);
+
+        fooldal = new App(foglalasNezet, ugyfelekNezet, framework);
     }
-
 }

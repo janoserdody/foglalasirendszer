@@ -1,4 +1,4 @@
-package modellayer;
+package common;
 
 import java.util.Date;
 

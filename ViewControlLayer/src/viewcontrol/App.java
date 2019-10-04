@@ -1,5 +1,7 @@
 package viewcontrol;
 
+import modellayer.Framework;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,11 +13,13 @@ public class App {
     private JFrame frame;
     private FoglalasUI foglalasNezet;
     private UgyfelekUI ugyfelekNezet;
+    private Framework framework;
 
     // constructor
-    public App(FoglalasUI foglalasNezet, UgyfelekUI ugyfelekNezet) {
+    public App(FoglalasUI foglalasNezet, UgyfelekUI ugyfelekNezet, Framework framework) {
         this.foglalasNezet = foglalasNezet;
         this.ugyfelekNezet = ugyfelekNezet;
+        this.framework = framework;
         frame = new JFrame("App");
         frame.setContentPane(this.panelMain);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -50,19 +54,19 @@ public class App {
     }
 
     private void displayFoglalasBevitele() {
-        foglalasNezet.foglalas.setContentPane(foglalasNezet.foglalasPanel);
-        foglalasNezet.foglalas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        foglalasNezet.foglalas.pack();
-        foglalasNezet.foglalas.setVisible(true);
-        foglalasNezet.foglalas.setSize(500,500);
+        foglalasNezet.getFoglalas().setContentPane(foglalasNezet.getFoglalasPanel());
+        foglalasNezet.getFoglalas().setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        foglalasNezet.getFoglalas().pack();
+        foglalasNezet.getFoglalas().setVisible(true);
+        foglalasNezet.getFoglalas().setSize(1000,800);
     }
 
     private void displayUgyfelekListaja() {
-        ugyfelekNezet.ugyfelekListaja.setContentPane(new UgyfelekUI().ugyfelekPane);
-        ugyfelekNezet.ugyfelekListaja.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        ugyfelekNezet.ugyfelekListaja.pack();
-        ugyfelekNezet.ugyfelekListaja.setVisible(true);
-        ugyfelekNezet.ugyfelekListaja.setSize(500,500);
+        ugyfelekNezet.getUgyfelekListaja().setContentPane(ugyfelekNezet.getUgyfelekPane());
+        ugyfelekNezet.getUgyfelekListaja().setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        ugyfelekNezet.getUgyfelekListaja().pack();
+        ugyfelekNezet.getUgyfelekListaja().setVisible(true);
+        ugyfelekNezet.getUgyfelekListaja().setSize(1000,800);
     }
 
     private JMenu getjMenu() {
