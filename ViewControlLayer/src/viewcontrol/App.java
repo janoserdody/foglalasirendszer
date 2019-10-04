@@ -42,7 +42,8 @@ public class App {
         buttonMsg.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                displayFoglalasBevitele();
+                displayFrame(foglalasNezet.getFoglalas(),
+                        foglalasNezet.getFoglalasPanel());
             }
         });
     }
@@ -53,20 +54,12 @@ public class App {
         UIManager.put("MenuItem.font", f);
     }
 
-    private void displayFoglalasBevitele() {
-        foglalasNezet.getFoglalas().setContentPane(foglalasNezet.getFoglalasPanel());
-        foglalasNezet.getFoglalas().setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        foglalasNezet.getFoglalas().pack();
-        foglalasNezet.getFoglalas().setVisible(true);
-        foglalasNezet.getFoglalas().setSize(1000,800);
-    }
-
-    private void displayUgyfelekListaja() {
-        ugyfelekNezet.getUgyfelekListaja().setContentPane(ugyfelekNezet.getUgyfelekPane());
-        ugyfelekNezet.getUgyfelekListaja().setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        ugyfelekNezet.getUgyfelekListaja().pack();
-        ugyfelekNezet.getUgyfelekListaja().setVisible(true);
-        ugyfelekNezet.getUgyfelekListaja().setSize(1000,800);
+    private void displayFrame(JFrame frame, JPanel panel) {
+        frame.setContentPane(panel);
+        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setSize(1000,800);
     }
 
     private JMenu getjMenu() {
@@ -87,7 +80,8 @@ public class App {
         menuItemUgyelek.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                displayUgyfelekListaja();
+                displayFrame(ugyfelekNezet.getUgyfelekListaja(),
+                        ugyfelekNezet.getUgyfelekPane());
             }
         });
     }
@@ -96,7 +90,8 @@ public class App {
         menuItemFoglalas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                displayFoglalasBevitele();
+                displayFrame(foglalasNezet.getFoglalas(),
+                        foglalasNezet.getFoglalasPanel());
             }
         });
     }
