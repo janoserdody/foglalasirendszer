@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/DataLayer/DataLayer.iml" filepath="$PROJECT_DIR$/DataLayer/DataLayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/ModelLayer/ModelLayer.iml" filepath="$PROJECT_DIR$/ModelLayer/ModelLayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/ViewControlLayer/ViewControlLayer.iml" filepath="$PROJECT_DIR$/ViewControlLayer/ViewControlLayer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/foglalasirendszer.iml" filepath="$PROJECT_DIR$/foglalasirendszer.iml" />
     </modules>
   </component>
 </project>

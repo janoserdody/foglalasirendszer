@@ -1,6 +1,8 @@
 package modellayer;
 
 import common.Ugyfel;
+import datalayer.DataService;
+import datalayer.IDataService;
 
 import java.util.ArrayList;
 
@@ -8,7 +10,14 @@ public class Framework implements IFramework{
 
     private ArrayList<Ugyfel> ugyfelLista;
 
+    private ArrayList<Integer> ugyfelIdLista;
+
+    private IDataService dataService;
+
     public Framework(){
+
+        dataService = new DataService();
+
         ugyfelLista = new ArrayList<Ugyfel>();
         ugyfelLista.add(new Ugyfel("Kisasszony","Gabi", "Kis", "jhgfjhgf@freemail.hu", "1234567"));
         ugyfelLista.add(new Ugyfel("Úrhölgy","Julcsi", "Nagy", "uzuzt@freemail.hu", "9879654"));
@@ -42,5 +51,12 @@ public class Framework implements IFramework{
  
     public void setUgyfelLista(ArrayList<Ugyfel> ugyfelLista) {
         this.ugyfelLista = ugyfelLista;
+    }
+
+    public boolean beolvasOsszesUgyfel(){
+
+        boolean result = ugyfelIdLista.addAll(dataService.ReadAllUgyfelId());
+
+        return result;
     }
 }

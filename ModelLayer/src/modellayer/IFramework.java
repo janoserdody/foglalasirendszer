@@ -14,4 +14,6 @@ public interface IFramework {
     void setUgyfelLista(ArrayList<Ugyfel> ugyfelLista);
 
     String[] getUgyfelNevekListaja();
+
+    boolean beolvasOsszesUgyfel();
 }
