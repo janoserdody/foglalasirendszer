@@ -33,7 +33,7 @@ public class Framework implements IFramework{
         int i = 0;
 
         for (Ugyfel ugyfel: ugyfelLista){
-            nevLista[i] = ugyfel.getMegszolitas() + " " + ugyfel.getKeresztNev() + " " + ugyfel.getVezetekNev();
+            nevLista[i] = ugyfel.getMegszolitas() + " " + ugyfel.getVezetekNev() + " " + ugyfel.getKeresztNev();
             i++;
         }
 
