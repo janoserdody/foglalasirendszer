@@ -13,12 +13,17 @@ public class App {
     private JFrame frame;
     private FoglalasUI foglalasNezet;
     private UgyfelekUI ugyfelekNezet;
+    private CalendarUI calendarNezet;
+    private UjUgyfelBeviteleUI ujUgyfelNezet;
+
     private Framework framework;
 
     // constructor
-    public App(FoglalasUI foglalasNezet, UgyfelekUI ugyfelekNezet, Framework framework) {
+    public App(FoglalasUI foglalasNezet, UgyfelekUI ugyfelekNezet, CalendarUI calendarNezet, UjUgyfelBeviteleUI ujUgyfelNezet, Framework framework) {
         this.foglalasNezet = foglalasNezet;
         this.ugyfelekNezet = ugyfelekNezet;
+        this.calendarNezet = calendarNezet;
+        this.ujUgyfelNezet = ujUgyfelNezet;
         this.framework = framework;
         frame = new JFrame("App");
         frame.setContentPane(this.panelMain);
@@ -67,21 +72,48 @@ public class App {
         menu.setSize(800,20);
         JMenuItem menuItemFoglalas = new JMenuItem("Foglalás bevitele");
         JMenuItem menuItemUgyelek = new JMenuItem("Ügyfelek listája");
+        JMenuItem menuItemNaptar = new JMenuItem("Foglalási naptár");
+        JMenuItem menuItemUjUgyfel = new JMenuItem("Új ügyfél bevitele");
+
 
         addMenuItemFoglalas(menuItemFoglalas);
         addMenuItemUgyfelek(menuItemUgyelek);
+        addMenuItemNaptar(menuItemNaptar);
+        addMenuUjUgyfel(menuItemUjUgyfel);
 
         menu.add(menuItemFoglalas);
         menu.add(menuItemUgyelek);
+        menu.add(menuItemNaptar);
+        menu.add(menuItemUjUgyfel);
         return menu;
     }
 
-    private void addMenuItemUgyfelek(JMenuItem menuItemUgyelek) {
-        menuItemUgyelek.addActionListener(new ActionListener() {
+    private void addMenuItemUgyfelek(JMenuItem menuItemUgyfelek) {
+        menuItemUgyfelek.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 displayFrame(ugyfelekNezet.getUgyfelekListaja(),
                         ugyfelekNezet.getUgyfelekPane());
+            }
+        });
+    }
+
+    private void addMenuItemNaptar(JMenuItem menuItemNaptar) {
+        menuItemNaptar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                displayFrame(calendarNezet.getCalendar(),
+                        calendarNezet.getCalendarPanel());
+            }
+        });
+    }
+
+    private void addMenuUjUgyfel(JMenuItem menuItemUjUgyfel) {
+        menuItemUjUgyfel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                displayFrame(ujUgyfelNezet.getUjUgyfel(),
+                        ujUgyfelNezet.getUjUgyfelBevitelePanel());
             }
         });
     }
