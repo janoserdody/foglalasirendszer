@@ -1,10 +1,11 @@
 package common;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Foglalas {
 
-    private Date datum;
+    private LocalDateTime datum;
 
     private int szemelyekSzama;
 
@@ -14,16 +15,16 @@ public class Foglalas {
 
     private String  megjegyzes;
 
-    public Foglalas(Date datum, int szemelyekSzama){
+    public Foglalas(LocalDateTime datum, int szemelyekSzama){
         this.datum = datum;
         this.szemelyekSzama = szemelyekSzama;
     }
 
-    public Date getDatum() {
+    public LocalDateTime getDatum() {
         return datum;
     }
 
-    public void setDatum(Date datum) {
+    public void setDatum(LocalDateTime datum) {
         this.datum = datum;
     }
 

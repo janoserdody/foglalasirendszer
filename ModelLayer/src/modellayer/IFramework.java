@@ -1,7 +1,9 @@
 package modellayer;
 
+import common.Foglalas;
 import common.Ugyfel;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public interface IFramework {
@@ -15,5 +17,9 @@ public interface IFramework {
 
     String[] getUgyfelNevekListaja();
 
-    boolean beolvasOsszesUgyfel();
+    boolean beolvasOsszesUgyfelId();
+
+    ArrayList<Integer> beolvasEgyNapFoglalasok(LocalDateTime date);
+
+    ArrayList<Foglalas> beolvasIntervallumFoglalasok(LocalDateTime fromDate, LocalDateTime toDate);
 }

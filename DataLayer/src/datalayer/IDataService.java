@@ -3,8 +3,8 @@ package datalayer;
 import common.Foglalas;
 import common.Ugyfel;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 
 public interface IDataService {
     //  beszúr egy ügyfelet az adatbázisba
@@ -35,5 +35,5 @@ public interface IDataService {
     boolean RemoveFoglalas(int Id);
 
     // Beolvassa egy adott napra eső összes foglalás Id-eit
-    ArrayList<Integer> ReadAllFoglalsForOneDay(Date date);
+    ArrayList<Integer> ReadAllFoglalasForOneDay(LocalDateTime date);
 }

@@ -1,9 +1,11 @@
 package modellayer;
 
+import common.Foglalas;
 import common.Ugyfel;
 import datalayer.DataService;
 import datalayer.IDataService;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Framework implements IFramework{
@@ -53,10 +55,38 @@ public class Framework implements IFramework{
         this.ugyfelLista = ugyfelLista;
     }
 
-    public boolean beolvasOsszesUgyfel(){
+    public boolean beolvasOsszesUgyfelId(){
 
         boolean result = ugyfelIdLista.addAll(dataService.ReadAllUgyfelId());
 
         return result;
+    }
+
+    public ArrayList<Integer> beolvasEgyNapFoglalasok(LocalDateTime date){
+
+        return dataService.ReadAllFoglalasForOneDay(date);
+    }
+
+    public ArrayList<Foglalas> beolvasIntervallumFoglalasok(LocalDateTime fromDate, LocalDateTime toDate) {
+
+        LocalDateTime date = fromDate;
+
+        ArrayList<Integer> foglalasokIntervallum = new ArrayList<>();
+
+        do {
+            foglalasokIntervallum.addAll(beolvasEgyNapFoglalasok(date));
+
+            date = date.plusDays(1);
+
+        } while (date.isBefore(toDate));
+
+        ArrayList<Foglalas> foglalasok = new ArrayList<>();
+
+        for (Integer foglalasId: foglalasokIntervallum
+             ) {
+            foglalasok.add(dataService.GetFogalas(foglalasId));
+        }
+
+        return foglalasok;
     }
 }

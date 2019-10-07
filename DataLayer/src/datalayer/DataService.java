@@ -3,8 +3,8 @@ package datalayer;
 import common.Foglalas;
 import common.Ugyfel;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class DataService implements IDataService {
 
@@ -25,7 +25,7 @@ public class DataService implements IDataService {
     }
 
     public ArrayList<Integer> ReadAllUgyfelId() {
-        return new ArrayList<Integer>();
+        return new ArrayList<>();
     }
 
     public Foglalas GetFogalas(int Id) {
@@ -36,8 +36,8 @@ public class DataService implements IDataService {
         return false;
     }
 
-    public ArrayList<Integer> ReadAllFoglalsForOneDay(Date date) {
-        return new ArrayList<Integer>();
+    public ArrayList<Integer> ReadAllFoglalasForOneDay(LocalDateTime date) {
+        return new ArrayList<>();
     }
 
     public boolean ModifyFoglalas(Foglalas foglalas) {
