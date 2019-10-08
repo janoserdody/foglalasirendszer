@@ -5,6 +5,8 @@ import java.util.Date;
 
 public class Foglalas {
 
+    private int Id;
+
     private LocalDateTime datum;
 
     private int szemelyekSzama;
@@ -59,5 +61,13 @@ public class Foglalas {
 
     public void setMegjegyzes(String megjegyzes) {
         this.megjegyzes = megjegyzes;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
     }
 }
