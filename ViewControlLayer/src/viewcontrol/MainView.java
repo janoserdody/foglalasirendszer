@@ -10,6 +10,8 @@ public class MainView {
 
     private CalendarUI calendarNezet;
 
+    private AsztalokUI asztalokNezet;
+
     private UjUgyfelBeviteleUI ujUgyfelNezet;
 
     private App fooldal;
@@ -28,11 +30,14 @@ public class MainView {
 
         ujUgyfelNezet = new UjUgyfelBeviteleUI(framework);
 
+        asztalokNezet = new AsztalokUI(framework);
+
         fooldal = new App(
                 foglalasNezet,
                 ugyfelekNezet,
                 calendarNezet,
                 ujUgyfelNezet,
+                asztalokNezet,
                 framework);
     }
 }

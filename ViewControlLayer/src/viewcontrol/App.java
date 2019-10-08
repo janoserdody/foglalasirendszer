@@ -15,15 +15,22 @@ public class App {
     private UgyfelekUI ugyfelekNezet;
     private CalendarUI calendarNezet;
     private UjUgyfelBeviteleUI ujUgyfelNezet;
-
+    private AsztalokUI asztalokNezet;
     private Framework framework;
 
     // constructor
-    public App(FoglalasUI foglalasNezet, UgyfelekUI ugyfelekNezet, CalendarUI calendarNezet, UjUgyfelBeviteleUI ujUgyfelNezet, Framework framework) {
+    public App(
+            FoglalasUI foglalasNezet,
+            UgyfelekUI ugyfelekNezet,
+            CalendarUI calendarNezet,
+            UjUgyfelBeviteleUI ujUgyfelNezet,
+            AsztalokUI asztalokNezet,
+            Framework framework) {
         this.foglalasNezet = foglalasNezet;
         this.ugyfelekNezet = ugyfelekNezet;
         this.calendarNezet = calendarNezet;
         this.ujUgyfelNezet = ujUgyfelNezet;
+        this.asztalokNezet = asztalokNezet;
         this.framework = framework;
         frame = new JFrame("App");
         frame.setContentPane(this.panelMain);
@@ -74,17 +81,19 @@ public class App {
         JMenuItem menuItemUgyelek = new JMenuItem("Ügyfelek listája");
         JMenuItem menuItemNaptar = new JMenuItem("Foglalási naptár");
         JMenuItem menuItemUjUgyfel = new JMenuItem("Új ügyfél bevitele");
-
+        JMenuItem menuItemAsztalok = new JMenuItem("Asztalok nézet");
 
         addMenuItemFoglalas(menuItemFoglalas);
         addMenuItemUgyfelek(menuItemUgyelek);
         addMenuItemNaptar(menuItemNaptar);
         addMenuUjUgyfel(menuItemUjUgyfel);
+        addMenuAsztalok(menuItemAsztalok);
 
         menu.add(menuItemFoglalas);
         menu.add(menuItemUgyelek);
         menu.add(menuItemNaptar);
         menu.add(menuItemUjUgyfel);
+        menu.add(menuItemAsztalok);
         return menu;
     }
 
@@ -114,6 +123,16 @@ public class App {
             public void actionPerformed(ActionEvent e) {
                 displayFrame(ujUgyfelNezet.getUjUgyfel(),
                         ujUgyfelNezet.getUjUgyfelBevitelePanel());
+            }
+        });
+    }
+
+    private void addMenuAsztalok(JMenuItem menuItemAsztalok) {
+        menuItemAsztalok.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                displayFrame(asztalokNezet.getAsztalok(),
+                        asztalokNezet.getAsztalokPanel());
             }
         });
     }
