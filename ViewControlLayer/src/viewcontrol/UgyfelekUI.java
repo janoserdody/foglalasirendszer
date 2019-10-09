@@ -38,4 +38,5 @@ public class UgyfelekUI {
     public void setUgyfelekListaja(JFrame ugyfelekListaja) {
         this.ugyfelekListaja = ugyfelekListaja;
     }
+
 }
