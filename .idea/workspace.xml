@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9b554d8-e3a1-4f5a-9a3e-81f640b8af80" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelFelviteleUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelFelviteleUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelBeviteleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelBeviteleUI.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,7 +74,8 @@
       <option name="presentableId" value="Default" />
       <updated>1570479546676</updated>
       <workItem from="1570479551875" duration="9134000" />
-      <workItem from="1570631531103" duration="9406000" />
+      <workItem from="1570631531103" duration="12566000" />
+      <workItem from="1570706398672" duration="2915000" />
     </task>
     <task id="LOCAL-00001" summary="DataService és Framework vázlat">
       <created>1570482350414</created>
@@ -119,7 +116,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
