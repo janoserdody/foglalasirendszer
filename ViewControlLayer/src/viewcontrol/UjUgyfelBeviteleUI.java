@@ -2,10 +2,21 @@ package viewcontrol;
 
 import modellayer.Framework;
 
+
 import javax.swing.*;
 import java.awt.*;
 
 public class UjUgyfelBeviteleUI {
+    private String megszolitas;
+    private String keresztNev;
+    private String vezetekNev;
+    private String email;
+    private String telefon;
+    //private Foglalas foglalas;
+    //private int utolsoSzamla;
+    //private int osszesSzamla;
+    //private Date utolsoLatogatas;
+
     private Framework framework;
     private JFrame ujUgyfel;
     private JPanel ujUgyfelBevitelePanel;
@@ -111,10 +122,18 @@ public class UjUgyfelBeviteleUI {
     }
 
     public JFrame getUjUgyfel() {
+
         return ujUgyfel;
     }
 
     public void setUjUgyfel(JFrame ujUgyfel) {
+        megszolitas=jComboBox.getSelectedItem().toString();
+        keresztNev=keresztNevTextfield.getText();
+        vezetekNev=vezetekNevTextfield.getText();
+        email=emailTextfield.getText();
+        telefon=telefonTextfield.getText();
+
+        //Ugyfel ujugyfel=new Ugyfel(megszolitas,keresztNev,vezetekNev,email,telefon);
         this.ujUgyfel = ujUgyfel;
     }
 
