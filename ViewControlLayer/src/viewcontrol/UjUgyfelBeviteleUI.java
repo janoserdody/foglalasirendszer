@@ -45,8 +45,7 @@ public class UjUgyfelBeviteleUI {
         ujUgyfel = new JFrame("Új ügyfél bevitele");
         ujUgyfelBevitelePanel=new JPanel();
         ujUgyfel.getContentPane();
-        //ujUgyfelBevitelePanel.setLayout(new FlowLayout());
-        //ujUgyfel.getContentPane().add(ujUgyfelBevitelePanel,"Center");
+
         ujUgyfelBevitelePanel.setLayout(null);
 
         Font adatokFont=new Font("Arial",Font.BOLD,20);
