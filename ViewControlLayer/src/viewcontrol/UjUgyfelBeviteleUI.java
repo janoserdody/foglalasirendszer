@@ -62,45 +62,45 @@ public class UjUgyfelBeviteleUI {
 
 
         megszolitasLabel=new JLabel("Megszólítás kiválasztása:");
-        megszolitasLabel.setBounds(30,110,adatokSize.width,adatokSize.height);
+        megszolitasLabel.setBounds(30,170,adatokSize.width,adatokSize.height);
         megszolitasLabel.setFont(adatokFont);
 
         jComboBox=new JComboBox();
         jComboBox.addItem("id");
         jComboBox.addItem("ifj");
         jComboBox.addItem("dr");
-        jComboBox.setBounds(400,110,50,adatokSize.height);
+        jComboBox.setBounds(400,170,50,adatokSize.height);
 
         vezetekNevLabel=new JLabel("Vezetéknév:");
-        vezetekNevLabel.setBounds(30,160,adatokSize.width,adatokSize.height);
+        vezetekNevLabel.setBounds(30,240,adatokSize.width,adatokSize.height);
         vezetekNevLabel.setFont(adatokFont);
 
         vezetekNevTextfield=new JTextField();
-        vezetekNevTextfield.setBounds(400,160,adatokSize.width,adatokSize.height);
+        vezetekNevTextfield.setBounds(400,240,adatokSize.width,adatokSize.height);
 
         keresztNevLabel=new JLabel("Keresztnév:");
-        keresztNevLabel.setBounds(30,210,adatokSize.width,adatokSize.height);
+        keresztNevLabel.setBounds(30,310,adatokSize.width,adatokSize.height);
         keresztNevLabel.setFont(adatokFont);
 
         keresztNevTextfield=new JTextField();
-        keresztNevTextfield.setBounds(400,210,adatokSize.width,adatokSize.height);
+        keresztNevTextfield.setBounds(400,310,adatokSize.width,adatokSize.height);
 
         emailLabel=new JLabel("E-mail:");
-        emailLabel.setBounds(30,260,adatokSize.width,adatokSize.height);
+        emailLabel.setBounds(30,380,adatokSize.width,adatokSize.height);
         emailLabel.setFont(adatokFont);
 
         emailTextfield=new JTextField();
-        emailTextfield.setBounds(400,260,adatokSize.width,adatokSize.height);
+        emailTextfield.setBounds(400,380,adatokSize.width,adatokSize.height);
 
         telefonLabel=new JLabel("Telefon:");
-        telefonLabel.setBounds(30,310,adatokSize.width,adatokSize.height);
+        telefonLabel.setBounds(30,450,adatokSize.width,adatokSize.height);
         telefonLabel.setFont(adatokFont);
 
         telefonTextfield=new JTextField();
-        telefonTextfield.setBounds(400,310,adatokSize.width,adatokSize.height);
+        telefonTextfield.setBounds(400,450,adatokSize.width,adatokSize.height);
 
         keszButton=new JButton("Ügyfél hozzáadása");
-        keszButton.setBounds(350,500,280,40);
+        keszButton.setBounds(350,600,280,40);
 
 
 

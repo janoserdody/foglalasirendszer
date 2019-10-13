@@ -6,10 +6,13 @@ import javax.swing.*;
 import java.awt.*;
 import javax.imageio.ImageIO;
 import java.io.File;
+import java.util.Arrays;
 
 public class AsztalokUI {
 
     private String asztalKod;
+    private int asztalSzama;
+
 
     private Framework framework;
     private JFrame asztalok;
@@ -18,8 +21,14 @@ public class AsztalokUI {
     private JLabel title;
     private JMenuBar menuBar;
     private JLabel asztalKodLabel;
+    private JLabel szabadAsztalInfoLabel;
+    private JTextField szabadAsztalInfoTextField;
+
     private JTextField asztalKodTextField;
     private JButton elkuldButton;
+
+
+
 
 
     public AsztalokUI(Framework framework){
@@ -28,6 +37,9 @@ public class AsztalokUI {
         asztalokPanel=new JPanel();
         asztalok.getContentPane();
         asztalokPanel.setLayout(null);
+
+        String[] kodArray={"A2","A4","A5","A6","A7","A8"};
+
 
         Font iFont=new Font("Arial",Font.ITALIC,20);
 
@@ -39,29 +51,39 @@ public class AsztalokUI {
 
         ImageIcon background=new ImageIcon("tableview.jpg");
         Image img=background.getImage();
-        Image temp=img.getScaledInstance(900,600,Image.SCALE_SMOOTH);
+        Image temp=img.getScaledInstance(800,500,Image.SCALE_SMOOTH);
         background=new ImageIcon(temp);
         JLabel back=new JLabel(background);
         back.setLayout(null);
-        back.setBounds(40,60,900,600);
+        back.setBounds(90,110,800,500);
 
-        menuBar=new JMenuBar();
-        menuBar.setBounds(40,665,900,90);
+
 
         asztalKodLabel=new JLabel("Foglalni kívánt asztal kódja:");
+        asztalKodLabel.setBounds(90,630,200,20);
 
         asztalKodTextField=new JTextField();
+        asztalKodTextField.setBounds(270,630,50,20);
+
+        szabadAsztalInfoLabel=new JLabel("Szabad .. kódú asztal száma:");
+        szabadAsztalInfoLabel.setBounds(90,660,200,20);
+
+        szabadAsztalInfoTextField=new JTextField();
+        szabadAsztalInfoTextField.setBounds(270,660,50,20);
 
         elkuldButton=new JButton("Asztal lefoglalása");
+        elkuldButton.setBounds(610,700,280,40);
 
-        menuBar.add(asztalKodLabel);
-        menuBar.add(asztalKodTextField);
-        menuBar.add(elkuldButton);
+
 
         asztalokPanel.add(title);
         asztalokPanel.add(back);
-        asztalokPanel.add(menuBar);
 
+        asztalokPanel.add(asztalKodLabel);
+        asztalokPanel.add(asztalKodTextField);
+        asztalokPanel.add(szabadAsztalInfoLabel);
+        asztalokPanel.add(szabadAsztalInfoTextField);
+        asztalokPanel.add(elkuldButton);
     }
 
     public JFrame getAsztalok() {

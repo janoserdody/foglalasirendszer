@@ -4,6 +4,7 @@
     <list default="true" id="a9b554d8-e3a1-4f5a-9a3e-81f640b8af80" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/AsztalokUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/AsztalokUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelBeviteleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelBeviteleUI.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +76,9 @@
       <updated>1570479546676</updated>
       <workItem from="1570479551875" duration="9134000" />
       <workItem from="1570631531103" duration="12566000" />
-      <workItem from="1570706398672" duration="14541000" />
+      <workItem from="1570706398672" duration="14749000" />
+      <workItem from="1570732965200" duration="1979000" />
+      <workItem from="1570977094339" duration="2612000" />
     </task>
     <task id="LOCAL-00001" summary="DataService és Framework vázlat">
       <created>1570482350414</created>
