@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class AsztalokUI {
 
     private String asztalKod;
-    private int asztalSzama;
+    private int szabadAsztalSzam;
 
 
     private Framework framework;
@@ -73,6 +73,11 @@ public class AsztalokUI {
 
         elkuldButton=new JButton("Asztal lefoglalása");
         elkuldButton.setBounds(610,700,280,40);
+
+        /*
+        asztalKod=asztalKodTextField.getText();
+        szabadAsztalSzam=Integer.parseInt(szabadAsztalInfoTextField.getText());
+        */
 
 
 

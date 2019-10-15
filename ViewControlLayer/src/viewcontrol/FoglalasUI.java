@@ -4,7 +4,9 @@ import modellayer.Framework;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.awt.event.*;
 
 public class FoglalasUI {
 
@@ -12,8 +14,8 @@ public class FoglalasUI {
     private String vezetekNev;
     private String telefon;
     private int szemelyekSzama;
-    private Date idopont;
-    private boolean etelAllergia;
+    private String idopont;
+    private String etelAllergia;
     private int gyerekekSzama;
 
     private JLabel labelFoglalas;
@@ -113,6 +115,12 @@ public class FoglalasUI {
         elkuldButton=new JButton("Foglalás hozzáadása");
         elkuldButton.setBounds(350,660,280,40);
 
+
+
+
+
+
+
         foglalasPanel.add(title);
         foglalasPanel.add(vezetekNevLabel);
         foglalasPanel.add(vezetekNevTextfield);
@@ -132,11 +140,20 @@ public class FoglalasUI {
         foglalasPanel.add(elkuldButton);
     }
 
+
+
     public JFrame getFoglalas() {
         return foglalas;
     }
 
     public void setFoglalas(JFrame foglalas) {
+        keresztNev=keresztNevTextfield.getText();
+        vezetekNev=vezetekNevTextfield.getText();
+        telefon=telefonTextfield.getText();
+        szemelyekSzama=Integer.parseInt(szemelyekSzamaTextfield.getText());
+        idopont=idopontTextfield.getText();
+        etelAllergia=etelAllergiaTextfield.getText();
+        gyerekekSzama=Integer.parseInt(gyerekekSzamaTextfield.getText());
         this.foglalas = foglalas;
     }
 
