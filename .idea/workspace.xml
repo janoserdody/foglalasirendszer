@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="536642a4-b5bd-4162-b334-39e639bf7172" name="Default Changelist" comment="update">
-      <change afterPath="$PROJECT_DIR$/Common/src/common/AsztalFoglalas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/common/CegesUgyfel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/common/CsaladosUgyfel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/common/TeremFoglalas.java" afterDir="false" />
+    <list default="true" id="536642a4-b5bd-4162-b334-39e639bf7172" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/common/Foglalas.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/common/Foglalas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/common/Ugyfel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/common/Ugyfel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelBeviteleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelBeviteleUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ViewControlLayer/META-INF/ViewControlLayer.kotlin_module" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570560660289</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="OOP új osztályok&#10;OOP polimorfizmus&#10;ősosztály, utódosztály">
+      <created>1571595300934</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1571595300934</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +145,7 @@
     <MESSAGE value="DataService és Framework vázlat" />
     <MESSAGE value="Framework új metódusok:&#10;beolvasIntervallumFoglalasok&#10;beolvasEgyNapFoglalasok" />
     <MESSAGE value="új form-ok:&#10;Naptár&#10;Új ügyfél bevitele" />
-    <option name="LAST_COMMIT_MESSAGE" value="új form-ok:&#10;Naptár&#10;Új ügyfél bevitele" />
+    <MESSAGE value="OOP új osztályok&#10;OOP polimorfizmus&#10;ősosztály, utódosztály" />
+    <option name="LAST_COMMIT_MESSAGE" value="OOP új osztályok&#10;OOP polimorfizmus&#10;ősosztály, utódosztály" />
   </component>
 </project>

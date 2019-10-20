@@ -102,8 +102,6 @@ public class UjUgyfelBeviteleUI {
         keszButton=new JButton("Ügyfél hozzáadása");
         keszButton.setBounds(350,600,280,40);
 
-
-
         ujUgyfelBevitelePanel.add(title);
         ujUgyfelBevitelePanel.add(megszolitasLabel);
         ujUgyfelBevitelePanel.add(jComboBox);

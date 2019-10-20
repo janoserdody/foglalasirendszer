@@ -115,12 +115,6 @@ public class FoglalasUI {
         elkuldButton=new JButton("Foglalás hozzáadása");
         elkuldButton.setBounds(350,660,280,40);
 
-
-
-
-
-
-
         foglalasPanel.add(title);
         foglalasPanel.add(vezetekNevLabel);
         foglalasPanel.add(vezetekNevTextfield);
