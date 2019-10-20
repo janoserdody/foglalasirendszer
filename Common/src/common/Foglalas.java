@@ -1,24 +1,25 @@
 package common;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Foglalas {
 
-    private int Id;
+    protected int id = 0;
 
-    private LocalDateTime datum;
+    protected LocalDateTime datum;
 
-    private int szemelyekSzama;
+    protected int szemelyekSzama;
 
-    private Allergia etelallergia;
+    protected Allergia etelallergia;
 
-    private int gyerekekSzama;
+    protected int gyerekekSzama;
 
-    private String  megjegyzes;
+    protected String  megjegyzes;
 
     public Foglalas(LocalDateTime datum, int szemelyekSzama){
+
         this.datum = datum;
+
         this.szemelyekSzama = szemelyekSzama;
     }
 
@@ -64,10 +65,10 @@ public class Foglalas {
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 }

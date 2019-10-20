@@ -4,25 +4,25 @@ import java.util.Date;
 
 public class Ugyfel {
 
-    private int id;
+    protected int id = 0;
 
-    private String megszolitas;
+    protected String megszolitas;
 
-    private String keresztNev;
+    protected String keresztNev;
 
-    private String vezetekNev;
+    protected String vezetekNev;
 
-    private String email;
+    protected String email;
 
-    private String telefon;
+    protected String telefon;
 
-    private Foglalas foglalas;
+    protected Foglalas foglalas;
 
-    private int utolsoSzamla;
+    protected int utolsoSzamla;
 
-    private int osszesSzamla;
+    protected int osszesSzamla;
 
-    private Date utolsoLatogatas;
+    protected Date utolsoLatogatas;
 
     public Ugyfel(String megszolitas,
             String keresztNev,
@@ -104,4 +104,8 @@ public class Ugyfel {
     public void setUtolsoLatogatas(Date utolsoLatogatas) {
         this.utolsoLatogatas = utolsoLatogatas;
     }
+
+    public int getId(){ return id; }
+
+    public void setId(int id){ this.id = id; }
 }
