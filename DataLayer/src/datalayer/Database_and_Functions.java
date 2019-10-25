@@ -1,14 +1,10 @@
-package common;
+package datalayer;
 
 // Ebben az osztályban a következők találhatók:
 //- adatbázis elérési útja
 //- a kapcsolat nyitása az adatbázishoz
 //- a különböző methódusok, amik az adatbázishoz kellenek
 
-import com.sun.org.apache.bcel.internal.generic.Select;
-
-import javax.management.Query;
-import javax.xml.validation.Schema;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +16,7 @@ public class Database_and_Functions {
 
     //Az elérési út, ahol az adatbázisunk található
     //jdbc:sqlite: rész kötelező
-    public static final String CONNECTION_STRING = "jdbc:sqlite:C:\\Users\\molna\\Documents\\GitHub\\foglalasirendszer" + DB_NAME;
+    public static final String CONNECTION_STRING = "jdbc:sqlite:C:\\db\\" + DB_NAME;
 
     //    A rendezéshez használt változók
     public static final int ORDER_BY_NONE = 1;

@@ -8,11 +8,21 @@ import java.util.ArrayList;
 
 public class DataService implements IDataService {
 
+    Database_and_Functions database = new Database_and_Functions();
+
     public boolean InsertUgyfel(Ugyfel ugyfel) {
         return false;
     }
 
     public Ugyfel GetUgyfel(int Id) {
+        return null;
+    }
+
+    public Ugyfel GetUgyfel(String keresztNev, String vezetekNev) {
+        return null;
+    }
+
+    public Ugyfel GetUgyfel(String telefon) {
         return null;
     }
 
@@ -36,7 +46,7 @@ public class DataService implements IDataService {
         return false;
     }
 
-    public ArrayList<Integer> ReadAllFoglalasForOneDay(LocalDateTime date) {
+    public ArrayList<Foglalas> ReadAllFoglalasForOneDay(LocalDateTime date) {
         return new ArrayList<>();
     }
 

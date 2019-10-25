@@ -13,6 +13,10 @@ public interface IDataService {
     // Beolvassa egy ügyfél adatait az adatbázisból
     Ugyfel GetUgyfel(int Id);
 
+    Ugyfel GetUgyfel(String keresztNev, String vezetekNev);
+
+    Ugyfel GetUgyfel(String telefon);
+
     // Módosítja egy ügyfél adatait
     boolean ModifyUgyfel(Ugyfel ugyfel);
 
@@ -35,5 +39,5 @@ public interface IDataService {
     boolean RemoveFoglalas(int Id);
 
     // Beolvassa egy adott napra eső összes foglalás Id-eit
-    ArrayList<Integer> ReadAllFoglalasForOneDay(LocalDateTime date);
+    ArrayList<Foglalas> ReadAllFoglalasForOneDay(LocalDateTime date);
 }
