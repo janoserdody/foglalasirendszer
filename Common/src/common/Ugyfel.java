@@ -41,6 +41,7 @@ public class Ugyfel {
         this.telefon = telefon;
     }
 
+
     public String getMegszolitas() {
         return megszolitas;
     }

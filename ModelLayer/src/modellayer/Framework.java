@@ -64,7 +64,7 @@ public class Framework implements IFramework{
 
     public ArrayList<Integer> beolvasEgyNapFoglalasok(LocalDateTime date){
 
-        return dataService.ReadAllFoglalasForOneDay(date);
+        return null;
     }
 
     public ArrayList<Foglalas> beolvasIntervallumFoglalasok(LocalDateTime fromDate, LocalDateTime toDate) {
