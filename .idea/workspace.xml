@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="536642a4-b5bd-4162-b334-39e639bf7172" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/src/common/FoglalasTipus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataLayer/src/datalayer/QueryUgyfelLekerdezes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/common/Ugyfel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/common/Ugyfel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/common/UgyfelTipus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/common/UgyfelTipus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java" beforeDir="false" afterPath="$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foglalasok.db" beforeDir="false" afterPath="$PROJECT_DIR$/Foglalasok.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foglalasok.db.sqbpro" beforeDir="false" afterPath="$PROJECT_DIR$/Foglalasok.db.sqbpro" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -99,7 +103,8 @@
       <workItem from="1570479551875" duration="9520000" />
       <workItem from="1571687231337" duration="1566000" />
       <workItem from="1572026716629" duration="3297000" />
-      <workItem from="1572085915753" duration="23255000" />
+      <workItem from="1572085915753" duration="23569000" />
+      <workItem from="1572289179081" duration="4705000" />
     </task>
     <task id="LOCAL-00001" summary="DataService és Framework vázlat">
       <created>1570482350414</created>
@@ -136,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570561139236</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="2019.10.29.&#10;SQL: insert,update,delete,query(lekérdezés)&#10;Még nincs a dataservice-hez kötve">
+      <created>1572110759589</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1572110759589</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +159,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -157,6 +171,7 @@
     <MESSAGE value="DataService és Framework vázlat" />
     <MESSAGE value="Framework új metódusok:&#10;beolvasIntervallumFoglalasok&#10;beolvasEgyNapFoglalasok" />
     <MESSAGE value="új form-ok:&#10;Naptár&#10;Új ügyfél bevitele" />
-    <option name="LAST_COMMIT_MESSAGE" value="új form-ok:&#10;Naptár&#10;Új ügyfél bevitele" />
+    <MESSAGE value="2019.10.29.&#10;SQL: insert,update,delete,query(lekérdezés)&#10;Még nincs a dataservice-hez kötve" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019.10.29.&#10;SQL: insert,update,delete,query(lekérdezés)&#10;Még nincs a dataservice-hez kötve" />
   </component>
 </project>

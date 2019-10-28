@@ -1,7 +1,6 @@
 package datalayer;
 
-import common.Foglalas;
-import common.Ugyfel;
+import common.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -11,7 +10,44 @@ public class DataService implements IDataService {
     Database_and_Functions database = new Database_and_Functions();
 
     public boolean InsertUgyfel(Ugyfel ugyfel) {
-        return false;
+
+        boolean insertWasSuccessfull = false;
+        int id = 0;
+        int gyerekSzam = 0;
+        String cegNev = null;
+        String szamlazasiCim = null;
+        UgyfelTipus ugyfelTipus;
+        if(ugyfel instanceof CsaladosUgyfel) {
+            ugyfelTipus = UgyfelTipus.CsaladosUgyfel;
+            CsaladosUgyfel csaladosUgyfel = (CsaladosUgyfel)ugyfel;
+            gyerekSzam = csaladosUgyfel.getGyerekekSzama();
+
+        }
+        else if(ugyfel instanceof CegesUgyfel) {
+            ugyfelTipus = UgyfelTipus.CegesUgyfel;
+            CegesUgyfel cegesUgyfel = (CegesUgyfel)ugyfel;
+            cegNev = cegesUgyfel.getCegNev();
+            szamlazasiCim = cegesUgyfel.getSzamlazasiCim();
+        }
+        else {
+            ugyfelTipus = UgyfelTipus.Ugyfel;
+            id = database.insertUgyfel(
+                    ugyfelTipus,
+                    ugyfel.getMegszolitas(),
+                    ugyfel.getKeresztNev(),
+                    ugyfel.getVezetekNev(),
+                    ugyfel.getEmail(),
+                    ugyfel.getTelefon(),
+                    ugyfel.getUtolsoSzamla(),
+                    ugyfel.getOsszesSzamla(),
+                    ugyfel.getUtolsoLatogatas(),
+                    cegNev, szamlazasiCim, gyerekSzam);
+            if (id > 0) {
+                ugyfel.setId(id);
+                insertWasSuccessfull = true;
+            }
+        }
+            return insertWasSuccessfull;
     }
 
     public Ugyfel GetUgyfel(int Id) {

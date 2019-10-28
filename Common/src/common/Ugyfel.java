@@ -106,6 +106,14 @@ public class Ugyfel {
         this.utolsoLatogatas = utolsoLatogatas;
     }
 
+    public int getOsszesSzamla() {
+        return osszesSzamla;
+    }
+
+    public void setOsszesSzamla(int osszesSzamla) {
+        this.osszesSzamla = osszesSzamla;
+    }
+
     public int getId(){ return id; }
 
     public void setId(int id){ this.id = id; }

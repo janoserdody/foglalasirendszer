@@ -1,6 +1,7 @@
 package datalayer;
 
 import common.Ugyfel;
+import common.UgyfelTipus;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,6 +20,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.time.LocalDateTime;
 
 public class Database_and_Functions {
 
@@ -60,10 +62,15 @@ public class Database_and_Functions {
      * @param osszesSzamla
      * @param utolsoLatogatas
      */
-    public void insertUgyfel(String megszolitas, String keresztNev, String vezetekNev, String email,
-                             String telefon, int utolszoSzamla, int osszesSzamla, String utolsoLatogatas) {
+    public int insertUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
+                             String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
+                             String cegNev, String szamlazasiCim, int gyerekekSzama) {
+
+        int id;
+
         String sql = "INSERT INTO Ugyfel (megszolitas, keresztNev, vezetekNev, email, telefon," +
-                " utolsoSzamla, osszesSzamla, utolsoLatogatas) VALUES(?,?,?,?,?,?,?,?)";
+                " utolsoSzamla, osszesSzamla, utolsoLatogatas, cegNev, szamlazasiCim, gyerekekSzama, ugyfelTipus) " +
+                "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
 //        valueOf(String s) : This method converts a string in JDBC date escape format to a Date value using
 //        specified value of s- a String object representing a date in the format “yyyy-[m]m-[d]d”.
@@ -79,11 +86,42 @@ public class Database_and_Functions {
             pstmt.setString(5, telefon);
             pstmt.setInt(6, utolszoSzamla);
             pstmt.setInt(7, osszesSzamla);
-            pstmt.setDate(8, java.sql.Date.valueOf(utolsoLatogatas));
+            pstmt.setDate(8, (Date) utolsoLatogatas);
+            pstmt.setString(9, cegNev);
+            pstmt.setString(10, szamlazasiCim);
+            pstmt.setInt(11, gyerekekSzama);
+            pstmt.setInt(12, ugyfelTipus.getValue());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return 0;
         }
+        //To do - key beolvasás ID
+        //ugyfel - true átírni, hogy az ügyfélId
+        return id;
+    }
+
+    public int insertUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
+                             String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas) {
+        return insertUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,
+                null, null, 0);
+
+
+    }
+
+    public int insertUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
+                             String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
+                             String cegNev, String szamlazasiCim) {
+        return insertUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,
+                cegNev, szamlazasiCim, 0);
+
+    }
+
+    public int insertUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
+                             String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
+                             int gyerekekSzama) {
+        return insertUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,null, null, 0);
+
     }
 
     public void insertCegesUgyfel(String cegNev, String szamlazasiCim) {
