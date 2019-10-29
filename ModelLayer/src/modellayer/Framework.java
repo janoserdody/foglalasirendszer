@@ -1,6 +1,7 @@
 package modellayer;
 
 import common.Foglalas;
+import common.LocalTimeZone;
 import common.Ugyfel;
 import datalayer.DataService;
 import datalayer.IDataService;
@@ -16,9 +17,12 @@ public class Framework implements IFramework{
 
     private IDataService dataService;
 
-    public Framework(){
+    private LocalTimeZone localTimeZone;
 
-        dataService = new DataService();
+    public Framework(){
+        localTimeZone = new LocalTimeZone();
+
+        dataService = new DataService(localTimeZone);
 
         ugyfelLista = new ArrayList<Ugyfel>();
         ugyfelLista.add(new Ugyfel("Kisasszony","Gabi", "Kis", "jhgfjhgf@freemail.hu", "1234567"));

@@ -1,7 +1,6 @@
 package datalayer;
 
-import common.Ugyfel;
-import common.UgyfelTipus;
+import common.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -29,6 +28,12 @@ public class Database_and_Functions {
 //        Database_and_Functions DB_Muveletek = new Database_and_Functions();
 //        // insert new rows
 //        DB_Muveletek.insertUgyfel("Úr", "Tibor","Molnár","xy@gmail.com", 22222222,10000, 20000,“2015-01-01”);//
+
+    private LocalTimeZone localTimeZone;
+
+    public Database_and_Functions(LocalTimeZone localTimeZone){
+        this.localTimeZone = localTimeZone;
+    }
 
     /**
      * Connect to the Foglalasok.db database
@@ -131,37 +136,6 @@ public class Database_and_Functions {
 
     }
 
-    public void insertCegesUgyfel(String cegNev, String szamlazasiCim) {
-        String sql = "INSERT INTO CegesUgyfel (cegNev, szamlazasiCim) VALUES(?,?)";
-
-        try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setString(1, cegNev);
-            pstmt.setString(2, szamlazasiCim);
-
-            pstmt.executeUpdate();
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void insertCsaladosUgyfel(int gyerekekSzama) {
-        String sql = "INSERT INTO CsaladosUgyfel(gyerekekSzama) VALUES(?)";
-
-        try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setInt(1, gyerekekSzama);
-
-            pstmt.executeUpdate();
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
     public void insertTeremFoglalas(int teremSzam) {
         String sql = "INSERT INTO TeremFoglalas (teremSzam) VALUES(?)";
 
@@ -190,24 +164,26 @@ public class Database_and_Functions {
         }
     }
 
-    public int insertFoglalas(String datum, int szemelyekSzama, String etelallergia,
-                               int gyerekekSzama, String megjegyzes) {
+    public int insertFoglalas(FoglalasTipus foglalasTipus, LocalDateTime datum, int szemelyekSzama, Allergia etelallergia,
+                              int gyerekekSzama, String megjegyzes) {
 
         ResultSet rs = null;
         int id = 0;
 
-        String sql = "INSERT INTO Foglalas (datum, szemelyekSzama, etelallergia, gyerekekSzama, megjegyzes) " +
-                "VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO Foglalas (datum, szemelyekSzama, etelallergia, gyerekekSzama, megjegyzes, foglalasTipus) " +
+                "VALUES(?,?,?,?,?,?)";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql,
                      Statement.RETURN_GENERATED_KEYS)) {
 
-            pstmt.setDate(1, java.sql.Date.valueOf(datum));
+            pstmt.setTimestamp(1, new java.sql.Timestamp(datum.atZone(localTimeZone.getLocalTimeZoneId()).toInstant()
+                    .toEpochMilli()));
             pstmt.setInt(2, szemelyekSzama);
-            pstmt.setString(3, etelallergia);
+            pstmt.setInt(3, etelallergia.getValue());
             pstmt.setInt(4, gyerekekSzama);
             pstmt.setString(5, megjegyzes);
+            pstmt.setInt(6, foglalasTipus.getValue());
             int rowAffected = pstmt.executeUpdate();
             if(rowAffected == 1)
             {
@@ -377,8 +353,8 @@ public class Database_and_Functions {
         }
     }
 
-    public void updateFoglalas(int id, Date datum, int szemelyekSzama,
-                               String etelallergia, int gyerekekSzama, String megjegyzes) {
+    public void updateFoglalas(int id, LocalDateTime datum, int szemelyekSzama,
+                               Allergia etelallergia, int gyerekekSzama, String megjegyzes) {
         String sql = "UPDATE Foglalas " +
                 "SET datum = ?, szemelyekSzama = ?, etelallergia = ?, gyerekekSzama = ?, megjegyzes = ? " +
                 "WHERE id = ?";
@@ -387,9 +363,10 @@ public class Database_and_Functions {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             // set the corresponding param
-            pstmt.setDate(1, datum);
+            pstmt.setTimestamp(1, new java.sql.Timestamp(datum.atZone(localTimeZone.getLocalTimeZoneId()).toInstant()
+                    .toEpochMilli()));
             pstmt.setInt(2, szemelyekSzama);
-            pstmt.setString(3, etelallergia);
+            pstmt.setInt(3, etelallergia.getValue());
             pstmt.setInt(4, gyerekekSzama);
             pstmt.setString(5, megjegyzes);
             pstmt.setInt(6, id);

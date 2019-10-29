@@ -7,7 +7,15 @@ import java.util.ArrayList;
 
 public class DataService implements IDataService {
 
-    Database_and_Functions database = new Database_and_Functions();
+    private Database_and_Functions database;
+
+    private LocalTimeZone localTimeZone;
+
+
+    public DataService(LocalTimeZone localTimeZone){
+        this.localTimeZone = localTimeZone;
+         database = new Database_and_Functions(localTimeZone);
+    }
 
     public boolean InsertUgyfel(Ugyfel ugyfel) {
 
@@ -41,7 +49,9 @@ public class DataService implements IDataService {
                     ugyfel.getUtolsoSzamla(),
                     ugyfel.getOsszesSzamla(),
                     ugyfel.getUtolsoLatogatas(),
-                    cegNev, szamlazasiCim, gyerekSzam);
+                    cegNev,
+                    szamlazasiCim,
+                    gyerekSzam);
             if (id > 0) {
                 ugyfel.setId(id);
                 insertWasSuccessfull = true;
@@ -91,6 +101,7 @@ public class DataService implements IDataService {
     }
 
     //Itt nem tudom miért nem fogadja el a get-ket?
+    // Azért nem, mert LocalDateTime típus a foglalás időpontja, és nem java.sql.Date
     public boolean ModifyFoglalas(Foglalas foglalas) {
         FoglalasTipus foglalasTipus;
         foglalasTipus = FoglalasTipus.Foglalas;
@@ -117,7 +128,7 @@ public class DataService implements IDataService {
                 foglalas.getSzemelyekSzama(),
                 foglalas.getEtelallergia(),
                 foglalas.getGyerekekSzama(),
-                foglalas.getMegjegyzes();
+                foglalas.getMegjegyzes());
         if (id > 0) {
             foglalas.setId(id);
             insertWasSuccessfull = true;
