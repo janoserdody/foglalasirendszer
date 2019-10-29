@@ -51,6 +51,7 @@ public class DataService implements IDataService {
     }
 
     public Ugyfel GetUgyfel(int Id) {
+        database.Ugyfel_Lekerdezes_Funkcio(Id);
         return null;
     }
 
@@ -67,6 +68,7 @@ public class DataService implements IDataService {
     }
 
     public boolean RemoveUgyfel(int Id) {
+        database.deleteUgyfel(Id);
         return false;
     }
 
@@ -75,10 +77,12 @@ public class DataService implements IDataService {
     }
 
     public Foglalas GetFogalas(int Id) {
+        database.foglalas_Lekerdezes_Funkcio(Id);
         return null;
     }
 
     public boolean RemoveFoglalas(int Id) {
+        database.deleteFoglalas(Id);
         return false;
     }
 
@@ -86,11 +90,38 @@ public class DataService implements IDataService {
         return new ArrayList<>();
     }
 
+    //Itt nem tudom miért nem fogadja el a get-ket?
     public boolean ModifyFoglalas(Foglalas foglalas) {
+        FoglalasTipus foglalasTipus;
+        foglalasTipus = FoglalasTipus.Foglalas;
+        database.updateFoglalas(
+                foglalas.getId(),
+                foglalas.getDatum(),
+                foglalas.getSzemelyekSzama(),
+                foglalas.getEtelallergia(),
+                foglalas.getGyerekekSzama(),
+                foglalas.getMegjegyzes());
+
         return false;
     }
 
     public boolean InsertFoglalas(Foglalas foglalas) {
-        return false;
+
+        boolean insertWasSuccessfull = false;
+        int id = 0;
+
+        FoglalasTipus foglalasTipus = FoglalasTipus.Foglalas;
+        id = database.insertFoglalas(
+                foglalasTipus,
+                foglalas.getDatum(),
+                foglalas.getSzemelyekSzama(),
+                foglalas.getEtelallergia(),
+                foglalas.getGyerekekSzama(),
+                foglalas.getMegjegyzes();
+        if (id > 0) {
+            foglalas.setId(id);
+            insertWasSuccessfull = true;
+        }
+        return insertWasSuccessfull;
     }
 }

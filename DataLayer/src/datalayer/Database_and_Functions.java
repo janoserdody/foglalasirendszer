@@ -66,7 +66,8 @@ public class Database_and_Functions {
                              String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
                              String cegNev, String szamlazasiCim, int gyerekekSzama) {
 
-        int id;
+        ResultSet rs = null;
+        int id = 0;
 
         String sql = "INSERT INTO Ugyfel (megszolitas, keresztNev, vezetekNev, email, telefon," +
                 " utolsoSzamla, osszesSzamla, utolsoLatogatas, cegNev, szamlazasiCim, gyerekekSzama, ugyfelTipus) " +
@@ -77,7 +78,8 @@ public class Database_and_Functions {
 //        The leading zero for mm and dd may also be omitted.
 
         try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement pstmt = conn.prepareStatement(sql,
+                     Statement.RETURN_GENERATED_KEYS)) {
 
             pstmt.setString(1, megszolitas);
             pstmt.setString(2, keresztNev);
@@ -91,13 +93,18 @@ public class Database_and_Functions {
             pstmt.setString(10, szamlazasiCim);
             pstmt.setInt(11, gyerekekSzama);
             pstmt.setInt(12, ugyfelTipus.getValue());
-            pstmt.executeUpdate();
+            int rowAffected = pstmt.executeUpdate();
+            if(rowAffected == 1)
+            {
+                rs = pstmt.getGeneratedKeys();
+                if(rs.next())
+                    id = rs.getInt(1);
+            }
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return 0;
         }
-        //To do - key beolvasás ID
-        //ugyfel - true átírni, hogy az ügyfélId
         return id;
     }
 
@@ -183,23 +190,36 @@ public class Database_and_Functions {
         }
     }
 
-    public void insertFoglalas(String datum, int szemelyekSzama, String etelallergia,
+    public int insertFoglalas(String datum, int szemelyekSzama, String etelallergia,
                                int gyerekekSzama, String megjegyzes) {
+
+        ResultSet rs = null;
+        int id = 0;
+
         String sql = "INSERT INTO Foglalas (datum, szemelyekSzama, etelallergia, gyerekekSzama, megjegyzes) " +
                 "VALUES(?,?,?,?,?)";
 
         try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement pstmt = conn.prepareStatement(sql,
+                     Statement.RETURN_GENERATED_KEYS)) {
 
             pstmt.setDate(1, java.sql.Date.valueOf(datum));
             pstmt.setInt(2, szemelyekSzama);
             pstmt.setString(3, etelallergia);
             pstmt.setInt(4, gyerekekSzama);
             pstmt.setString(5, megjegyzes);
-            pstmt.executeUpdate();
+            int rowAffected = pstmt.executeUpdate();
+            if(rowAffected == 1)
+            {
+                rs = pstmt.getGeneratedKeys();
+                if(rs.next())
+                    id = rs.getInt(1);
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return 0;
         }
+        return id;
     }
 
     //******************************
@@ -263,6 +283,7 @@ public class Database_and_Functions {
             pstmt.setInt(1, id);
             // execute the delete statement
             pstmt.executeUpdate();
+            System.out.println(id + " azonsítojú foglalás eltávolitva.");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -295,6 +316,7 @@ public class Database_and_Functions {
             pstmt.setInt(1, id);
             // execute the delete statement
             pstmt.executeUpdate();
+            System.out.println(id + " azonsítojú ügyfél eltávolitva.");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -355,7 +377,7 @@ public class Database_and_Functions {
         }
     }
 
-    public void updateFoglalas(int id, String datum, int szemelyekSzama,
+    public void updateFoglalas(int id, Date datum, int szemelyekSzama,
                                String etelallergia, int gyerekekSzama, String megjegyzes) {
         String sql = "UPDATE Foglalas " +
                 "SET datum = ?, szemelyekSzama = ?, etelallergia = ?, gyerekekSzama = ?, megjegyzes = ? " +
@@ -365,7 +387,7 @@ public class Database_and_Functions {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             // set the corresponding param
-            pstmt.setDate(1, java.sql.Date.valueOf(datum));
+            pstmt.setDate(1, datum);
             pstmt.setInt(2, szemelyekSzama);
             pstmt.setString(3, etelallergia);
             pstmt.setInt(4, gyerekekSzama);
@@ -435,9 +457,9 @@ public class Database_and_Functions {
             "SELECT Ugyfel.id, Ugyfel.megszolitas, Ugyfel.keresztNev, Ugyfel.vezetekNev, "
                     + "Foglalas.id, Foglalas.datum, Foglalas.szemelyekSzama, Foglalas.etelallergia, " +
                     "Foglalas.gyerekekSzama, Foglalas.megjegyzes FROM Ugyfel INNER JOIN Foglalas ON " +
-                    "Ugyfel.id = Foglalas.id WHERE Ugyfel.vezeteknev = ?";
+                    "Ugyfel.id = Foglalas.id WHERE Ugyfel.id = ?";
 
-    public List<QueryFoglalasLekerdezes> foglalas_Lekerdezes_Funkcio(String vezetekNev) {
+    public List<QueryFoglalasLekerdezes> foglalas_Lekerdezes_Funkcio(int id) {
 
         try {
             Connection conn = this.connect();
@@ -473,9 +495,9 @@ public class Database_and_Functions {
     public static final String SELECT_UGYFEL_QUERY =
             "SELECT Ugyfel.id, Ugyfel.megszolitas, Ugyfel.keresztNev, Ugyfel.vezetekNev, " +
                     "Ugyfel.email, Ugyfel.telefon " +
-                    "FROM Ugyfel WHERE Ugyfel.vezeteknev = ?";
+                    "FROM Ugyfel WHERE Ugyfel.id = ?";
 
-    public List<QueryUgyfelLekerdezes> Ugyfel_Lekerdezes_Funkcio(String vezetekNev) {
+    public List<QueryUgyfelLekerdezes> Ugyfel_Lekerdezes_Funkcio(int id) {
 
         try {
             Connection conn = this.connect();
