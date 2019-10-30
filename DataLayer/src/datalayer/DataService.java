@@ -66,15 +66,55 @@ public class DataService implements IDataService {
     }
 
     public Ugyfel GetUgyfel(String keresztNev, String vezetekNev) {
+        database.Ugyfel_Lekerdezes_Funkcio_Keresztnev_Vezeteknev(keresztNev, vezetekNev);
         return null;
     }
 
     public Ugyfel GetUgyfel(String telefon) {
+        database.Ugyfel_Lekerdezes_Funkcio_Telefonszam(telefon);
         return null;
     }
 
     public boolean ModifyUgyfel(Ugyfel ugyfel) {
-        return false;
+        boolean insertWasSuccessfull = false;
+        int id = 0;
+        int gyerekSzam = 0;
+        String cegNev = null;
+        String szamlazasiCim = null;
+        UgyfelTipus ugyfelTipus;
+        if(ugyfel instanceof CsaladosUgyfel) {
+            ugyfelTipus = UgyfelTipus.CsaladosUgyfel;
+            CsaladosUgyfel csaladosUgyfel = (CsaladosUgyfel)ugyfel;
+            gyerekSzam = csaladosUgyfel.getGyerekekSzama();
+
+        }
+        else if(ugyfel instanceof CegesUgyfel) {
+            ugyfelTipus = UgyfelTipus.CegesUgyfel;
+            CegesUgyfel cegesUgyfel = (CegesUgyfel)ugyfel;
+            cegNev = cegesUgyfel.getCegNev();
+            szamlazasiCim = cegesUgyfel.getSzamlazasiCim();
+        }
+        else {
+            ugyfelTipus = UgyfelTipus.Ugyfel;
+            id = database.ModifyUgyfel(
+                    ugyfelTipus,
+                    ugyfel.getMegszolitas(),
+                    ugyfel.getKeresztNev(),
+                    ugyfel.getVezetekNev(),
+                    ugyfel.getEmail(),
+                    ugyfel.getTelefon(),
+                    ugyfel.getUtolsoSzamla(),
+                    ugyfel.getOsszesSzamla(),
+                    ugyfel.getUtolsoLatogatas(),
+                    cegNev,
+                    szamlazasiCim,
+                    gyerekSzam);
+            if (id > 0) {
+                ugyfel.setId(id);
+                insertWasSuccessfull = true;
+            }
+        }
+        return insertWasSuccessfull;
     }
 
     public boolean RemoveUgyfel(int Id) {
@@ -128,7 +168,11 @@ public class DataService implements IDataService {
                 foglalas.getSzemelyekSzama(),
                 foglalas.getEtelallergia(),
                 foglalas.getGyerekekSzama(),
-                foglalas.getMegjegyzes());
+                foglalas.getMegjegyzes(),
+                // a getfoglalastipus, getasztalszam,getteremszam nem tudom miért nem hívható meg
+                foglalas.getfoglalasTipus(),
+                foglalas.getasztalSzam(),
+                foglalas.getteremSzam());
         if (id > 0) {
             foglalas.setId(id);
             insertWasSuccessfull = true;

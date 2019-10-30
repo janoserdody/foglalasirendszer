@@ -114,7 +114,7 @@ public class Database_and_Functions {
     }
 
     public int insertUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
-                             String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas) {
+                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas) {
         return insertUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,
                 null, null, 0);
 
@@ -122,56 +122,31 @@ public class Database_and_Functions {
     }
 
     public int insertUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
-                             String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
-                             String cegNev, String szamlazasiCim) {
+                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
+                            String cegNev, String szamlazasiCim) {
         return insertUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,
                 cegNev, szamlazasiCim, 0);
 
     }
 
     public int insertUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
-                             String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
-                             int gyerekekSzama) {
+                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
+                            int gyerekekSzama) {
         return insertUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,null, null, 0);
 
     }
 
-    public void insertTeremFoglalas(int teremSzam) {
-        String sql = "INSERT INTO TeremFoglalas (teremSzam) VALUES(?)";
 
-        try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setInt(1, teremSzam);
-            pstmt.executeUpdate();
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void insertAsztalFoglalas(int asztalSzam) {
-        String sql = "INSERT INTO AsztalFoglalas (asztalSzam) VALUES(?)";
-
-        try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setInt(1, asztalSzam);
-            pstmt.executeUpdate();
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
     public int insertFoglalas(FoglalasTipus foglalasTipus, LocalDateTime datum, int szemelyekSzama, Allergia etelallergia,
-                              int gyerekekSzama, String megjegyzes) {
+                              int gyerekekSzama, String megjegyzes, int asztalSzam, int teremSzam) {
 
         ResultSet rs = null;
         int id = 0;
 
-        String sql = "INSERT INTO Foglalas (datum, szemelyekSzama, etelallergia, gyerekekSzama, megjegyzes, foglalasTipus) " +
-                "VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO Foglalas (datum, szemelyekSzama, etelallergia, gyerekekSzama, megjegyzes, foglalasTipus," +
+                "asztalSzam,teremSzam) " +
+                "VALUES(?,?,?,?,?,?,?,?)";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql,
@@ -184,6 +159,8 @@ public class Database_and_Functions {
             pstmt.setInt(4, gyerekekSzama);
             pstmt.setString(5, megjegyzes);
             pstmt.setInt(6, foglalasTipus.getValue());
+            pstmt.setInt(7, asztalSzam);
+            pstmt.setInt(8, teremSzam);
             int rowAffected = pstmt.executeUpdate();
             if(rowAffected == 1)
             {
@@ -198,49 +175,19 @@ public class Database_and_Functions {
         return id;
     }
 
+
+
     //******************************
     //*******Delete funkciók********
 
-    public void deleteAsztalFoglalas(int asztalSzam) {
-        String sql = "DELETE FROM AsztalFoglalas WHERE asztalSzam = ?";
-
-        try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            // set the corresponding param
-            pstmt.setInt(1, asztalSzam);
-            // execute the delete statement
-            pstmt.executeUpdate();
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
     public void deleteCegesUgyfel(String cegNev) {
-        String sql = "DELETE FROM CegesUgyfel WHERE cegNev = ?";
+        String sql = "DELETE FROM Ugyfel WHERE cegNev = ?";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             // set the corresponding param
             pstmt.setString(1, cegNev);
-            // execute the delete statement
-            pstmt.executeUpdate();
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void deleteCsaladosUgyfel(int gyerekekSzama) {
-        String sql = "DELETE FROM CsaladosUgyfel WHERE gyerekekSzama = ?";
-
-        try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            // set the corresponding param
-            pstmt.setInt(1, gyerekekSzama);
             // execute the delete statement
             pstmt.executeUpdate();
 
@@ -302,55 +249,99 @@ public class Database_and_Functions {
     //******************************
     //******Update funckciók********
 
-    public void updateAsztalFoglalas(int regi_asztalszam, int uj_asztalSzam) {
-        String sql = "UPDATE AsztalFoglalas SET asztalSzam = ? WHERE asztalSzam = ?";
+    public int ModifyUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
+                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
+                            String cegNev, String szamlazasiCim, int gyerekekSzama) {
+
+        ResultSet rs = null;
+        int id = 0;
+
+//        //Működik, de ahogy Tamás Molnár lesz a molnár tibor onnan nem
+//
+//        UPDATE Ugyfel SET megszolitas = "Mr" WHERE (keresztNev is "Tibor" AND vezetekNev is "Molnár");
+//        UPDATE Ugyfel SET keresztNev = "Tamás"  WHERE (keresztNev is "Tibor" AND vezetekNev is "Molnár");
+//        UPDATE Ugyfel SET vezetekNev = "Molnár"  WHERE (keresztNev is "Tibor" AND vezetekNev is "Molnár");
+//        UPDATE Ugyfel SET email = "xx@gmail.com" WHERE (keresztNev is "Tibor" AND vezetekNev is "Molnár");
+//        UPDATE Ugyfel SET telefon = 3333333 WHERE (keresztNev is "Tibor" AND vezetekNev is "Molnár");
+//        UPDATE Ugyfel SET utolsoSzamla = 15000 WHERE (keresztNev is "Tibor" AND vezetekNev is "Molnár");
+//        UPDATE Ugyfel SET osszesSzamla = 25000  WHERE (keresztNev is "Tibor" AND vezetekNev is "Molnár");
+//        UPDATE Ugyfel SET utolsoLatogatas = "2019-11-01 " WHERE (keresztNev is "Tibor" AND vezetekNev is "Molnár");
+//        UPDATE Ugyfel SET cegNev = "Nagy Bt."WHERE (keresztNev is "Tibor" AND vezetekNev is "Molnár");
+//        UPDATE Ugyfel SET szamlazasiCim = "Eger Fő Utca" WHERE (keresztNev is "Tibor" AND vezetekNev is "Molnár");
+//        UPDATE Ugyfel SET gyerekekSzama = 1  WHERE (keresztNev is "Tibor" AND vezetekNev is "Molnár");
+//        UPDATE Ugyfel SET ugyfelTipus = 1  WHERE (keresztNev is "Tibor" AND vezetekNev is "Molnár");
+
+        String sql =    "UPDATE Ugyfel " +
+                        "SET Ugyfel.megszolitas = ? " +
+                        "SET Ugyfel.keresztNev = ? " +
+                        "SET Ugyfel.vezetekNev = ? " +
+                        "SET Ugyfel.email = ? " +
+                        "SET Ugyfel.telefon = ? " +
+                        "SET Ugyfel.utolsoSzamla = ? " +
+                        "SET Ugyfel.osszesSzamla = ? " +
+                        "SET Ugyfel.utolsoLatogatas = ? " +
+                        "SET Ugyfel.cegNev = ? " +
+                        "SET Ugyfel.szamlazasiCim = ? " +
+                        "SET Ugyfel.gyerekekSzama = ? " +
+                        "SET Ugyfel.ugyfelTipus = ? " +
+                        "WHERE (Ugyfel.keresztNev is \"?\") AND (Ugyfel.vezetekNev is \"?\")";
+
+//        valueOf(String s) : This method converts a string in JDBC date escape format to a Date value using
+//        specified value of s- a String object representing a date in the format “yyyy-[m]m-[d]d”.
+//        The leading zero for mm and dd may also be omitted.
 
         try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement pstmt = conn.prepareStatement(sql,
+                     Statement.RETURN_GENERATED_KEYS)) {
 
-            // set the corresponding param
-            pstmt.setInt(1, uj_asztalSzam);
-            pstmt.setInt(2, regi_asztalszam);
+            pstmt.setString(1, megszolitas);
+            pstmt.setString(2, keresztNev);
+            pstmt.setString(3, vezetekNev);
+            pstmt.setString(4, email);
+            pstmt.setString(5, telefon);
+            pstmt.setInt(6, utolszoSzamla);
+            pstmt.setInt(7, osszesSzamla);
+            pstmt.setDate(8, (Date) utolsoLatogatas);
+            pstmt.setString(9, cegNev);
+            pstmt.setString(10, szamlazasiCim);
+            pstmt.setInt(11, gyerekekSzama);
+            pstmt.setInt(12, ugyfelTipus.getValue());
+            int rowAffected = pstmt.executeUpdate();
+            if(rowAffected == 1)
+            {
+                rs = pstmt.getGeneratedKeys();
+                if(rs.next())
+                    id = rs.getInt(1);
+            }
 
-            // update
-            pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return 0;
         }
+        return id;
     }
 
-    public void updateCegesUgyfel(String regi_cegnev, String cegNev, String szamlazasiCim) {
-        String sql = "UPDATE CegesUgyfel SET cegNev = ?, szamlazasiCim = ? WHERE asztalSzam = ?";
+    public int ModifyUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
+                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas) {
+        return ModifyUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,
+                null, null, 0);
 
-        try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            // set the corresponding param
-            pstmt.setString(1, cegNev);
-            pstmt.setString(2, szamlazasiCim);
-            pstmt.setString(3, regi_cegnev);
-            // update
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
-    public void updateCsaladosUgyfel(int regi_gyerekekSzama, int uj_gyerekekSzama) {
-        String sql = "UPDATE CsaladosUgyfel SET gyerekekSzama = ? WHERE gyerekekSzama = ?";
+    public int ModifyUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
+                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
+                            String cegNev, String szamlazasiCim) {
+        return ModifyUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,
+                cegNev, szamlazasiCim, 0);
 
-        try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+    }
 
-            // set the corresponding param
-            pstmt.setInt(1, uj_gyerekekSzama);
-            pstmt.setInt(2, regi_gyerekekSzama);
+    public int ModifyUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
+                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
+                            int gyerekekSzama) {
+        return ModifyUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,null, null, 0);
 
-            // update
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     public void updateFoglalas(int id, LocalDateTime datum, int szemelyekSzama,
@@ -479,6 +470,74 @@ public class Database_and_Functions {
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(SELECT_UGYFEL_QUERY);
+            ResultSet results = pstmt.executeQuery();
+
+            List<QueryUgyfelLekerdezes> lekert_ugyfelek = new ArrayList<>();
+            while (results.next()) {
+                QueryUgyfelLekerdezes aktualis_Ugyfel = new QueryUgyfelLekerdezes();
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_ID(results.getInt(1));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_MEGSZOLITAS(results.getString(2));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_KERESZTNEV(results.getString(3));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_VEZETEKNEV(results.getString(4));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_EMAIL(results.getString(5));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_TELEFON(results.getString(6));
+                lekert_ugyfelek.add(aktualis_Ugyfel);
+            }
+            System.out.println(Arrays.toString(lekert_ugyfelek.toArray()));
+            return lekert_ugyfelek;
+
+
+        } catch (SQLException e) {
+            System.out.println("Query sikertelen. Hiba: " + e.getMessage());
+            return null;
+        }
+
+    }
+
+    public static final String SELECT_UGYFEL_WITH_KERESZTNEV_AND_VEZETEKNEV_QUERY =
+            "SELECT Ugyfel.id, Ugyfel.megszolitas, Ugyfel.keresztNev, Ugyfel.vezetekNev, " +
+                    "Ugyfel.email, Ugyfel.telefon " +
+                    "FROM Ugyfel WHERE (Ugyfel.keresztNev is \"?\") AND (Ugyfel.vezetekNev is \"?\")";
+
+    public List<QueryUgyfelLekerdezes> Ugyfel_Lekerdezes_Funkcio_Keresztnev_Vezeteknev(String keresztnev, String vezeteknev) {
+
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(SELECT_UGYFEL_WITH_KERESZTNEV_AND_VEZETEKNEV_QUERY);
+            ResultSet results = pstmt.executeQuery();
+
+            List<QueryUgyfelLekerdezes> lekert_ugyfelek = new ArrayList<>();
+            while (results.next()) {
+                QueryUgyfelLekerdezes aktualis_Ugyfel = new QueryUgyfelLekerdezes();
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_ID(results.getInt(1));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_MEGSZOLITAS(results.getString(2));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_KERESZTNEV(results.getString(3));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_VEZETEKNEV(results.getString(4));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_EMAIL(results.getString(5));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_TELEFON(results.getString(6));
+                lekert_ugyfelek.add(aktualis_Ugyfel);
+            }
+            System.out.println(Arrays.toString(lekert_ugyfelek.toArray()));
+            return lekert_ugyfelek;
+
+
+        } catch (SQLException e) {
+            System.out.println("Query sikertelen. Hiba: " + e.getMessage());
+            return null;
+        }
+
+    }
+
+    public static final String SELECT_UGYFEL_WITH_TELEFONSZAM_QUERY =
+            "SELECT Ugyfel.id, Ugyfel.megszolitas, Ugyfel.keresztNev, Ugyfel.vezetekNev, " +
+                    "Ugyfel.email, Ugyfel.telefon " +
+                    "FROM Ugyfel WHERE Ugyfel.telefon = \"?\"";
+
+    public List<QueryUgyfelLekerdezes> Ugyfel_Lekerdezes_Funkcio_Telefonszam(String telefonSzam) {
+
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(SELECT_UGYFEL_WITH_TELEFONSZAM_QUERY);
             ResultSet results = pstmt.executeQuery();
 
             List<QueryUgyfelLekerdezes> lekert_ugyfelek = new ArrayList<>();
