@@ -75,7 +75,7 @@ public class DataService implements IDataService {
         return null;
     }
 
-    public boolean ModifyUgyfel(Ugyfel ugyfel) {
+    public boolean ModifyUgyfel(Ugyfel ugyfel, String korabbi_kerersztNev, String korabbi_vezetekNev) {
         boolean insertWasSuccessfull = false;
         int id = 0;
         int gyerekSzam = 0;
@@ -109,6 +109,7 @@ public class DataService implements IDataService {
                     cegNev,
                     szamlazasiCim,
                     gyerekSzam);
+            // ide még hozzá kellene adni a korábbi keresztnév és korábbi vezetéknevet a modifyugyfel miatt
             if (id > 0) {
                 ugyfel.setId(id);
                 insertWasSuccessfull = true;
@@ -123,7 +124,9 @@ public class DataService implements IDataService {
     }
 
     public ArrayList<Integer> ReadAllUgyfelId() {
-        return new ArrayList<>();
+        database.Ugyfel_Lekerdezes_Funkcio_UgyfelID();
+        //Ugyfel_Lekerdezes_Funkcio_UgyfelID vissza ad egy tömböt, tömb elemek első mezője az ID
+        //return new ArrayList<>();
     }
 
     public Foglalas GetFogalas(int Id) {
@@ -137,7 +140,8 @@ public class DataService implements IDataService {
     }
 
     public ArrayList<Foglalas> ReadAllFoglalasForOneDay(LocalDateTime date) {
-        return new ArrayList<>();
+        database.foglalas_Lekerdezes_Funkcio_Adott_nappra(date);
+        return null;
     }
 
     //Itt nem tudom miért nem fogadja el a get-ket?

@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="536642a4-b5bd-4162-b334-39e639bf7172" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/Foglalasok.db-journal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/common/TeremFoglalas.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/common/TeremFoglalas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Foglalasok.db" beforeDir="false" afterPath="$PROJECT_DIR$/Foglalasok.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Foglalasok.db.sqbpro" beforeDir="false" afterPath="$PROJECT_DIR$/Foglalasok.db.sqbpro" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -116,6 +112,9 @@
       <workItem from="1572384012124" duration="74000" />
       <workItem from="1572384133322" duration="42000" />
       <workItem from="1572456347670" duration="7604000" />
+      <workItem from="1572464183073" duration="259000" />
+      <workItem from="1572514654133" duration="603000" />
+      <workItem from="1572515772283" duration="4475000" />
     </task>
     <task id="LOCAL-00001" summary="DataService és Framework vázlat">
       <created>1570482350414</created>
@@ -173,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572376680996</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="2019.10.30.&#10;Data Service update - Please check&#10;&#10;a deleteCegesUgyfel metódust kellene javítani, mert úgy beszéltük meg, &#10;hogy nem lesz külön cégesügyfél tábla, hanem az összes fajta ügyfél egy táblában lesz&#10;&#10;--&gt; deleteCegesUgyfel a cegNev-et kéri bemenetnek és törli azt a sort&#10;&#10;ezek a metódusok nem kellenek&#10;insertCegesUgyfel és insertCsaladosUgyfel&#10;mert megbeszéltük, hogy az összes fajta ügyfelet az insertUgyfel metódus szúrja be&#10;ugyanígy a foglalásnál is egy insertFoglalás metódus lesz, és nem 3&#10;&#10;--&gt;insertCegesUgyfel és insertCsaladosUgyfel törölve, Foglalas tábla kiegészítve az adataikkal&#10;&#10;---&#10;&#10;meg akkor az insertFoglalás metódust kellene átírni&#10;--&gt; asztalSzam és teremSzam átkerült a Foglalas táblába&#10;--&gt; insertFoglalas metódus kiegészítve az asztalSzam és teremSzam változókkal&#10;&#10;---&#10;&#10;az ételallergia mezőt int -re kell módosítani az adatbázisban&#10;mert az egy enum&#10;--&gt; Foglalas tábla, etelallergia integer típusú adatra állítva&#10;&#10;---&#10;&#10;kellene egy foglalasTipus int mező a foglalás táblába, ugyanúgy, mint az Ugyfél táblánál&#10;--&gt; Foglalas tábla, foglalasTipus integer mező a táblában&#10;&#10;&#10;-------------&#10;&#10;--&gt; deleteAsztalFoglalas metódus törölve, szükségtelen már&#10;--&gt; DataService InsertFoglalas-t megnéznéd, hogy miért nem jó? comment a probléma felett">
+      <created>1572464309502</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1572464309502</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +206,7 @@
     <MESSAGE value="2019.10.29.&#10;SQL: insert,update,delete,query(lekérdezés)&#10;Még nincs a dataservice-hez kötve" />
     <MESSAGE value="2019.10.28.&#10;SQL: insert,update,delete,query(lekérdezés)&#10;DataService-hez kötve az insert ügyfél" />
     <MESSAGE value="2019.10.29.&#10;Data Service update - Please check" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019.10.29.&#10;Data Service update - Please check" />
+    <MESSAGE value="2019.10.30.&#10;Data Service update - Please check&#10;&#10;a deleteCegesUgyfel metódust kellene javítani, mert úgy beszéltük meg, &#10;hogy nem lesz külön cégesügyfél tábla, hanem az összes fajta ügyfél egy táblában lesz&#10;&#10;--&gt; deleteCegesUgyfel a cegNev-et kéri bemenetnek és törli azt a sort&#10;&#10;ezek a metódusok nem kellenek&#10;insertCegesUgyfel és insertCsaladosUgyfel&#10;mert megbeszéltük, hogy az összes fajta ügyfelet az insertUgyfel metódus szúrja be&#10;ugyanígy a foglalásnál is egy insertFoglalás metódus lesz, és nem 3&#10;&#10;--&gt;insertCegesUgyfel és insertCsaladosUgyfel törölve, Foglalas tábla kiegészítve az adataikkal&#10;&#10;---&#10;&#10;meg akkor az insertFoglalás metódust kellene átírni&#10;--&gt; asztalSzam és teremSzam átkerült a Foglalas táblába&#10;--&gt; insertFoglalas metódus kiegészítve az asztalSzam és teremSzam változókkal&#10;&#10;---&#10;&#10;az ételallergia mezőt int -re kell módosítani az adatbázisban&#10;mert az egy enum&#10;--&gt; Foglalas tábla, etelallergia integer típusú adatra állítva&#10;&#10;---&#10;&#10;kellene egy foglalasTipus int mező a foglalás táblába, ugyanúgy, mint az Ugyfél táblánál&#10;--&gt; Foglalas tábla, foglalasTipus integer mező a táblában&#10;&#10;&#10;-------------&#10;&#10;--&gt; deleteAsztalFoglalas metódus törölve, szükségtelen már&#10;--&gt; DataService InsertFoglalas-t megnéznéd, hogy miért nem jó? comment a probléma felett" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019.10.30.&#10;Data Service update - Please check&#10;&#10;a deleteCegesUgyfel metódust kellene javítani, mert úgy beszéltük meg, &#10;hogy nem lesz külön cégesügyfél tábla, hanem az összes fajta ügyfél egy táblában lesz&#10;&#10;--&gt; deleteCegesUgyfel a cegNev-et kéri bemenetnek és törli azt a sort&#10;&#10;ezek a metódusok nem kellenek&#10;insertCegesUgyfel és insertCsaladosUgyfel&#10;mert megbeszéltük, hogy az összes fajta ügyfelet az insertUgyfel metódus szúrja be&#10;ugyanígy a foglalásnál is egy insertFoglalás metódus lesz, és nem 3&#10;&#10;--&gt;insertCegesUgyfel és insertCsaladosUgyfel törölve, Foglalas tábla kiegészítve az adataikkal&#10;&#10;---&#10;&#10;meg akkor az insertFoglalás metódust kellene átírni&#10;--&gt; asztalSzam és teremSzam átkerült a Foglalas táblába&#10;--&gt; insertFoglalas metódus kiegészítve az asztalSzam és teremSzam változókkal&#10;&#10;---&#10;&#10;az ételallergia mezőt int -re kell módosítani az adatbázisban&#10;mert az egy enum&#10;--&gt; Foglalas tábla, etelallergia integer típusú adatra állítva&#10;&#10;---&#10;&#10;kellene egy foglalasTipus int mező a foglalás táblába, ugyanúgy, mint az Ugyfél táblánál&#10;--&gt; Foglalas tábla, foglalasTipus integer mező a táblában&#10;&#10;&#10;-------------&#10;&#10;--&gt; deleteAsztalFoglalas metódus törölve, szükségtelen már&#10;--&gt; DataService InsertFoglalas-t megnéznéd, hogy miért nem jó? comment a probléma felett" />
   </component>
 </project>
