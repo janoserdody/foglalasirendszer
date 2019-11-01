@@ -27,8 +27,7 @@ public class DataService implements IDataService {
         UgyfelTipus ugyfelTipus;
         if(ugyfel instanceof CsaladosUgyfel) {
             ugyfelTipus = UgyfelTipus.CsaladosUgyfel;
-            CsaladosUgyfel csaladosUgyfel = (CsaladosUgyfel)ugyfel;
-            gyerekSzam = csaladosUgyfel.getGyerekekSzama();
+            gyerekSzam = ((CsaladosUgyfel)ugyfel).getGyerekekSzama();
 
         }
         else if(ugyfel instanceof CegesUgyfel) {
@@ -39,23 +38,23 @@ public class DataService implements IDataService {
         }
         else {
             ugyfelTipus = UgyfelTipus.Ugyfel;
-            id = database.insertUgyfel(
-                    ugyfelTipus,
-                    ugyfel.getMegszolitas(),
-                    ugyfel.getKeresztNev(),
-                    ugyfel.getVezetekNev(),
-                    ugyfel.getEmail(),
-                    ugyfel.getTelefon(),
-                    ugyfel.getUtolsoSzamla(),
-                    ugyfel.getOsszesSzamla(),
-                    ugyfel.getUtolsoLatogatas(),
-                    cegNev,
-                    szamlazasiCim,
-                    gyerekSzam);
-            if (id > 0) {
-                ugyfel.setId(id);
-                insertWasSuccessfull = true;
-            }
+        }
+        id = database.insertUgyfel(
+                ugyfelTipus,
+                ugyfel.getMegszolitas(),
+                ugyfel.getKeresztNev(),
+                ugyfel.getVezetekNev(),
+                ugyfel.getEmail(),
+                ugyfel.getTelefon(),
+                ugyfel.getUtolsoSzamla(),
+                ugyfel.getOsszesSzamla(),
+                ugyfel.getUtolsoLatogatas(),
+                cegNev,
+                szamlazasiCim,
+                gyerekSzam);
+        if (id > 0) {
+            ugyfel.setId(id);
+            insertWasSuccessfull = true;
         }
             return insertWasSuccessfull;
     }
@@ -75,9 +74,8 @@ public class DataService implements IDataService {
         return null;
     }
 
-    public boolean ModifyUgyfel(Ugyfel ugyfel, String korabbi_kerersztNev, String korabbi_vezetekNev) {
+    public boolean ModifyUgyfel(Ugyfel ugyfel) {
         boolean insertWasSuccessfull = false;
-        int id = 0;
         int gyerekSzam = 0;
         String cegNev = null;
         String szamlazasiCim = null;
@@ -96,25 +94,23 @@ public class DataService implements IDataService {
         }
         else {
             ugyfelTipus = UgyfelTipus.Ugyfel;
-            id = database.ModifyUgyfel(
-                    ugyfelTipus,
-                    ugyfel.getMegszolitas(),
-                    ugyfel.getKeresztNev(),
-                    ugyfel.getVezetekNev(),
-                    ugyfel.getEmail(),
-                    ugyfel.getTelefon(),
-                    ugyfel.getUtolsoSzamla(),
-                    ugyfel.getOsszesSzamla(),
-                    ugyfel.getUtolsoLatogatas(),
-                    cegNev,
-                    szamlazasiCim,
-                    gyerekSzam);
-            // ide még hozzá kellene adni a korábbi keresztnév és korábbi vezetéknevet a modifyugyfel miatt
-            if (id > 0) {
-                ugyfel.setId(id);
-                insertWasSuccessfull = true;
-            }
         }
+
+        insertWasSuccessfull = database.ModifyUgyfel(
+                ugyfel.getId(),
+                ugyfelTipus,
+                ugyfel.getMegszolitas(),
+                ugyfel.getKeresztNev(),
+                ugyfel.getVezetekNev(),
+                ugyfel.getEmail(),
+                ugyfel.getTelefon(),
+                ugyfel.getUtolsoSzamla(),
+                ugyfel.getOsszesSzamla(),
+                ugyfel.getUtolsoLatogatas(),
+                cegNev,
+                szamlazasiCim,
+                gyerekSzam);
+
         return insertWasSuccessfull;
     }
 
@@ -126,7 +122,7 @@ public class DataService implements IDataService {
     public ArrayList<Integer> ReadAllUgyfelId() {
         database.Ugyfel_Lekerdezes_Funkcio_UgyfelID();
         //Ugyfel_Lekerdezes_Funkcio_UgyfelID vissza ad egy tömböt, tömb elemek első mezője az ID
-        //return new ArrayList<>();
+        return new ArrayList<>();
     }
 
     public Foglalas GetFogalas(int Id) {
@@ -163,9 +159,29 @@ public class DataService implements IDataService {
     public boolean InsertFoglalas(Foglalas foglalas) {
 
         boolean insertWasSuccessfull = false;
+
         int id = 0;
 
-        FoglalasTipus foglalasTipus = FoglalasTipus.Foglalas;
+        int asztalSzam = 0;
+
+        int teremSzam = 0;
+
+        FoglalasTipus foglalasTipus;
+
+        if (foglalas instanceof AsztalFoglalas){
+            foglalasTipus = FoglalasTipus.AsztalFoglalas;
+
+            asztalSzam = ((AsztalFoglalas) foglalas).getAsztalSzam();
+        }
+        else if (foglalas instanceof TeremFoglalas){
+            foglalasTipus = FoglalasTipus.TeremFoglalas;
+
+            teremSzam = ((TeremFoglalas) foglalas).getTeremSzam();
+        }
+        else {
+            foglalasTipus = FoglalasTipus.Foglalas;
+        }
+
         id = database.insertFoglalas(
                 foglalasTipus,
                 foglalas.getDatum(),
@@ -173,10 +189,10 @@ public class DataService implements IDataService {
                 foglalas.getEtelallergia(),
                 foglalas.getGyerekekSzama(),
                 foglalas.getMegjegyzes(),
-                // a getfoglalastipus, getasztalszam,getteremszam nem tudom miért nem hívható meg
-                foglalas.getfoglalasTipus(),
-                foglalas.getasztalSzam(),
-                foglalas.getteremSzam());
+                asztalSzam,
+                teremSzam,
+                foglalas.getUgyfelId());
+
         if (id > 0) {
             foglalas.setId(id);
             insertWasSuccessfull = true;

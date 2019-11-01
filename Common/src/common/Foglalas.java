@@ -16,6 +16,8 @@ public class Foglalas {
 
     protected String  megjegyzes;
 
+    protected int ugyfelId;
+
     public Foglalas(LocalDateTime datum, int szemelyekSzama){
 
         this.datum = datum;
@@ -70,5 +72,13 @@ public class Foglalas {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getUgyfelId() {
+        return ugyfelId;
+    }
+
+    public void setUgyfelId(int ugyfelId) {
+        this.ugyfelId = ugyfelId;
     }
 }

@@ -5,12 +5,15 @@ import java.util.Iterator;
 
 public class TeremFoglalas extends Foglalas{
 
-    private int teremSzam;
-
+    public int getTeremSzam() {
+        return teremSzam;
+    }
 
     public void setTeremSzam(int teremSzam) {
         this.teremSzam = teremSzam;
     }
+
+    private int teremSzam;
 
     public TeremFoglalas(LocalDateTime datum, int szemelyekSzama, int teremSzam){
         super(datum, szemelyekSzama);

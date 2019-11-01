@@ -1,5 +1,6 @@
 package common;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Ugyfel {
@@ -22,7 +23,7 @@ public class Ugyfel {
 
     protected int osszesSzamla;
 
-    protected Date utolsoLatogatas;
+    protected LocalDate utolsoLatogatas;
 
     public Ugyfel(String megszolitas,
             String keresztNev,
@@ -98,11 +99,11 @@ public class Ugyfel {
         this.utolsoSzamla = utolsoSzamla;
     }
 
-    public Date getUtolsoLatogatas() {
+    public LocalDate getUtolsoLatogatas() {
         return utolsoLatogatas;
     }
 
-    public void setUtolsoLatogatas(Date utolsoLatogatas) {
+    public void setUtolsoLatogatas(LocalDate utolsoLatogatas) {
         this.utolsoLatogatas = utolsoLatogatas;
     }
 

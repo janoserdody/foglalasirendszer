@@ -1,12 +1,17 @@
 package viewcontrol;
 
+import common.Allergia;
+import common.CsaladosUgyfel;
+import common.Foglalas;
+import common.Ugyfel;
 import modellayer.Framework;
 
 import javax.swing.*;
 import java.awt.*;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.awt.event.*;
+import java.time.format.DateTimeFormatter;
 
 public class FoglalasUI {
 
@@ -21,6 +26,7 @@ public class FoglalasUI {
     private JLabel labelFoglalas;
     private JFrame foglalas;
     private JPanel foglalasPanel;
+    private JButton elkuld2;
     private Framework framework;
 
     private JLabel title;
@@ -132,23 +138,76 @@ public class FoglalasUI {
         foglalasPanel.add(gyerekekSzamaTextfield);
         foglalasPanel.add(megjegyzesTextArea);
         foglalasPanel.add(elkuldButton);
+
+
+        elkuldButton.addMouseListener(new MouseAdapter() {
+            public void mouseReleased(MouseEvent e) {
+                super.mouseReleased(e);
+                Foglalas foglalas = saveFoglalas();
+
+                framework.hozzaadUgyfel(saveUgyfel(foglalas));
+            }
+        });
     }
-
-
 
     public JFrame getFoglalas() {
         return foglalas;
     }
 
     public void setFoglalas(JFrame foglalas) {
-        keresztNev=keresztNevTextfield.getText();
-        vezetekNev=vezetekNevTextfield.getText();
-        telefon=telefonTextfield.getText();
-        szemelyekSzama=Integer.parseInt(szemelyekSzamaTextfield.getText());
-        idopont=idopontTextfield.getText();
-        etelAllergia=etelAllergiaTextfield.getText();
-        gyerekekSzama=Integer.parseInt(gyerekekSzamaTextfield.getText());
+
         this.foglalas = foglalas;
+    }
+
+    private Foglalas saveFoglalas(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        LocalDateTime dateTime = LocalDateTime.parse(idopontTextfield.getText(), formatter);
+
+        Foglalas foglalas = new Foglalas(dateTime,
+                Integer.parseInt(szemelyekSzamaTextfield.getText()));
+
+        //etelAllergia = etelAllergiaTextfield.getText();
+
+        foglalas.setEtelallergia(Allergia.Gluten);
+
+        foglalas.setMegjegyzes(megjegyzesTextArea.getText());
+
+        foglalas.setGyerekekSzama(gyerekekSzamaTextfield.getColumns());
+
+        return foglalas;
+    }
+
+    private Ugyfel saveUgyfel(Foglalas foglalas){
+
+        gyerekekSzama = Integer.parseInt(gyerekekSzamaTextfield.getText());
+
+        Ugyfel ugyfel = null;
+
+        if (gyerekekSzama > 0){
+            ugyfel = new CsaladosUgyfel(
+                    "MR.",
+                    keresztNevTextfield.getText(),
+                    vezetekNevTextfield.getText(),
+                    "akarmi@freemail.hu",
+                    telefonTextfield.getText(),
+                    gyerekekSzama);
+        }
+        else
+        {
+            ugyfel = new Ugyfel("MR.",
+                    keresztNevTextfield.getText(),
+                    vezetekNevTextfield.getText(),
+                    "akarmi@freemail.hu",
+                    telefonTextfield.getText()
+            );
+        }
+
+        ugyfel.setFoglalas(foglalas);
+
+        ugyfel.setUtolsoLatogatas(LocalDate.now());
+
+        return ugyfel;
     }
 
     public JPanel getFoglalasPanel() {

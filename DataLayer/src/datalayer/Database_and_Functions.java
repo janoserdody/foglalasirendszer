@@ -16,6 +16,7 @@ import java.sql.Date;
 //- a különböző methódusok, amik az adatbázishoz kellenek
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,7 +32,7 @@ public class Database_and_Functions {
 
     private LocalTimeZone localTimeZone;
 
-    public Database_and_Functions(LocalTimeZone localTimeZone){
+    public Database_and_Functions(LocalTimeZone localTimeZone) {
         this.localTimeZone = localTimeZone;
     }
 
@@ -42,13 +43,14 @@ public class Database_and_Functions {
      */
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:C:\\db\\Foglalasok.db";
+        String url = "jdbc:sqlite:D:\\source\\foglalasirendszer2\\Foglalasok.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
         return conn;
     }
 
@@ -68,8 +70,8 @@ public class Database_and_Functions {
      * @param utolsoLatogatas
      */
     public int insertUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
-                             String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
-                             String cegNev, String szamlazasiCim, int gyerekekSzama) {
+                            String telefon, int utolszoSzamla, int osszesSzamla, java.time.LocalDate utolsoLatogatas,
+                            String cegNev, String szamlazasiCim, int gyerekekSzama) {
 
         ResultSet rs = null;
         int id = 0;
@@ -93,16 +95,16 @@ public class Database_and_Functions {
             pstmt.setString(5, telefon);
             pstmt.setInt(6, utolszoSzamla);
             pstmt.setInt(7, osszesSzamla);
-            pstmt.setDate(8, (Date) utolsoLatogatas);
+            // TODO javítani a get ugyfelnél
+            pstmt.setDate(8, Date.valueOf(utolsoLatogatas));
             pstmt.setString(9, cegNev);
             pstmt.setString(10, szamlazasiCim);
             pstmt.setInt(11, gyerekekSzama);
             pstmt.setInt(12, ugyfelTipus.getValue());
             int rowAffected = pstmt.executeUpdate();
-            if(rowAffected == 1)
-            {
+            if (rowAffected == 1) {
                 rs = pstmt.getGeneratedKeys();
-                if(rs.next())
+                if (rs.next())
                     id = rs.getInt(1);
             }
 
@@ -113,40 +115,15 @@ public class Database_and_Functions {
         return id;
     }
 
-    public int insertUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
-                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas) {
-        return insertUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,
-                null, null, 0);
-
-
-    }
-
-    public int insertUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
-                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
-                            String cegNev, String szamlazasiCim) {
-        return insertUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,
-                cegNev, szamlazasiCim, 0);
-
-    }
-
-    public int insertUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
-                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
-                            int gyerekekSzama) {
-        return insertUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,null, null, 0);
-
-    }
-
-
-
     public int insertFoglalas(FoglalasTipus foglalasTipus, LocalDateTime datum, int szemelyekSzama, Allergia etelallergia,
-                              int gyerekekSzama, String megjegyzes, int asztalSzam, int teremSzam) {
+                              int gyerekekSzama, String megjegyzes, int asztalSzam, int teremSzam, int ugyfelId) {
 
         ResultSet rs = null;
         int id = 0;
 
         String sql = "INSERT INTO Foglalas (datum, szemelyekSzama, etelallergia, gyerekekSzama, megjegyzes, foglalasTipus," +
-                "asztalSzam,teremSzam) " +
-                "VALUES(?,?,?,?,?,?,?,?)";
+                "asztalSzam, teremSzam, ugyfelId) " +
+                "VALUES(?,?,?,?,?,?,?,?,?)";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql,
@@ -161,11 +138,11 @@ public class Database_and_Functions {
             pstmt.setInt(6, foglalasTipus.getValue());
             pstmt.setInt(7, asztalSzam);
             pstmt.setInt(8, teremSzam);
+            pstmt.setInt(9, ugyfelId);
             int rowAffected = pstmt.executeUpdate();
-            if(rowAffected == 1)
-            {
+            if (rowAffected == 1) {
                 rs = pstmt.getGeneratedKeys();
-                if(rs.next())
+                if (rs.next())
                     id = rs.getInt(1);
             }
         } catch (SQLException e) {
@@ -174,7 +151,6 @@ public class Database_and_Functions {
         }
         return id;
     }
-
 
 
     //******************************
@@ -251,28 +227,29 @@ public class Database_and_Functions {
 
 
     //Modify ugyfel-t ki kellett egyészíteni a korábbi kereszt és vezetéknévvel, hogy a query megtalálja a felülírandót
-    public int ModifyUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
-                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
-                            String cegNev, String szamlazasiCim, int gyerekekSzama, String korabbi_keresztNev, String korabbi_vezetekNev) {
+    public boolean ModifyUgyfel(int id, UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
+                            String telefon, int utolszoSzamla, int osszesSzamla, LocalDate utolsoLatogatas,
+                            String cegNev, String szamlazasiCim, int gyerekekSzama) {
 
         ResultSet rs = null;
-        int id = 0;
 
-        String sql =    "UPDATE Ugyfel " +
-                        "SET " +
-                        "megszolitas = ?, " +
-                        "keresztNev = ?, " +
-                        "vezetekNev = ?, " +
-                        "email = ?, " +
-                        "telefon = ?, " +
-                        "utolsoSzamla = ?, " +
-                        "osszesSzamla = ?, " +
-                        "utolsoLatogatas = ?, " +
-                        "cegNev = ?, " +
-                        "szamlazasiCim = ?, " +
-                        "gyerekekSzama = ?, " +
-                        "ugyfelTipus = ? " +
-                        "WHERE (Ugyfel.keresztNev is \"?\") AND (Ugyfel.vezetekNev is \"?\")";
+        boolean result = false;
+
+        String sql = "UPDATE Ugyfel " +
+                "SET " +
+                "megszolitas = ?, " +
+                "keresztNev = ?, " +
+                "vezetekNev = ?, " +
+                "email = ?, " +
+                "telefon = ?, " +
+                "utolsoSzamla = ?, " +
+                "osszesSzamla = ?, " +
+                "utolsoLatogatas = ?, " +
+                "cegNev = ?, " +
+                "szamlazasiCim = ?, " +
+                "gyerekekSzama = ?, " +
+                "ugyfelTipus = ? " +
+                "WHERE id is ?";
 
 //        valueOf(String s) : This method converts a string in JDBC date escape format to a Date value using
 //        specified value of s- a String object representing a date in the format “yyyy-[m]m-[d]d”.
@@ -289,51 +266,22 @@ public class Database_and_Functions {
             pstmt.setString(5, telefon);
             pstmt.setInt(6, utolszoSzamla);
             pstmt.setInt(7, osszesSzamla);
-            pstmt.setDate(8, (Date) utolsoLatogatas);
+            pstmt.setDate(8, Date.valueOf(utolsoLatogatas));
             pstmt.setString(9, cegNev);
             pstmt.setString(10, szamlazasiCim);
             pstmt.setInt(11, gyerekekSzama);
             pstmt.setInt(12, ugyfelTipus.getValue());
-            pstmt.setString(13, korabbi_keresztNev);
-            pstmt.setString(14, korabbi_vezetekNev);
+            pstmt.setInt(13, id);
             int rowAffected = pstmt.executeUpdate();
-            if(rowAffected == 1)
-            {
-                rs = pstmt.getGeneratedKeys();
-                if(rs.next())
-                    id = rs.getInt(1);
+            if (rowAffected == 1) {
+                result = true;
             }
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            return 0;
+            return false;
         }
-        return id;
-    }
-
-    public int ModifyUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
-                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
-                            String korabbi_keresztNev, String korabbi_vezetekNev) {
-        return ModifyUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,
-                null, null, 0, korabbi_keresztNev, korabbi_vezetekNev);
-
-
-    }
-
-    public int ModifyUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
-                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
-                            String cegNev, String szamlazasiCim, String korabbi_keresztNev, String korabbi_vezetekNev) {
-        return ModifyUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,
-                cegNev, szamlazasiCim, 0, korabbi_keresztNev, korabbi_vezetekNev);
-
-    }
-
-    public int ModifyUgyfel(UgyfelTipus ugyfelTipus, String megszolitas, String keresztNev, String vezetekNev, String email,
-                            String telefon, int utolszoSzamla, int osszesSzamla, java.util.Date utolsoLatogatas,
-                            int gyerekekSzama, String korabbi_keresztNev, String korabbi_vezetekNev) {
-        return ModifyUgyfel(ugyfelTipus, megszolitas, keresztNev, vezetekNev, email, telefon, utolszoSzamla, osszesSzamla, utolsoLatogatas,
-                null, null, 0, korabbi_keresztNev, korabbi_vezetekNev);
-
+        return result;
     }
 
     public void updateFoglalas(int id, LocalDateTime datum, int szemelyekSzama,
@@ -572,4 +520,6 @@ public class Database_and_Functions {
             return null;
         }
 
+    }
 }
+
