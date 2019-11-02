@@ -36,6 +36,8 @@ public class FoglalasUI {
     private JTextField keresztNevTextfield;
     private JLabel telefonLabel;
     private JTextField telefonTextfield;
+    private JLabel emailLabel;
+    private JTextField emailTextfield;
     private JLabel szemelyekSzamaLabel;
     private JTextField szemelyekSzamaTextfield;
     private JLabel idopontLabel;
@@ -67,25 +69,32 @@ public class FoglalasUI {
         title.setFont(new Font("Arial",Font.BOLD,30));
 
         vezetekNevLabel=new JLabel("Vezetéknév:");
-        vezetekNevLabel.setBounds(30,160,adatokSize.width,adatokSize.height);
+        vezetekNevLabel.setBounds(30,110,adatokSize.width,adatokSize.height);
         vezetekNevLabel.setFont(adatokFont);
 
         vezetekNevTextfield=new JTextField();
-        vezetekNevTextfield.setBounds(400,160,adatokSize.width,adatokSize.height);
+        vezetekNevTextfield.setBounds(400,110,adatokSize.width,adatokSize.height);
 
         keresztNevLabel=new JLabel("Keresztnév:");
-        keresztNevLabel.setBounds(30,210,adatokSize.width,adatokSize.height);
+        keresztNevLabel.setBounds(30,160,adatokSize.width,adatokSize.height);
         keresztNevLabel.setFont(adatokFont);
 
         keresztNevTextfield=new JTextField();
-        keresztNevTextfield.setBounds(400,210,adatokSize.width,adatokSize.height);
+        keresztNevTextfield.setBounds(400,160,adatokSize.width,adatokSize.height);
 
         telefonLabel=new JLabel("Telefon:");
-        telefonLabel.setBounds(30,260,adatokSize.width,adatokSize.height);
+        telefonLabel.setBounds(30,210,adatokSize.width,adatokSize.height);
         telefonLabel.setFont(adatokFont);
 
         telefonTextfield=new JTextField();
-        telefonTextfield.setBounds(400,260,adatokSize.width,adatokSize.height);
+        telefonTextfield.setBounds(400,250,adatokSize.width,adatokSize.height);
+
+        emailLabel=new JLabel("Email:");
+        emailLabel.setBounds(30,280,adatokSize.width,adatokSize.height);
+        emailLabel.setFont(adatokFont);
+
+        emailTextfield=new JTextField();
+        emailTextfield.setBounds(400,280,adatokSize.width,adatokSize.height);
 
         szemelyekSzamaLabel=new JLabel("Személyek száma:");
         szemelyekSzamaLabel.setBounds(30,310,adatokSize.width,adatokSize.height);
@@ -138,6 +147,8 @@ public class FoglalasUI {
         foglalasPanel.add(gyerekekSzamaTextfield);
         foglalasPanel.add(megjegyzesTextArea);
         foglalasPanel.add(elkuldButton);
+        foglalasPanel.add(emailLabel);
+        foglalasPanel.add(emailTextfield);
 
 
         elkuldButton.addMouseListener(new MouseAdapter() {
@@ -167,9 +178,7 @@ public class FoglalasUI {
         Foglalas foglalas = new Foglalas(dateTime,
                 Integer.parseInt(szemelyekSzamaTextfield.getText()));
 
-        //etelAllergia = etelAllergiaTextfield.getText();
-
-        foglalas.setEtelallergia(Allergia.Gluten);
+        foglalas.setEtelallergia(Allergia.valueOf(etelAllergiaTextfield.getText()));
 
         foglalas.setMegjegyzes(megjegyzesTextArea.getText());
 
@@ -189,7 +198,7 @@ public class FoglalasUI {
                     "MR.",
                     keresztNevTextfield.getText(),
                     vezetekNevTextfield.getText(),
-                    "akarmi@freemail.hu",
+                    emailTextfield.getText(),
                     telefonTextfield.getText(),
                     gyerekekSzama);
         }
@@ -198,7 +207,7 @@ public class FoglalasUI {
             ugyfel = new Ugyfel("MR.",
                     keresztNevTextfield.getText(),
                     vezetekNevTextfield.getText(),
-                    "akarmi@freemail.hu",
+                    emailTextfield.getText(),
                     telefonTextfield.getText()
             );
         }

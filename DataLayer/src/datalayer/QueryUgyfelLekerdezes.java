@@ -1,19 +1,94 @@
 package datalayer;
 
+import common.UgyfelTipus;
+
+import java.time.LocalDate;
+
 public class QueryUgyfelLekerdezes {
 
-    private int AKTUALIS_UGYFEL_ID;
+    private Integer AKTUALIS_UGYFEL_ID;
     private String AKTUALIS_UGYFEL_MEGSZOLITAS;
     private String AKTUALIS_UGYFEL_KERESZTNEV;
     private String AKTUALIS_UGYFEL_VEZETEKNEV;
     private String AKTUALIS_UGYFEL_EMAIL;
     private String AKTUALIS_UGYFEL_TELEFON;
 
-    public int getAKTUALIS_UGYFEL_ID() {
+    public Integer getAKTUALIS_UGYFEL_UTOLSO_SZAMLA() {
+        return AKTUALIS_UGYFEL_UTOLSO_SZAMLA;
+    }
+
+    public void setAKTUALIS_UGYFEL_UTOLSO_SZAMLA(Integer AKTUALIS_UGYFEL_UTOLSO_SZAMLA) {
+        this.AKTUALIS_UGYFEL_UTOLSO_SZAMLA = AKTUALIS_UGYFEL_UTOLSO_SZAMLA;
+    }
+
+    private Integer AKTUALIS_UGYFEL_UTOLSO_SZAMLA;
+
+    public Integer getAKTUALIS_UGYFEL_OSSZES_SZAMLA() {
+        return AKTUALIS_UGYFEL_OSSZES_SZAMLA;
+    }
+
+    public void setAKTUALIS_UGYFEL_OSSZES_SZAMLA(Integer AKTUALIS_UGYFEL_OSSZES_SZAMLA) {
+        this.AKTUALIS_UGYFEL_OSSZES_SZAMLA = AKTUALIS_UGYFEL_OSSZES_SZAMLA;
+    }
+
+    private int AKTUALIS_UGYFEL_OSSZES_SZAMLA;
+
+    public LocalDate getAKTUALIS_UGYFEL_UTOLSO_LAtOGATAS() {
+        return AKTUALIS_UGYFEL_UTOLSO_LAtOGATAS;
+    }
+
+    public void setAKTUALIS_UGYFEL_UTOLSO_LAtOGATAS(LocalDate AKTUALIS_UGYFEL_UTOLSO_LAtOGATAS) {
+        this.AKTUALIS_UGYFEL_UTOLSO_LAtOGATAS = AKTUALIS_UGYFEL_UTOLSO_LAtOGATAS;
+    }
+
+    private LocalDate AKTUALIS_UGYFEL_UTOLSO_LAtOGATAS;
+
+    public UgyfelTipus getAKTUALIS_UGYFEL_UGYFEL_TIPUS() {
+        return AKTUALIS_UGYFEL_UGYFEL_TIPUS;
+    }
+
+    public void setAKTUALIS_UGYFEL_UGYFEL_TIPUS(UgyfelTipus AKTUALIS_UGYFEL_UGYFEL_TIPUS) {
+        this.AKTUALIS_UGYFEL_UGYFEL_TIPUS = AKTUALIS_UGYFEL_UGYFEL_TIPUS;
+    }
+
+    private UgyfelTipus AKTUALIS_UGYFEL_UGYFEL_TIPUS;
+
+    public String getAKTUALIS_UGYFEL_CEGNEV() {
+        return AKTUALIS_UGYFEL_CEGNEV;
+    }
+
+    public void setAKTUALIS_UGYFEL_CEGNEV(String AKTUALIS_UGYFEL_CEGNEV) {
+        this.AKTUALIS_UGYFEL_CEGNEV = AKTUALIS_UGYFEL_CEGNEV;
+    }
+
+    private String AKTUALIS_UGYFEL_CEGNEV;
+
+    public String getAKTUALIS_UGYFEL_SZAMLAZASI_CIM() {
+        return AKTUALIS_UGYFEL_SZAMLAZASI_CIM;
+    }
+
+    public void setAKTUALIS_UGYFEL_SZAMLAZASI_CIM(String AKTUALIS_UGYFEL_SZAMLAZASI_CIM) {
+        this.AKTUALIS_UGYFEL_SZAMLAZASI_CIM = AKTUALIS_UGYFEL_SZAMLAZASI_CIM;
+    }
+
+    private String AKTUALIS_UGYFEL_SZAMLAZASI_CIM;
+
+    public Integer getAKTUALIS_UGYFEL_GYEREKEK_SZAMA() {
+        return AKTUALIS_UGYFEL_GYEREKEK_SZAMA;
+    }
+
+    public void setAKTUALIS_UGYFEL_GYEREKEK_SZAMA(Integer AKTUALIS_UGYFEL_GYEREKEK_SZAMA) {
+        this.AKTUALIS_UGYFEL_GYEREKEK_SZAMA = AKTUALIS_UGYFEL_GYEREKEK_SZAMA;
+    }
+
+    private Integer AKTUALIS_UGYFEL_GYEREKEK_SZAMA;
+
+
+    public Integer getAKTUALIS_UGYFEL_ID() {
         return AKTUALIS_UGYFEL_ID;
     }
 
-    public void setAKTUALIS_UGYFEL_ID(int AKTUALIS_UGYFEL_ID) {
+    public void setAKTUALIS_UGYFEL_ID(Integer AKTUALIS_UGYFEL_ID) {
         this.AKTUALIS_UGYFEL_ID = AKTUALIS_UGYFEL_ID;
     }
 

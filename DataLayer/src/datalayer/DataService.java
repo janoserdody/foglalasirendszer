@@ -60,8 +60,7 @@ public class DataService implements IDataService {
     }
 
     public Ugyfel GetUgyfel(int Id) {
-        database.Ugyfel_Lekerdezes_Funkcio(Id);
-        return null;
+        return database.Ugyfel_Lekerdezes_Funkcio(Id);
     }
 
     public Ugyfel GetUgyfel(String keresztNev, String vezetekNev) {
@@ -84,7 +83,6 @@ public class DataService implements IDataService {
             ugyfelTipus = UgyfelTipus.CsaladosUgyfel;
             CsaladosUgyfel csaladosUgyfel = (CsaladosUgyfel)ugyfel;
             gyerekSzam = csaladosUgyfel.getGyerekekSzama();
-
         }
         else if(ugyfel instanceof CegesUgyfel) {
             ugyfelTipus = UgyfelTipus.CegesUgyfel;
@@ -120,9 +118,8 @@ public class DataService implements IDataService {
     }
 
     public ArrayList<Integer> ReadAllUgyfelId() {
-        database.Ugyfel_Lekerdezes_Funkcio_UgyfelID();
+        return database.Ugyfel_Lekerdezes_Funkcio_UgyfelID();
         //Ugyfel_Lekerdezes_Funkcio_UgyfelID vissza ad egy tömböt, tömb elemek első mezője az ID
-        return new ArrayList<>();
     }
 
     public Foglalas GetFogalas(int Id) {

@@ -1,5 +1,9 @@
 package datalayer;
 
+import common.Allergia;
+
+import java.time.LocalDateTime;
+
 public class QueryFoglalasLekerdezes {
 
     //Ez az osztály kell ahhoz, hogy lehessen olyan tömböt generálni,
@@ -20,11 +24,21 @@ public class QueryFoglalasLekerdezes {
     private String UGYFEL_KERESZTNEV_QUERY;
     private String UGYFEL_VEZETEKNEV_QUERY;
     private Integer FOGLALAS_ID_QUERY;
-    private String FOGLALAS_DATUM_QUERY;
+    private LocalDateTime FOGLALAS_DATUM_QUERY;
     private Integer FOGLALAS_SZEMELYEKSZAMA_QUERY;
-    private String FOGLALAS_ETELALLERGIA_QUERY;
+    private Allergia FOGLALAS_ETELALLERGIA_QUERY;
     private Integer FOGLALAS_GYEREKEKSZAMA_QUERY;
     private String FOGLALAS_MEGJEGYZES_QUERY;
+
+    public Integer getFOGLALAS_UGYFEL_ID() {
+        return FOGLALAS_UGYFEL_ID;
+    }
+
+    public void setFOGLALAS_UGYFEL_ID(Integer FOGLALAS_UGYFEL_ID) {
+        this.FOGLALAS_UGYFEL_ID = FOGLALAS_UGYFEL_ID;
+    }
+
+    private Integer FOGLALAS_UGYFEL_ID;
 
     public String getUGYFEL_MEGSZOLITAS_QUERY() {
         return UGYFEL_MEGSZOLITAS_QUERY;
@@ -58,11 +72,11 @@ public class QueryFoglalasLekerdezes {
         this.FOGLALAS_ID_QUERY = FOGLALAS_ID_QUERY;
     }
 
-    public String getFOGLALAS_DATUM_QUERY() {
+    public LocalDateTime getFOGLALAS_DATUM_QUERY() {
         return FOGLALAS_DATUM_QUERY;
     }
 
-    public void setFOGLALAS_DATUM_QUERY(String FOGLALAS_DATUM_QUERY) {
+    public void setFOGLALAS_DATUM_QUERY(LocalDateTime FOGLALAS_DATUM_QUERY) {
         this.FOGLALAS_DATUM_QUERY = FOGLALAS_DATUM_QUERY;
     }
 
@@ -74,11 +88,11 @@ public class QueryFoglalasLekerdezes {
         this.FOGLALAS_SZEMELYEKSZAMA_QUERY = FOGLALAS_SZEMELYEKSZAMA_QUERY;
     }
 
-    public String getFOGLALAS_ETELALLERGIA_QUERY() {
+    public Allergia getFOGLALAS_ETELALLERGIA_QUERY() {
         return FOGLALAS_ETELALLERGIA_QUERY;
     }
 
-    public void setFOGLALAS_ETELALLERGIA_QUERY(String FOGLALAS_ETELALLERGIA_QUERY) {
+    public void setFOGLALAS_ETELALLERGIA_QUERY(Allergia FOGLALAS_ETELALLERGIA_QUERY) {
         this.FOGLALAS_ETELALLERGIA_QUERY = FOGLALAS_ETELALLERGIA_QUERY;
     }
 

@@ -25,12 +25,12 @@ public class Framework implements IFramework{
         dataService = new DataService(localTimeZone);
 
         ugyfelLista = new ArrayList<Ugyfel>();
-        ugyfelLista.add(new Ugyfel("Kisasszony","Gabi", "Kis", "jhgfjhgf@freemail.hu", "1234567"));
-        ugyfelLista.add(new Ugyfel("Úrhölgy","Julcsi", "Nagy", "uzuzt@freemail.hu", "9879654"));
+        //ugyfelLista.add(new Ugyfel("Kisasszony","Gabi", "Kis", "jhgfjhgf@freemail.hu", "1234567"));
+        //ugyfelLista.add(new Ugyfel("Úrhölgy","Julcsi", "Nagy", "uzuzt@freemail.hu", "9879654"));
     }
 
     public void hozzaadUgyfel(Ugyfel ugyfel){
-        //ugyfelLista.add(ugyfel);
+        ugyfelLista.add(ugyfel);
 
         dataService.InsertUgyfel(ugyfel);
 
@@ -46,10 +46,23 @@ public class Framework implements IFramework{
     }
 
     public ArrayList<Ugyfel> getUgyfelLista() {
+        if (ugyfelLista.size() > 0){
+            return ugyfelLista;
+        }
+
+        ArrayList<Integer> idList = dataService.ReadAllUgyfelId();
+
+
+        for (int id : idList){
+        ugyfelLista.add(dataService.GetUgyfel(id));
+        }
+
         return ugyfelLista;
     }
     
     public String[] getUgyfelNevekListaja(){
+
+        getUgyfelLista();
         
         String[] nevLista = new String[ugyfelLista.size()];
 

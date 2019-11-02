@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="536642a4-b5bd-4162-b334-39e639bf7172" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_27_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/common/Foglalas.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/common/Foglalas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/common/TeremFoglalas.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/common/TeremFoglalas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/common/Ugyfel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/common/Ugyfel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataLayer/DataLayer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/DataLayer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/common/Allergia.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/common/Allergia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/common/FoglalasTipus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/common/FoglalasTipus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/common/UgyfelTipus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/common/UgyfelTipus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/src/datalayer/QueryFoglalasLekerdezes.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/src/datalayer/QueryFoglalasLekerdezes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/src/datalayer/QueryUgyfelLekerdezes.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/src/datalayer/QueryUgyfelLekerdezes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foglalasok.db" beforeDir="false" afterPath="$PROJECT_DIR$/Foglalasok.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java" beforeDir="false" afterPath="$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewControlLayer/ViewControlLayer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/ViewControlLayer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,33 +48,38 @@
     <session id="29899385">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1726" />
+          <entry key="java" value="4175" />
+          <entry key="txt" value="155" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1726" />
+          <entry key="JAVA" value="4175" />
+          <entry key="PLAIN_TEXT" value="155" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="class" value="2" />
           <entry key="form" value="2" />
-          <entry key="java" value="16" />
-          <entry key="sql" value="1" />
+          <entry key="java" value="28" />
+          <entry key="sql" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="CLASS" value="2" />
           <entry key="GUI_DESIGNER_FORM" value="2" />
-          <entry key="JAVA" value="16" />
-          <entry key="Scratch" value="1" />
+          <entry key="JAVA" value="28" />
+          <entry key="Scratch" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.24" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -84,8 +89,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="104">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1898#1899#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="118">
+              <caret line="359" selection-start-line="359" selection-end-line="359" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,30 +114,93 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="147" column="50" selection-start-line="147" selection-start-column="50" selection-end-line="147" selection-end-column="50" />
+            <state relative-caret-position="169">
+              <caret line="180" selection-start-line="180" selection-end-line="180" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5063#5319#0" expanded="true" />
-                <element signature="e#5318#5319#0" expanded="true" />
-                <element signature="e#7102#7103#0" expanded="true" />
-                <element signature="e#7138#7139#0" expanded="true" />
-                <element signature="e#7196#7197#0" expanded="true" />
-                <element signature="e#7246#7247#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java">
+        <entry file="file://$PROJECT_DIR$/Common/src/common/Foglalas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="767">
-              <caret line="110" selection-start-line="110" selection-end-line="110" />
+            <state relative-caret-position="340">
+              <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Common/src/common/Allergia.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="469">
+              <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#932#933#0" expanded="true" />
-                <element signature="e#982#983#0" expanded="true" />
+                <element signature="e#158#159#0" expanded="true" />
+                <element signature="e#186#187#0" expanded="true" />
+                <element signature="e#551#552#0" expanded="true" />
+                <element signature="e#608#609#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/QueryFoglalasLekerdezes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1334#1335#0" expanded="true" />
+                <element signature="e#1375#1376#0" expanded="true" />
+                <element signature="e#1444#1445#0" expanded="true" />
+                <element signature="e#1504#1505#0" expanded="true" />
+                <element signature="e#2283#2284#0" expanded="true" />
+                <element signature="e#2326#2327#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Common/src/common/UgyfelTipus.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="5" column="25" lean-forward="true" selection-end-line="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#467#468#0" expanded="true" />
+                <element signature="e#518#519#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Common/src/common/FoglalasTipus.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#486#487#0" expanded="true" />
+                <element signature="e#543#544#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/QueryUgyfelLekerdezes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -128,38 +209,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/IDataService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ModelLayer/src/modellayer/IFramework.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Common/src/common/Ugyfel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="745">
-              <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="240">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
             </state>
           </provider>
         </entry>
@@ -177,6 +228,12 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>modify</find>
+      <find>getugyfelid</find>
+      <find>readall</find>
+      <find>readallugyfel</find>
+      <find>getugyfel</find>
+      <find>getid</find>
+      <find>etel</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -190,9 +247,14 @@
         <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.form" />
         <option value="$PROJECT_DIR$/Common/src/common/Foglalas.java" />
         <option value="$PROJECT_DIR$/Common/src/common/Ugyfel.java" />
-        <option value="$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java" />
         <option value="$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java" />
         <option value="$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java" />
+        <option value="$PROJECT_DIR$/DataLayer/src/datalayer/QueryUgyfelLekerdezes.java" />
+        <option value="$PROJECT_DIR$/Common/src/common/UgyfelTipus.java" />
+        <option value="$PROJECT_DIR$/Common/src/common/FoglalasTipus.java" />
+        <option value="$PROJECT_DIR$/Common/src/common/Allergia.java" />
+        <option value="$PROJECT_DIR$/DataLayer/src/datalayer/QueryFoglalasLekerdezes.java" />
+        <option value="$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java" />
         <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java" />
       </list>
     </option>
@@ -216,7 +278,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,8 +353,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -305,7 +367,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572617658373" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572662615213" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Connect/sqlite-jdbc-3.27.2.1.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -388,7 +450,8 @@
       <workItem from="1572464183073" duration="259000" />
       <workItem from="1572514654133" duration="603000" />
       <workItem from="1572515772283" duration="4475000" />
-      <workItem from="1572572578736" duration="11834000" />
+      <workItem from="1572572578736" duration="17896000" />
+      <workItem from="1572654691545" duration="7860000" />
     </task>
     <task id="LOCAL-00001" summary="DataService és Framework vázlat">
       <created>1570482350414</created>
@@ -453,17 +516,24 @@
       <option name="project" value="LOCAL" />
       <updated>1572464309502</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="működik az adatbázis&#10;telepítettem sqlite drivert&#10;hiányzik még a foglalásnál az Allergia&#10;vizuális dezignert lenne érdemes használni a UI megalkotásakor">
+      <created>1572617745695</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1572617745695</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13975000" />
+    <option name="totallyTimeSpent" value="27897000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-7" width="1231" height="735" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20153715" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.28095645" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -473,7 +543,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32890365" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32890365" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3986711" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -483,7 +553,6 @@
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32890365" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32890365" />
-      <window_info anchor="right" id="Coverage" sideWeight="0.50276244" side_tool="true" weight="0.3296328" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -493,7 +562,40 @@
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.50276244" side_tool="true" weight="0.3296328" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28095645" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Learn" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32890365" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3986711" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32890365" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32890365" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" sideWeight="0.49723756" weight="0.3296328" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.50276244" side_tool="true" weight="0.3296328" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -528,7 +630,8 @@
     <MESSAGE value="2019.10.28.&#10;SQL: insert,update,delete,query(lekérdezés)&#10;DataService-hez kötve az insert ügyfél" />
     <MESSAGE value="2019.10.29.&#10;Data Service update - Please check" />
     <MESSAGE value="2019.10.30.&#10;Data Service update - Please check&#10;&#10;a deleteCegesUgyfel metódust kellene javítani, mert úgy beszéltük meg, &#10;hogy nem lesz külön cégesügyfél tábla, hanem az összes fajta ügyfél egy táblában lesz&#10;&#10;--&gt; deleteCegesUgyfel a cegNev-et kéri bemenetnek és törli azt a sort&#10;&#10;ezek a metódusok nem kellenek&#10;insertCegesUgyfel és insertCsaladosUgyfel&#10;mert megbeszéltük, hogy az összes fajta ügyfelet az insertUgyfel metódus szúrja be&#10;ugyanígy a foglalásnál is egy insertFoglalás metódus lesz, és nem 3&#10;&#10;--&gt;insertCegesUgyfel és insertCsaladosUgyfel törölve, Foglalas tábla kiegészítve az adataikkal&#10;&#10;---&#10;&#10;meg akkor az insertFoglalás metódust kellene átírni&#10;--&gt; asztalSzam és teremSzam átkerült a Foglalas táblába&#10;--&gt; insertFoglalas metódus kiegészítve az asztalSzam és teremSzam változókkal&#10;&#10;---&#10;&#10;az ételallergia mezőt int -re kell módosítani az adatbázisban&#10;mert az egy enum&#10;--&gt; Foglalas tábla, etelallergia integer típusú adatra állítva&#10;&#10;---&#10;&#10;kellene egy foglalasTipus int mező a foglalás táblába, ugyanúgy, mint az Ugyfél táblánál&#10;--&gt; Foglalas tábla, foglalasTipus integer mező a táblában&#10;&#10;&#10;-------------&#10;&#10;--&gt; deleteAsztalFoglalas metódus törölve, szükségtelen már&#10;--&gt; DataService InsertFoglalas-t megnéznéd, hogy miért nem jó? comment a probléma felett" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019.10.30.&#10;Data Service update - Please check&#10;&#10;a deleteCegesUgyfel metódust kellene javítani, mert úgy beszéltük meg, &#10;hogy nem lesz külön cégesügyfél tábla, hanem az összes fajta ügyfél egy táblában lesz&#10;&#10;--&gt; deleteCegesUgyfel a cegNev-et kéri bemenetnek és törli azt a sort&#10;&#10;ezek a metódusok nem kellenek&#10;insertCegesUgyfel és insertCsaladosUgyfel&#10;mert megbeszéltük, hogy az összes fajta ügyfelet az insertUgyfel metódus szúrja be&#10;ugyanígy a foglalásnál is egy insertFoglalás metódus lesz, és nem 3&#10;&#10;--&gt;insertCegesUgyfel és insertCsaladosUgyfel törölve, Foglalas tábla kiegészítve az adataikkal&#10;&#10;---&#10;&#10;meg akkor az insertFoglalás metódust kellene átírni&#10;--&gt; asztalSzam és teremSzam átkerült a Foglalas táblába&#10;--&gt; insertFoglalas metódus kiegészítve az asztalSzam és teremSzam változókkal&#10;&#10;---&#10;&#10;az ételallergia mezőt int -re kell módosítani az adatbázisban&#10;mert az egy enum&#10;--&gt; Foglalas tábla, etelallergia integer típusú adatra állítva&#10;&#10;---&#10;&#10;kellene egy foglalasTipus int mező a foglalás táblába, ugyanúgy, mint az Ugyfél táblánál&#10;--&gt; Foglalas tábla, foglalasTipus integer mező a táblában&#10;&#10;&#10;-------------&#10;&#10;--&gt; deleteAsztalFoglalas metódus törölve, szükségtelen már&#10;--&gt; DataService InsertFoglalas-t megnéznéd, hogy miért nem jó? comment a probléma felett" />
+    <MESSAGE value="működik az adatbázis&#10;telepítettem sqlite drivert&#10;hiányzik még a foglalásnál az Allergia&#10;vizuális dezignert lenne érdemes használni a UI megalkotásakor" />
+    <option name="LAST_COMMIT_MESSAGE" value="működik az adatbázis&#10;telepítettem sqlite drivert&#10;hiányzik még a foglalásnál az Allergia&#10;vizuális dezignert lenne érdemes használni a UI megalkotásakor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -540,46 +643,21 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java</url>
-          <line>34</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java</url>
-          <line>182</line>
+          <line>191</line>
           <properties />
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java</url>
+          <line>48</line>
+          <properties />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/QueryFoglalasLekerdezes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Common/src/common/Allergia.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding>
-            <element signature="e#158#159#0" expanded="true" />
-            <element signature="e#186#187#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Common/src/common/FoglalasTipus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Common/src/common/LocalTimeZone.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -641,13 +719,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ModelLayer/src/modellayer/IFramework.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4fa036d8-0cfe-4fe8-8298-ab67b153a54b/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -658,66 +729,167 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/IDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java">
+    <entry file="jar://D:/win10programs/java/src.zip!/java/sql/ResultSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="767">
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        <state relative-caret-position="294">
+          <caret line="299" column="8" selection-start-line="299" selection-start-column="8" selection-end-line="299" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/IDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModelLayer/src/modellayer/IFramework.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Common/src/common/Ugyfel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-            <element signature="e#982#983#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5631e8de-bf79-4ea1-8204-7b121d9d7e51/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/QueryUgyfelLekerdezes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/win10programs/java/src.zip!/java/sql/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="137" column="22" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4d10212e-6369-4c94-bcb4-fd3f61f9c992/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/Connect/sqlite-jdbc-3.27.2.1.jar!/org/sqlite/jdbc3/JDBC3Connection.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/Connect/sqlite-jdbc-3.27.2.1.jar!/org/sqlite/jdbc4/JDBC4Connection.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1898#1899#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Common/src/common/UgyfelTipus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="5" column="25" lean-forward="true" selection-end-line="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Common/src/common/FoglalasTipus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Common/src/common/Allergia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#158#159#0" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#608#609#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Common/src/common/Foglalas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-          <folding>
-            <element signature="e#798#799#0" expanded="true" />
-            <element signature="e#833#834#0" expanded="true" />
-            <element signature="e#1367#1368#0" expanded="true" />
-            <element signature="e#1395#1396#0" expanded="true" />
-            <element signature="e#1460#1461#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
-            <element signature="e#1536#1537#0" expanded="true" />
-            <element signature="e#1576#1577#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="340">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java">
+    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/QueryFoglalasLekerdezes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="272">
+          <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1334#1335#0" expanded="true" />
+            <element signature="e#1375#1376#0" expanded="true" />
+            <element signature="e#1444#1445#0" expanded="true" />
+            <element signature="e#1504#1505#0" expanded="true" />
+            <element signature="e#2283#2284#0" expanded="true" />
+            <element signature="e#2326#2327#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Common/src/common/Ugyfel.java">
+    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="745">
-          <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
+        <state relative-caret-position="118">
+          <caret line="359" selection-start-line="359" selection-end-line="359" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -726,16 +898,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="147" column="50" selection-start-line="147" selection-start-column="50" selection-end-line="147" selection-end-column="50" />
+        <state relative-caret-position="169">
+          <caret line="180" selection-start-line="180" selection-end-line="180" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5063#5319#0" expanded="true" />
-            <element signature="e#5318#5319#0" expanded="true" />
-            <element signature="e#7102#7103#0" expanded="true" />
-            <element signature="e#7138#7139#0" expanded="true" />
-            <element signature="e#7196#7197#0" expanded="true" />
-            <element signature="e#7246#7247#0" expanded="true" />
           </folding>
         </state>
       </provider>

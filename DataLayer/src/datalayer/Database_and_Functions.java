@@ -316,16 +316,15 @@ public class Database_and_Functions {
     // List of ugyfel's, list of foglalasok
 
     public static final String QUERY_LEKERESFOGLALAS =
-            "SELECT Ugyfel.id, Ugyfel.megszolitas, Ugyfel.keresztNev, Ugyfel.vezetekNev, "
-                    + "Foglalas.id, Foglalas.datum, Foglalas.szemelyekSzama, Foglalas.etelallergia, " +
-                    "Foglalas.gyerekekSzama, Foglalas.megjegyzes FROM Ugyfel INNER JOIN Foglalas ON " +
-                    "Ugyfel.id = Foglalas.id WHERE Ugyfel.id = ?";
+            "SELECT id, datum, szemelyekSzama, etelallergia, " +
+                    "gyerekekSzama, megjegyzes FROM Foglalas WHERE ugyfelId = ?";
 
-    public List<QueryFoglalasLekerdezes> foglalas_Lekerdezes_Funkcio(int id) {
+    public List<Foglalas> foglalas_Lekerdezes_Funkcio(int id) {
 
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(QUERY_LEKERESFOGLALAS);
+            pstmt.setInt(1, id);
             ResultSet results = pstmt.executeQuery();
 
             List<QueryFoglalasLekerdezes> foglalasok = new ArrayList<>();
@@ -335,22 +334,45 @@ public class Database_and_Functions {
                 aktualisFoglalas.setUGYFEL_KERESZTNEV_QUERY(results.getString(2));
                 aktualisFoglalas.setUGYFEL_VEZETEKNEV_QUERY(results.getString(3));
                 aktualisFoglalas.setFOGLALAS_ID_QUERY(results.getInt(4));
-                aktualisFoglalas.setFOGLALAS_DATUM_QUERY(results.getString(5));
+                aktualisFoglalas.setFOGLALAS_DATUM_QUERY(results.getTimestamp(5).toLocalDateTime());
                 aktualisFoglalas.setFOGLALAS_SZEMELYEKSZAMA_QUERY(results.getInt(6));
-                aktualisFoglalas.setFOGLALAS_ETELALLERGIA_QUERY(results.getString(7));
+                aktualisFoglalas.setFOGLALAS_ETELALLERGIA_QUERY(Allergia.valueOf(results.getInt(7)));
                 aktualisFoglalas.setFOGLALAS_GYEREKEKSZAMA_QUERY(results.getInt(8));
                 aktualisFoglalas.setFOGLALAS_MEGJEGYZES_QUERY(results.getString(9));
+                aktualisFoglalas.setFOGLALAS_UGYFEL_ID(results.getInt(10));
                 foglalasok.add(aktualisFoglalas);
-
             }
             System.out.println(Arrays.toString(foglalasok.toArray()));
-            return foglalasok;
 
+            List<Foglalas> foglalasList = new ArrayList<>();
+
+            for (QueryFoglalasLekerdezes lekerdezes: foglalasok){
+                Foglalas foglalas = GetFoglalas(lekerdezes);
+                foglalasList.add(foglalas);
+            }
+
+            return foglalasList;
 
         } catch (SQLException e) {
             System.out.println("Query sikertelen. Hiba: " + e.getMessage());
             return null;
         }
+    }
+
+    private Foglalas GetFoglalas(QueryFoglalasLekerdezes lekerdezes) {
+        Foglalas foglalas = new Foglalas(lekerdezes.getFOGLALAS_DATUM_QUERY(), lekerdezes.getFOGLALAS_SZEMELYEKSZAMA_QUERY());
+
+        foglalas.setUgyfelId(lekerdezes.getFOGLALAS_UGYFEL_ID());
+
+        foglalas.setGyerekekSzama(lekerdezes.getFOGLALAS_GYEREKEKSZAMA_QUERY());
+
+        foglalas.setMegjegyzes(lekerdezes.getFOGLALAS_MEGJEGYZES_QUERY());
+
+        foglalas.setEtelallergia(lekerdezes.getFOGLALAS_ETELALLERGIA_QUERY());
+
+        foglalas.setId(lekerdezes.getFOGLALAS_ID_QUERY());
+
+        return foglalas;
 
     }
 
@@ -374,9 +396,9 @@ public class Database_and_Functions {
                 aktualisFoglalas.setUGYFEL_KERESZTNEV_QUERY(results.getString(2));
                 aktualisFoglalas.setUGYFEL_VEZETEKNEV_QUERY(results.getString(3));
                 aktualisFoglalas.setFOGLALAS_ID_QUERY(results.getInt(4));
-                aktualisFoglalas.setFOGLALAS_DATUM_QUERY(results.getString(5));
+                aktualisFoglalas.setFOGLALAS_DATUM_QUERY(results.getTimestamp(5).toLocalDateTime());
                 aktualisFoglalas.setFOGLALAS_SZEMELYEKSZAMA_QUERY(results.getInt(6));
-                aktualisFoglalas.setFOGLALAS_ETELALLERGIA_QUERY(results.getString(7));
+                aktualisFoglalas.setFOGLALAS_ETELALLERGIA_QUERY(Allergia.valueOf(results.getInt(7)));
                 aktualisFoglalas.setFOGLALAS_GYEREKEKSZAMA_QUERY(results.getInt(8));
                 aktualisFoglalas.setFOGLALAS_MEGJEGYZES_QUERY(results.getString(9));
                 foglalasok.add(aktualisFoglalas);
@@ -394,19 +416,23 @@ public class Database_and_Functions {
     }
 
     public static final String SELECT_UGYFEL_QUERY =
-            "SELECT Ugyfel.id, Ugyfel.megszolitas, Ugyfel.keresztNev, Ugyfel.vezetekNev, " +
-                    "Ugyfel.email, Ugyfel.telefon " +
-                    "FROM Ugyfel WHERE Ugyfel.id = ?";
+            "SELECT id, megszolitas, keresztNev, vezetekNev, " +
+                    "email, telefon, utolsoSzamla, osszesSzamla, utolsoLatogatas, cegNev, szamlazasiCim, gyerekekSzama, ugyfelTipus " +
+                    "FROM Ugyfel WHERE id = ?";
 
-    public List<QueryUgyfelLekerdezes> Ugyfel_Lekerdezes_Funkcio(int id) {
+    public Ugyfel Ugyfel_Lekerdezes_Funkcio(int id) {
 
         try {
             Connection conn = this.connect();
+
             PreparedStatement pstmt = conn.prepareStatement(SELECT_UGYFEL_QUERY);
+
+            pstmt.setInt(1, id);
+
             ResultSet results = pstmt.executeQuery();
 
-            List<QueryUgyfelLekerdezes> lekert_ugyfelek = new ArrayList<>();
-            while (results.next()) {
+            Ugyfel ugyfel;
+
                 QueryUgyfelLekerdezes aktualis_Ugyfel = new QueryUgyfelLekerdezes();
                 aktualis_Ugyfel.setAKTUALIS_UGYFEL_ID(results.getInt(1));
                 aktualis_Ugyfel.setAKTUALIS_UGYFEL_MEGSZOLITAS(results.getString(2));
@@ -414,10 +440,45 @@ public class Database_and_Functions {
                 aktualis_Ugyfel.setAKTUALIS_UGYFEL_VEZETEKNEV(results.getString(4));
                 aktualis_Ugyfel.setAKTUALIS_UGYFEL_EMAIL(results.getString(5));
                 aktualis_Ugyfel.setAKTUALIS_UGYFEL_TELEFON(results.getString(6));
-                lekert_ugyfelek.add(aktualis_Ugyfel);
-            }
-            System.out.println(Arrays.toString(lekert_ugyfelek.toArray()));
-            return lekert_ugyfelek;
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_UTOLSO_SZAMLA(results.getInt(7));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_OSSZES_SZAMLA(results.getInt(8));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_UTOLSO_LAtOGATAS(results.getDate(9).toLocalDate());
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_CEGNEV(results.getString(10));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_SZAMLAZASI_CIM(results.getString(11));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_GYEREKEK_SZAMA(results.getInt(12));
+                aktualis_Ugyfel.setAKTUALIS_UGYFEL_UGYFEL_TIPUS(UgyfelTipus.valueOf(results.getInt(13)));
+
+                if (aktualis_Ugyfel.getAKTUALIS_UGYFEL_UGYFEL_TIPUS() == UgyfelTipus.CsaladosUgyfel){
+                    ugyfel = new CsaladosUgyfel(aktualis_Ugyfel.getAKTUALIS_UGYFEL_MEGSZOLITAS(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_KERESZTNEV(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_VEZETEKNEV(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_EMAIL(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_TELEFON(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_GYEREKEK_SZAMA());
+                }
+                else if (aktualis_Ugyfel.getAKTUALIS_UGYFEL_UGYFEL_TIPUS() == UgyfelTipus.CegesUgyfel){
+                    ugyfel = new CegesUgyfel(aktualis_Ugyfel.getAKTUALIS_UGYFEL_MEGSZOLITAS(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_KERESZTNEV(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_VEZETEKNEV(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_EMAIL(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_TELEFON(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_CEGNEV(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_SZAMLAZASI_CIM());
+                }
+                else{
+                    ugyfel = new Ugyfel(aktualis_Ugyfel.getAKTUALIS_UGYFEL_MEGSZOLITAS(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_KERESZTNEV(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_VEZETEKNEV(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_EMAIL(),
+                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_TELEFON());
+                }
+
+                ugyfel.setUtolsoLatogatas(aktualis_Ugyfel.getAKTUALIS_UGYFEL_UTOLSO_LAtOGATAS());
+                ugyfel.setUtolsoSzamla(aktualis_Ugyfel.getAKTUALIS_UGYFEL_UTOLSO_SZAMLA());
+                ugyfel.setOsszesSzamla(aktualis_Ugyfel.getAKTUALIS_UGYFEL_OSSZES_SZAMLA());
+                ugyfel.setId(aktualis_Ugyfel.getAKTUALIS_UGYFEL_ID());
+
+            return ugyfel;
 
 
         } catch (SQLException e) {
@@ -498,18 +559,18 @@ public class Database_and_Functions {
     public static final String SELECT_ALL_UGYFEL_ID_QUERY =
             "SELECT id FROM Ugyfel";
 
-    public List<QueryUgyfelLekerdezes> Ugyfel_Lekerdezes_Funkcio_UgyfelID() {
+    public ArrayList<Integer> Ugyfel_Lekerdezes_Funkcio_UgyfelID() {
 
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(SELECT_ALL_UGYFEL_ID_QUERY);
             ResultSet results = pstmt.executeQuery();
 
-            List<QueryUgyfelLekerdezes> lekert_ugyfelek = new ArrayList<>();
+            ArrayList<Integer> lekert_ugyfelek = new ArrayList<>();
             while (results.next()) {
                 QueryUgyfelLekerdezes aktualis_Ugyfel = new QueryUgyfelLekerdezes();
                 aktualis_Ugyfel.setAKTUALIS_UGYFEL_ID(results.getInt(1));
-                lekert_ugyfelek.add(aktualis_Ugyfel);
+                lekert_ugyfelek.add(aktualis_Ugyfel.getAKTUALIS_UGYFEL_ID());
             }
             System.out.println(Arrays.toString(lekert_ugyfelek.toArray()));
             return lekert_ugyfelek;
