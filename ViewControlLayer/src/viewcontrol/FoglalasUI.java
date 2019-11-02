@@ -35,16 +35,20 @@ public class FoglalasUI {
     private JLabel keresztNevLabel;
     private JTextField keresztNevTextfield;
     private JLabel telefonLabel;
+    private JComboBox telComboBox;
     private JTextField telefonTextfield;
     private JLabel emailLabel;
     private JTextField emailTextfield;
     private JLabel szemelyekSzamaLabel;
+    private JComboBox szemSzamComboBox;
     private JTextField szemelyekSzamaTextfield;
     private JLabel idopontLabel;
     private JTextField idopontTextfield;
     private JLabel etelAllergiaLabel;
+    private JComboBox allComboBox;
     private JTextField etelAllergiaTextfield;
     private JLabel gyerekekSzamaLabel;
+    private JComboBox gySzamaComboBox;
     private JTextField gyerekekSzamaTextfield;
     private JTextArea megjegyzesTextArea;
     private JButton elkuldButton;
@@ -86,33 +90,56 @@ public class FoglalasUI {
         telefonLabel.setBounds(30,210,adatokSize.width,adatokSize.height);
         telefonLabel.setFont(adatokFont);
 
+        telComboBox=new JComboBox();
+        telComboBox.addItem("20");
+        telComboBox.addItem("30");
+        telComboBox.addItem("70");
+        telComboBox.setBounds(400,210,100,25);
+
+
         telefonTextfield=new JTextField();
-        telefonTextfield.setBounds(400,250,adatokSize.width,adatokSize.height);
+        telefonTextfield.setBounds(520,210,230,adatokSize.height);
 
         emailLabel=new JLabel("Email:");
-        emailLabel.setBounds(30,280,adatokSize.width,adatokSize.height);
+        emailLabel.setBounds(30,260,adatokSize.width,adatokSize.height);
         emailLabel.setFont(adatokFont);
 
         emailTextfield=new JTextField();
-        emailTextfield.setBounds(400,280,adatokSize.width,adatokSize.height);
+        emailTextfield.setBounds(400,260,adatokSize.width,adatokSize.height);
 
         szemelyekSzamaLabel=new JLabel("Személyek száma:");
         szemelyekSzamaLabel.setBounds(30,310,adatokSize.width,adatokSize.height);
         szemelyekSzamaLabel.setFont(adatokFont);
 
-        szemelyekSzamaTextfield=new JTextField();
-        szemelyekSzamaTextfield.setBounds(400,310,adatokSize.width,adatokSize.height);
+        szemSzamComboBox=new JComboBox();
+        szemSzamComboBox.addItem("1");
+        szemSzamComboBox.addItem("2");
+        szemSzamComboBox.addItem("3");
+        szemSzamComboBox.addItem("4");
+        szemSzamComboBox.addItem("5");
+        szemSzamComboBox.addItem("6");
+        szemSzamComboBox.addItem("7");
+        szemSzamComboBox.addItem("8");
+        szemSzamComboBox.setBounds(400,310,100,25);
 
         idopontLabel=new JLabel("Időpont:");
         idopontLabel.setBounds(30,360,adatokSize.width,adatokSize.height);
         idopontLabel.setFont(adatokFont);
 
         idopontTextfield=new JTextField();
-        idopontTextfield.setBounds(400,360,adatokSize.width,adatokSize.height);
+        idopontTextfield.setText("YYYY-MM-DD HH:MM");
+        idopontTextfield.setBounds(400,360,350,adatokSize.height);
 
         etelAllergiaLabel=new JLabel("Ételallergia:");
         etelAllergiaLabel.setBounds(30,410,adatokSize.width,adatokSize.height);
         etelAllergiaLabel.setFont(adatokFont);
+
+        allComboBox=new JComboBox();
+        allComboBox.addItem("");
+        allComboBox.addItem("Gluten");
+        allComboBox.setBounds(400,410,100,adatokSize.height);
+
+
 
         etelAllergiaTextfield=new JTextField();
         etelAllergiaTextfield.setBounds(400,410,adatokSize.width,adatokSize.height);
@@ -121,8 +148,17 @@ public class FoglalasUI {
         gyerekekSzamaLabel.setBounds(30,460,adatokSize.width,adatokSize.height);
         gyerekekSzamaLabel.setFont(adatokFont);
 
-        gyerekekSzamaTextfield=new JTextField();
-        gyerekekSzamaTextfield.setBounds(400,460,adatokSize.width,adatokSize.height);
+        gySzamaComboBox=new JComboBox();
+        gySzamaComboBox.addItem("");
+        gySzamaComboBox.addItem("1");
+        gySzamaComboBox.addItem("2");
+        gySzamaComboBox.addItem("3");
+        gySzamaComboBox.addItem("4");
+        gySzamaComboBox.addItem("5");
+        gySzamaComboBox.addItem("6");
+        gySzamaComboBox.addItem("7");
+        gySzamaComboBox.setBounds(400,460,100,25);
+
 
         megjegyzesTextArea=new JTextArea("Megjegyzés...");
         megjegyzesTextArea.setBounds(400,510,adatokSize.width,100);
@@ -136,15 +172,16 @@ public class FoglalasUI {
         foglalasPanel.add(keresztNevLabel);
         foglalasPanel.add(keresztNevTextfield);
         foglalasPanel.add(telefonLabel);
+        foglalasPanel.add(telComboBox);
         foglalasPanel.add(telefonTextfield);
         foglalasPanel.add(szemelyekSzamaLabel);
-        foglalasPanel.add(szemelyekSzamaTextfield);
+        foglalasPanel.add(szemSzamComboBox);
         foglalasPanel.add(idopontLabel);
         foglalasPanel.add(idopontTextfield);
         foglalasPanel.add(etelAllergiaLabel);
-        foglalasPanel.add(etelAllergiaTextfield);
+        foglalasPanel.add(allComboBox);
         foglalasPanel.add(gyerekekSzamaLabel);
-        foglalasPanel.add(gyerekekSzamaTextfield);
+        foglalasPanel.add(gySzamaComboBox);
         foglalasPanel.add(megjegyzesTextArea);
         foglalasPanel.add(elkuldButton);
         foglalasPanel.add(emailLabel);
@@ -154,12 +191,51 @@ public class FoglalasUI {
         elkuldButton.addMouseListener(new MouseAdapter() {
             public void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);
-                Foglalas foglalas = saveFoglalas();
+                if(ValidFoglalas()){
+                    Foglalas foglalas = saveFoglalas();
 
-                framework.hozzaadUgyfel(saveUgyfel(foglalas));
+                    framework.hozzaadUgyfel(saveUgyfel(foglalas));
+
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Nincs helyesen kitöltve!");
+                }
             }
         });
     }
+
+    private boolean ValidFoglalas(){
+        boolean valid=true;
+        if(vezetekNevTextfield.getText().trim().isEmpty()||keresztNevTextfield.getText().trim().isEmpty()||telefonTextfield.getText().trim().isEmpty()||
+                idopontTextfield.getText().trim().isEmpty()||emailTextfield.getText().trim().isEmpty()){
+            valid=false;
+            JOptionPane.showMessageDialog(null,"Minden mezőt ki kell tölteni!");
+        }
+        else {
+            String telefon = telefonTextfield.getText();
+            int num = 0;
+            for (char c : telefon.toCharArray()) {
+                if (Character.isDigit(c)) {
+                    num += 1;
+                } else {
+                    valid = false;
+                    JOptionPane.showMessageDialog(null, "Telefon formátuma nem megfelelő!");
+                }
+            }
+            if (num != 7) {
+                valid = false;
+                JOptionPane.showMessageDialog(null, "Telefon formátuma nem megfelelő!");
+            }
+            String email = emailTextfield.getText();
+            if (!email.contains("@") || !email.contains(".")) {
+                valid = false;
+                JOptionPane.showMessageDialog(null, "E-mail formátuma nem megfelelő!");
+            }
+        }
+        return valid;
+    }
+
+
 
     public JFrame getFoglalas() {
         return foglalas;
