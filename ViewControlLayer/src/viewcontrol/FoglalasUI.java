@@ -251,14 +251,17 @@ public class FoglalasUI {
 
         LocalDateTime dateTime = LocalDateTime.parse(idopontTextfield.getText(), formatter);
 
-        Foglalas foglalas = new Foglalas(dateTime,
-                Integer.parseInt(szemelyekSzamaTextfield.getText()));
+        String szemSzama=(String)szemSzamComboBox.getSelectedItem();
+        int szemSzamaInt=Integer.parseInt(szemSzama);
+        Foglalas foglalas = new Foglalas(dateTime, szemSzamaInt);
 
-        foglalas.setEtelallergia(Allergia.valueOf(etelAllergiaTextfield.getText()));
+        foglalas.setEtelallergia(Allergia.valueOf(allComboBox.getSelectedItem().toString()));
 
         foglalas.setMegjegyzes(megjegyzesTextArea.getText());
 
-        foglalas.setGyerekekSzama(gyerekekSzamaTextfield.getColumns());
+        String gyerSzama=(String)gySzamaComboBox.getSelectedItem();
+        int gyerSzamaInt=Integer.parseInt(gyerSzama);
+        foglalas.setGyerekekSzama(gyerSzamaInt);
 
         return foglalas;
     }
