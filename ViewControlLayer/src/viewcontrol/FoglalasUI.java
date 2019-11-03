@@ -268,7 +268,13 @@ public class FoglalasUI {
 
     private Ugyfel saveUgyfel(Foglalas foglalas){
 
-        gyerekekSzama = Integer.parseInt(gyerekekSzamaTextfield.getText());
+        StringBuilder value=new StringBuilder();
+        value.append(telComboBox.getSelectedItem().toString());
+        value.append(telefonTextfield.getText());
+        String telefon=value.toString();
+
+        String gyerSzama=(String)gySzamaComboBox.getSelectedItem();
+        gyerekekSzama = Integer.parseInt(gyerSzama);
 
         Ugyfel ugyfel = null;
 
@@ -278,7 +284,7 @@ public class FoglalasUI {
                     keresztNevTextfield.getText(),
                     vezetekNevTextfield.getText(),
                     emailTextfield.getText(),
-                    telefonTextfield.getText(),
+                    telefon,
                     gyerekekSzama);
         }
         else
@@ -287,7 +293,7 @@ public class FoglalasUI {
                     keresztNevTextfield.getText(),
                     vezetekNevTextfield.getText(),
                     emailTextfield.getText(),
-                    telefonTextfield.getText()
+                    telefon
             );
         }
 
