@@ -9,7 +9,8 @@ public enum Allergia {
     Mogyoro(3),
     Hisztamin(4),
     Laktoz(5),
-    Kazein(6);
+    Kazein(6),
+    Nincs(7);
 
     public int getValue() {
         return value;

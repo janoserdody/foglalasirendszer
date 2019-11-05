@@ -30,8 +30,6 @@ public class Framework implements IFramework{
     }
 
     public void hozzaadUgyfel(Ugyfel ugyfel){
-        ugyfelLista.add(ugyfel);
-
         dataService.InsertUgyfel(ugyfel);
 
         Foglalas foglalas = ugyfel.getFoglalas();
@@ -39,6 +37,8 @@ public class Framework implements IFramework{
         foglalas.setUgyfelId(ugyfel.getId());
 
         dataService.InsertFoglalas(foglalas);
+
+        ugyfelLista.add(ugyfel);
     }
 
     public void torolUgyfel(Ugyfel ugyfel){

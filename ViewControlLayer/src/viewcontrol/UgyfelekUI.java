@@ -30,6 +30,11 @@ public class UgyfelekUI {
         listUgyfelek.setListData(framework.getUgyfelNevekListaja());
     }
 
+    public void UgyfelekInicializalas(){
+        listUgyfelek.removeAll();
+        listUgyfelek.setListData(framework.getUgyfelNevekListaja());
+    }
+
     public JPanel getUgyfelekPane() {
         return ugyfelekPane;
     }

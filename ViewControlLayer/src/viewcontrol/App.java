@@ -103,6 +103,7 @@ public class App {
             public void actionPerformed(ActionEvent e) {
                 displayFrame(ugyfelekNezet.getUgyfelekListaja(),
                         ugyfelekNezet.getUgyfelekPane());
+                ugyfelekNezet.UgyfelekInicializalas();
             }
         });
     }

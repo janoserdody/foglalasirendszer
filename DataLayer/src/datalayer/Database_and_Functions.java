@@ -43,7 +43,7 @@ public class Database_and_Functions {
      */
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:C:\\Users\\totha\\Documents\\GitHub\\foglalasirendszer\\Foglalasok.db";
+        String url = "jdbc:sqlite:d:\\source\\foglalasirendszer2\\Foglalasok.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -431,7 +431,7 @@ public class Database_and_Functions {
 
             ResultSet results = pstmt.executeQuery();
 
-            Ugyfel ugyfel;
+            Ugyfel ugyfel = null;
 
                 QueryUgyfelLekerdezes aktualis_Ugyfel = new QueryUgyfelLekerdezes();
                 aktualis_Ugyfel.setAKTUALIS_UGYFEL_ID(results.getInt(1));
@@ -448,35 +448,7 @@ public class Database_and_Functions {
                 aktualis_Ugyfel.setAKTUALIS_UGYFEL_GYEREKEK_SZAMA(results.getInt(12));
                 aktualis_Ugyfel.setAKTUALIS_UGYFEL_UGYFEL_TIPUS(UgyfelTipus.valueOf(results.getInt(13)));
 
-                if (aktualis_Ugyfel.getAKTUALIS_UGYFEL_UGYFEL_TIPUS() == UgyfelTipus.CsaladosUgyfel){
-                    ugyfel = new CsaladosUgyfel(aktualis_Ugyfel.getAKTUALIS_UGYFEL_MEGSZOLITAS(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_KERESZTNEV(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_VEZETEKNEV(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_EMAIL(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_TELEFON(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_GYEREKEK_SZAMA());
-                }
-                else if (aktualis_Ugyfel.getAKTUALIS_UGYFEL_UGYFEL_TIPUS() == UgyfelTipus.CegesUgyfel){
-                    ugyfel = new CegesUgyfel(aktualis_Ugyfel.getAKTUALIS_UGYFEL_MEGSZOLITAS(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_KERESZTNEV(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_VEZETEKNEV(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_EMAIL(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_TELEFON(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_CEGNEV(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_SZAMLAZASI_CIM());
-                }
-                else{
-                    ugyfel = new Ugyfel(aktualis_Ugyfel.getAKTUALIS_UGYFEL_MEGSZOLITAS(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_KERESZTNEV(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_VEZETEKNEV(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_EMAIL(),
-                            aktualis_Ugyfel.getAKTUALIS_UGYFEL_TELEFON());
-                }
-
-                ugyfel.setUtolsoLatogatas(aktualis_Ugyfel.getAKTUALIS_UGYFEL_UTOLSO_LAtOGATAS());
-                ugyfel.setUtolsoSzamla(aktualis_Ugyfel.getAKTUALIS_UGYFEL_UTOLSO_SZAMLA());
-                ugyfel.setOsszesSzamla(aktualis_Ugyfel.getAKTUALIS_UGYFEL_OSSZES_SZAMLA());
-                ugyfel.setId(aktualis_Ugyfel.getAKTUALIS_UGYFEL_ID());
+                ugyfel = CopyUgyfelAdatok(aktualis_Ugyfel, ugyfel);
 
             return ugyfel;
 
@@ -486,6 +458,55 @@ public class Database_and_Functions {
             return null;
         }
 
+    }
+
+    private Ugyfel CopyUgyfelAdatok(QueryUgyfelLekerdezes aktualis_Ugyfel, Ugyfel ugyfel) {
+        if (aktualis_Ugyfel.getAKTUALIS_UGYFEL_UGYFEL_TIPUS() == UgyfelTipus.CsaladosUgyfel){
+            ugyfel = GetCsaladosUgyfel(aktualis_Ugyfel);
+        }
+        else if (aktualis_Ugyfel.getAKTUALIS_UGYFEL_UGYFEL_TIPUS() == UgyfelTipus.CegesUgyfel){
+            ugyfel = GetCegesUgyfel(aktualis_Ugyfel);
+        }
+        else{
+            ugyfel = GetUgyfel(aktualis_Ugyfel);
+        }
+
+        ugyfel.setUtolsoLatogatas(aktualis_Ugyfel.getAKTUALIS_UGYFEL_UTOLSO_LAtOGATAS());
+        ugyfel.setUtolsoSzamla(aktualis_Ugyfel.getAKTUALIS_UGYFEL_UTOLSO_SZAMLA());
+        ugyfel.setOsszesSzamla(aktualis_Ugyfel.getAKTUALIS_UGYFEL_OSSZES_SZAMLA());
+        ugyfel.setId(aktualis_Ugyfel.getAKTUALIS_UGYFEL_ID());
+
+        return ugyfel;
+    }
+
+    private Ugyfel GetUgyfel(QueryUgyfelLekerdezes aktualis_Ugyfel) {
+        Ugyfel ugyfel = new Ugyfel(aktualis_Ugyfel.getAKTUALIS_UGYFEL_MEGSZOLITAS(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_KERESZTNEV(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_VEZETEKNEV(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_EMAIL(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_TELEFON());
+        return ugyfel;
+    }
+
+    private Ugyfel GetCegesUgyfel(QueryUgyfelLekerdezes aktualis_Ugyfel) {
+        Ugyfel ugyfel = new CegesUgyfel(aktualis_Ugyfel.getAKTUALIS_UGYFEL_MEGSZOLITAS(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_KERESZTNEV(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_VEZETEKNEV(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_EMAIL(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_TELEFON(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_CEGNEV(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_SZAMLAZASI_CIM());
+        return ugyfel;
+    }
+
+    private Ugyfel GetCsaladosUgyfel(QueryUgyfelLekerdezes aktualis_Ugyfel) {
+        Ugyfel ugyfel = new CsaladosUgyfel(aktualis_Ugyfel.getAKTUALIS_UGYFEL_MEGSZOLITAS(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_KERESZTNEV(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_VEZETEKNEV(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_EMAIL(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_TELEFON(),
+                aktualis_Ugyfel.getAKTUALIS_UGYFEL_GYEREKEK_SZAMA());
+        return ugyfel;
     }
 
     public static final String SELECT_UGYFEL_WITH_KERESZTNEV_AND_VEZETEKNEV_QUERY =

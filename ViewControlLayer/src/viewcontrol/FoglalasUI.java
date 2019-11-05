@@ -149,7 +149,7 @@ public class FoglalasUI {
         gyerekekSzamaLabel.setFont(adatokFont);
 
         gySzamaComboBox=new JComboBox();
-        gySzamaComboBox.addItem("");
+        gySzamaComboBox.addItem("0");
         gySzamaComboBox.addItem("1");
         gySzamaComboBox.addItem("2");
         gySzamaComboBox.addItem("3");
