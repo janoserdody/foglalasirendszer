@@ -76,8 +76,9 @@ public class Database_and_Functions {
         ResultSet rs = null;
         int id = 0;
 
-        String sql = "INSERT INTO Ugyfel (megszolitas, keresztNev, vezetekNev, email, telefon," +
-                " utolsoSzamla, osszesSzamla, utolsoLatogatas, cegNev, szamlazasiCim, gyerekekSzama, ugyfelTipus) " +
+        String sql = "INSERT INTO Ugyfel " +
+                        "(megszolitas, keresztNev, vezetekNev, email, telefon," +
+                        " utolsoSzamla, osszesSzamla, utolsoLatogatas, cegNev, szamlazasiCim, gyerekekSzama, ugyfelTipus) " +
                 "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
 //        valueOf(String s) : This method converts a string in JDBC date escape format to a Date value using
@@ -95,7 +96,6 @@ public class Database_and_Functions {
             pstmt.setString(5, telefon);
             pstmt.setInt(6, utolszoSzamla);
             pstmt.setInt(7, osszesSzamla);
-            // TODO javítani a get ugyfelnél
             pstmt.setDate(8, Date.valueOf(utolsoLatogatas));
             pstmt.setString(9, cegNev);
             pstmt.setString(10, szamlazasiCim);

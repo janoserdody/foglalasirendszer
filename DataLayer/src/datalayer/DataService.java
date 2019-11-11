@@ -119,7 +119,6 @@ public class DataService implements IDataService {
 
     public ArrayList<Integer> ReadAllUgyfelId() {
         return database.Ugyfel_Lekerdezes_Funkcio_UgyfelID();
-        //Ugyfel_Lekerdezes_Funkcio_UgyfelID vissza ad egy tömböt, tömb elemek első mezője az ID
     }
 
     public Foglalas GetFogalas(int Id) {
@@ -137,8 +136,6 @@ public class DataService implements IDataService {
         return null;
     }
 
-    //Itt nem tudom miért nem fogadja el a get-ket?
-    // Azért nem, mert LocalDateTime típus a foglalás időpontja, és nem java.sql.Date
     public boolean ModifyFoglalas(Foglalas foglalas) {
         FoglalasTipus foglalasTipus;
         foglalasTipus = FoglalasTipus.Foglalas;
