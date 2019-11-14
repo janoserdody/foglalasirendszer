@@ -5,6 +5,8 @@ import modellayer.Framework;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class UjUgyfelBeviteleUI {
     private String megszolitas;
@@ -33,6 +35,7 @@ public class UjUgyfelBeviteleUI {
     private JLabel emailLabel;
     private JTextField emailTextfield;
     private JLabel telefonLabel;
+    private JComboBox telComboBox;
     private JTextField telefonTextfield;
     private JButton keszButton;
 
@@ -96,8 +99,14 @@ public class UjUgyfelBeviteleUI {
         telefonLabel.setBounds(30,450,adatokSize.width,adatokSize.height);
         telefonLabel.setFont(adatokFont);
 
+        telComboBox=new JComboBox();
+        telComboBox.addItem("20");
+        telComboBox.addItem("30");
+        telComboBox.addItem("70");
+        telComboBox.setBounds(400,450,100,25);
+
         telefonTextfield=new JTextField();
-        telefonTextfield.setBounds(400,450,adatokSize.width,adatokSize.height);
+        telefonTextfield.setBounds(520,450,230,adatokSize.height);
 
         keszButton=new JButton("Ügyfél hozzáadása");
         keszButton.setBounds(350,600,280,40);
@@ -112,10 +121,12 @@ public class UjUgyfelBeviteleUI {
         ujUgyfelBevitelePanel.add(emailLabel);
         ujUgyfelBevitelePanel.add(emailTextfield);
         ujUgyfelBevitelePanel.add(telefonLabel);
+        ujUgyfelBevitelePanel.add(telComboBox);
         ujUgyfelBevitelePanel.add(telefonTextfield);
         ujUgyfelBevitelePanel.add(keszButton);
 
         ujUgyfel.add(ujUgyfelBevitelePanel);
+
     }
 
     public JFrame getUjUgyfel() {
@@ -123,15 +134,57 @@ public class UjUgyfelBeviteleUI {
         return ujUgyfel;
     }
 
-    public void setUjUgyfel(JFrame ujUgyfel) {
-        megszolitas=jComboBox.getSelectedItem().toString();
-        keresztNev=keresztNevTextfield.getText();
-        vezetekNev=vezetekNevTextfield.getText();
-        email=emailTextfield.getText();
-        telefon=telefonTextfield.getText();
+    private boolean ValidForm(){
+        boolean valid=true;
+        if(vezetekNevTextfield.getText().trim().isEmpty()||keresztNevTextfield.getText().trim().isEmpty()||
+                telefonTextfield.getText().trim().isEmpty()|| emailTextfield.getText().trim().isEmpty()){
+            valid=false;
+            JOptionPane.showMessageDialog(null,"Minden mezőt ki kell tölteni!");
+        }
+        else {
+            String telefon = telefonTextfield.getText();
+            int num = 0;
+            for (char c : telefon.toCharArray()) {
+                if (Character.isDigit(c)) {
+                    num += 1;
+                } else {
+                    valid = false;
+                    JOptionPane.showMessageDialog(null, "Telefon formátuma nem megfelelő!");
+                }
+            }
+            if (num != 7) {
+                valid = false;
+                JOptionPane.showMessageDialog(null, "Telefon formátuma nem megfelelő!");
+            }
+            String email = emailTextfield.getText();
+            if (!email.contains("@") || !email.contains(".")) {
+                valid = false;
+                JOptionPane.showMessageDialog(null, "E-mail formátuma nem megfelelő!");
+            }
+        }
+        return valid;
+    }
 
-        //Ugyfel ujugyfel=new Ugyfel(megszolitas,keresztNev,vezetekNev,email,telefon);
-        this.ujUgyfel = ujUgyfel;
+    public void setUjUgyfel(JFrame ujUgyfel) {
+        if (ValidForm()){
+            StringBuilder value=new StringBuilder();
+            value.append(telComboBox.getSelectedItem().toString());
+            value.append(telefonTextfield.getText());
+            String wholeTelefon=value.toString();
+
+            megszolitas=jComboBox.getSelectedItem().toString();
+            keresztNev=keresztNevTextfield.getText();
+            vezetekNev=vezetekNevTextfield.getText();
+            email=emailTextfield.getText();
+            telefon=wholeTelefon;
+
+            //Ugyfel ujugyfel=new Ugyfel(megszolitas,keresztNev,vezetekNev,email,telefon);
+            this.ujUgyfel = ujUgyfel;
+            JOptionPane.showMessageDialog(null, "Új ügyfél hozzáadva!");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Nincs helyesen kitöltve!");
+        }
     }
 
     public JPanel getUjUgyfelBevitelePanel() {

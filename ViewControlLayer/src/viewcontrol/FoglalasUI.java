@@ -269,7 +269,7 @@ public class FoglalasUI {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
         LocalDateTime dateTime = LocalDateTime.parse(idopontTextfield.getText(), formatter);
-        String megszolitas=(String)jComboBox.getSelectedItem();
+
         String szemSzama=(String)szemSzamComboBox.getSelectedItem();
         int szemSzamaInt=Integer.parseInt(szemSzama);
 
