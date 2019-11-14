@@ -135,8 +135,13 @@ public class FoglalasUI {
         etelAllergiaLabel.setFont(adatokFont);
 
         allComboBox=new JComboBox();
-        allComboBox.addItem("");
         allComboBox.addItem("Gluten");
+        allComboBox.addItem("Tej");
+        allComboBox.addItem("Mogyoro");
+        allComboBox.addItem("Hisztamin");
+        allComboBox.addItem("Laktoz");
+        allComboBox.addItem("Kazein");
+        allComboBox.addItem("Nincs");
         allComboBox.setBounds(400,410,100,adatokSize.height);
 
 
