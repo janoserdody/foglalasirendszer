@@ -8,6 +8,8 @@ public class Foglalas {
 
     protected LocalDateTime datum;
 
+    protected String megszolitas;
+
     protected int szemelyekSzama;
 
     protected Allergia etelallergia;
@@ -49,6 +51,7 @@ public class Foglalas {
     public void setEtelallergia(Allergia etelallergia) {
         this.etelallergia = etelallergia;
     }
+    public void setMegszolitas(String megszolitas){this.megszolitas=megszolitas;}
 
     public int getGyerekekSzama() {
         return gyerekekSzama;

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="536642a4-b5bd-4162-b334-39e639bf7172" name="Default Changelist" comment="Add Validation to FoglalasUI">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/common/Foglalas.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/common/Foglalas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -155,7 +155,7 @@
       <workItem from="1572774660684" duration="2206000" />
       <workItem from="1573395547763" duration="3066000" />
       <workItem from="1573497023626" duration="3270000" />
-      <workItem from="1573754861356" duration="966000" />
+      <workItem from="1573754861356" duration="2703000" />
     </task>
     <task id="LOCAL-00001" summary="DataService és Framework vázlat">
       <created>1570482350414</created>

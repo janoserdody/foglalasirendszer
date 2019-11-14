@@ -30,6 +30,8 @@ public class FoglalasUI {
     private Framework framework;
 
     private JLabel title;
+    private JLabel megszolitasLabel;
+    private JComboBox jComboBox;
     private JLabel vezetekNevLabel;
     private JTextField vezetekNevTextfield;
     private JLabel keresztNevLabel;
@@ -72,43 +74,53 @@ public class FoglalasUI {
         title.setBounds(350,20,cimSize.width,cimSize.height);
         title.setFont(new Font("Arial",Font.BOLD,30));
 
+        megszolitasLabel=new JLabel("Megszólítás kiválasztása:");
+        megszolitasLabel.setBounds(30,110,adatokSize.width,adatokSize.height);
+        megszolitasLabel.setFont(adatokFont);
+
+        jComboBox=new JComboBox();
+        jComboBox.addItem("id");
+        jComboBox.addItem("ifj");
+        jComboBox.addItem("dr");
+        jComboBox.setBounds(400,110,50,adatokSize.height);
+
         vezetekNevLabel=new JLabel("Vezetéknév:");
-        vezetekNevLabel.setBounds(30,110,adatokSize.width,adatokSize.height);
+        vezetekNevLabel.setBounds(30,160,adatokSize.width,adatokSize.height);
         vezetekNevLabel.setFont(adatokFont);
 
         vezetekNevTextfield=new JTextField();
-        vezetekNevTextfield.setBounds(400,110,adatokSize.width,adatokSize.height);
+        vezetekNevTextfield.setBounds(400,160,adatokSize.width,adatokSize.height);
 
         keresztNevLabel=new JLabel("Keresztnév:");
-        keresztNevLabel.setBounds(30,160,adatokSize.width,adatokSize.height);
+        keresztNevLabel.setBounds(30,210,adatokSize.width,adatokSize.height);
         keresztNevLabel.setFont(adatokFont);
 
         keresztNevTextfield=new JTextField();
-        keresztNevTextfield.setBounds(400,160,adatokSize.width,adatokSize.height);
+        keresztNevTextfield.setBounds(400,210,adatokSize.width,adatokSize.height);
 
         telefonLabel=new JLabel("Telefon:");
-        telefonLabel.setBounds(30,210,adatokSize.width,adatokSize.height);
+        telefonLabel.setBounds(30,260,adatokSize.width,adatokSize.height);
         telefonLabel.setFont(adatokFont);
 
         telComboBox=new JComboBox();
         telComboBox.addItem("20");
         telComboBox.addItem("30");
         telComboBox.addItem("70");
-        telComboBox.setBounds(400,210,100,25);
+        telComboBox.setBounds(400,260,100,25);
 
 
         telefonTextfield=new JTextField();
-        telefonTextfield.setBounds(520,210,230,adatokSize.height);
+        telefonTextfield.setBounds(520,260,230,adatokSize.height);
 
         emailLabel=new JLabel("Email:");
-        emailLabel.setBounds(30,260,adatokSize.width,adatokSize.height);
+        emailLabel.setBounds(30,310,adatokSize.width,adatokSize.height);
         emailLabel.setFont(adatokFont);
 
         emailTextfield=new JTextField();
-        emailTextfield.setBounds(400,260,adatokSize.width,adatokSize.height);
+        emailTextfield.setBounds(400,310,adatokSize.width,adatokSize.height);
 
         szemelyekSzamaLabel=new JLabel("Személyek száma:");
-        szemelyekSzamaLabel.setBounds(30,310,adatokSize.width,adatokSize.height);
+        szemelyekSzamaLabel.setBounds(30,360,adatokSize.width,adatokSize.height);
         szemelyekSzamaLabel.setFont(adatokFont);
 
         szemSzamComboBox=new JComboBox();
@@ -120,18 +132,18 @@ public class FoglalasUI {
         szemSzamComboBox.addItem("6");
         szemSzamComboBox.addItem("7");
         szemSzamComboBox.addItem("8");
-        szemSzamComboBox.setBounds(400,310,100,25);
+        szemSzamComboBox.setBounds(400,360,100,25);
 
         idopontLabel=new JLabel("Időpont:");
-        idopontLabel.setBounds(30,360,adatokSize.width,adatokSize.height);
+        idopontLabel.setBounds(30,410,adatokSize.width,adatokSize.height);
         idopontLabel.setFont(adatokFont);
 
         idopontTextfield=new JTextField();
         idopontTextfield.setText("YYYY-MM-DD HH:MM");
-        idopontTextfield.setBounds(400,360,350,adatokSize.height);
+        idopontTextfield.setBounds(400,410,350,adatokSize.height);
 
         etelAllergiaLabel=new JLabel("Ételallergia:");
-        etelAllergiaLabel.setBounds(30,410,adatokSize.width,adatokSize.height);
+        etelAllergiaLabel.setBounds(30,460,adatokSize.width,adatokSize.height);
         etelAllergiaLabel.setFont(adatokFont);
 
         allComboBox=new JComboBox();
@@ -142,15 +154,15 @@ public class FoglalasUI {
         allComboBox.addItem("Laktoz");
         allComboBox.addItem("Kazein");
         allComboBox.addItem("Nincs");
-        allComboBox.setBounds(400,410,100,adatokSize.height);
+        allComboBox.setBounds(400,460,100,adatokSize.height);
 
 
 
         etelAllergiaTextfield=new JTextField();
-        etelAllergiaTextfield.setBounds(400,410,adatokSize.width,adatokSize.height);
+        etelAllergiaTextfield.setBounds(400,460,adatokSize.width,adatokSize.height);
 
         gyerekekSzamaLabel=new JLabel("Gyerekek száma:");
-        gyerekekSzamaLabel.setBounds(30,460,adatokSize.width,adatokSize.height);
+        gyerekekSzamaLabel.setBounds(30,510,adatokSize.width,adatokSize.height);
         gyerekekSzamaLabel.setFont(adatokFont);
 
         gySzamaComboBox=new JComboBox();
@@ -162,17 +174,19 @@ public class FoglalasUI {
         gySzamaComboBox.addItem("5");
         gySzamaComboBox.addItem("6");
         gySzamaComboBox.addItem("7");
-        gySzamaComboBox.setBounds(400,460,100,25);
+        gySzamaComboBox.setBounds(400,510,100,25);
 
 
         megjegyzesTextArea=new JTextArea("Megjegyzés...");
-        megjegyzesTextArea.setBounds(400,510,adatokSize.width,100);
+        megjegyzesTextArea.setBounds(400,560,adatokSize.width,70);
 
         elkuldButton=new JButton("Foglalás hozzáadása");
         elkuldButton.setBounds(350,660,280,40);
 
         foglalasPanel.add(title);
         foglalasPanel.add(vezetekNevLabel);
+        foglalasPanel.add(megszolitasLabel);
+        foglalasPanel.add(jComboBox);
         foglalasPanel.add(vezetekNevTextfield);
         foglalasPanel.add(keresztNevLabel);
         foglalasPanel.add(keresztNevTextfield);
@@ -255,11 +269,13 @@ public class FoglalasUI {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
         LocalDateTime dateTime = LocalDateTime.parse(idopontTextfield.getText(), formatter);
-
+        String megszolitas=(String)jComboBox.getSelectedItem();
         String szemSzama=(String)szemSzamComboBox.getSelectedItem();
         int szemSzamaInt=Integer.parseInt(szemSzama);
-        Foglalas foglalas = new Foglalas(dateTime, szemSzamaInt);
 
+        Foglalas foglalas = new Foglalas(dateTime, szemSzamaInt);
+        String megszolitasa=(String) jComboBox.getSelectedItem();
+        foglalas.setMegszolitas(megszolitasa);
         foglalas.setEtelallergia(Allergia.valueOf(allComboBox.getSelectedItem().toString()));
 
         foglalas.setMegjegyzes(megjegyzesTextArea.getText());
