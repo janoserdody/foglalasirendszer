@@ -274,8 +274,8 @@ public class FoglalasUI {
         int szemSzamaInt=Integer.parseInt(szemSzama);
 
         Foglalas foglalas = new Foglalas(dateTime, szemSzamaInt);
-        String megszolitasa=(String) jComboBox.getSelectedItem();
-        foglalas.setMegszolitas(megszolitasa);
+
+
         foglalas.setEtelallergia(Allergia.valueOf(allComboBox.getSelectedItem().toString()));
 
         foglalas.setMegjegyzes(megjegyzesTextArea.getText());
@@ -317,6 +317,10 @@ public class FoglalasUI {
                     telefon
             );
         }
+
+        String megszolitasa=(String) jComboBox.getSelectedItem();
+
+        ugyfel.setMegszolitas(megszolitasa);
 
         ugyfel.setFoglalas(foglalas);
 
