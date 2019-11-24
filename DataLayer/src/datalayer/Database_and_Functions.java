@@ -315,9 +315,12 @@ public class Database_and_Functions {
 
     public static final String QUERY_LEKERESFOGLALAS =
             "SELECT id, datum, szemelyekSzama, etelallergia, " +
-                    "gyerekekSzama, megjegyzes FROM Foglalas WHERE id = ?";
+                    "gyerekekSzama, megjegyzes, foglalasTipus, asztalSzam, " +
+                    "teremSzam, ugyfelId FROM Foglalas WHERE id = ?";
 
-    public Foglalas foglalas_Lekerdezes_Funkcio(int id) {
+    public List<Foglalas> foglalas_Lekerdezes_Funkcio(int id) {
+
+        QueryFoglalasLekerdezes aktualisFoglalas = new QueryFoglalasLekerdezes();
 
         try {
             Connection conn = this.connect();
@@ -325,21 +328,32 @@ public class Database_and_Functions {
             pstmt.setInt(1, id);
             ResultSet results = pstmt.executeQuery();
 
-            QueryFoglalasLekerdezes aktualisFoglalas = new QueryFoglalasLekerdezes();
-            aktualisFoglalas.setUGYFEL_MEGSZOLITAS_QUERY(results.getString(1));
-            aktualisFoglalas.setUGYFEL_KERESZTNEV_QUERY(results.getString(2));
-            aktualisFoglalas.setUGYFEL_VEZETEKNEV_QUERY(results.getString(3));
-            aktualisFoglalas.setFOGLALAS_ID_QUERY(results.getInt(4));
-            aktualisFoglalas.setFOGLALAS_DATUM_QUERY(results.getTimestamp(5).toLocalDateTime());
-            aktualisFoglalas.setFOGLALAS_SZEMELYEKSZAMA_QUERY(results.getInt(6));
-            aktualisFoglalas.setFOGLALAS_ETELALLERGIA_QUERY(Allergia.valueOf(results.getInt(7)));
-            aktualisFoglalas.setFOGLALAS_GYEREKEKSZAMA_QUERY(results.getInt(8));
-            aktualisFoglalas.setFOGLALAS_MEGJEGYZES_QUERY(results.getString(9));
-            aktualisFoglalas.setFOGLALAS_UGYFEL_ID(results.getInt(10));
+            List<QueryFoglalasLekerdezes> foglalasok = new ArrayList<>();
+            while (results.next()) {
+                aktualisFoglalas.setUGYFEL_MEGSZOLITAS_QUERY(results.getString(1));
+                aktualisFoglalas.setUGYFEL_KERESZTNEV_QUERY(results.getString(2));
+                aktualisFoglalas.setUGYFEL_VEZETEKNEV_QUERY(results.getString(3));
+                aktualisFoglalas.setFOGLALAS_ID_QUERY(results.getInt(4));
+                aktualisFoglalas.setFOGLALAS_DATUM_QUERY(results.getTimestamp(5).toLocalDateTime());
+                aktualisFoglalas.setFOGLALAS_SZEMELYEKSZAMA_QUERY(results.getInt(6));
+                aktualisFoglalas.setFOGLALAS_ETELALLERGIA_QUERY(Allergia.valueOf(results.getInt(7)));
+                aktualisFoglalas.setFOGLALAS_GYEREKEKSZAMA_QUERY(results.getInt(8));
+                aktualisFoglalas.setFOGLALAS_MEGJEGYZES_QUERY(results.getString(9));
+                aktualisFoglalas.setFOGLALAS_UGYFEL_ID(results.getInt(10));
 
-            Foglalas foglalas = GetFoglalas(aktualisFoglalas);
+                Foglalas foglalas = GetFoglalas(aktualisFoglalas);
+            }
 
-            return foglalas;
+            Foglalas foglalas = null;
+            List<Foglalas> foglalasList = new ArrayList<>();
+
+            for (QueryFoglalasLekerdezes foglalasLekerdezes: foglalasok) {
+                foglalas = CopyFoglalasFromQuery(foglalasLekerdezes);
+
+                foglalasList.add(foglalas);
+            }
+
+            return foglalasList;
 
         } catch (SQLException e) {
             System.out.println("Query sikertelen. Hiba: " + e.getMessage());
@@ -366,7 +380,8 @@ public class Database_and_Functions {
 
     public static final String QUERY_LEKERESFOGLALAS_ADOTT_NAPRA =
             "SELECT id, datum, szemelyekSzama, etelallergia, " +
-                    "gyerekekSzama, megjegyzes, foglalasTipus, asztalSzam, teremSzam, ugyfelId FROM Foglalas WHERE Foglalas.datum = ?";
+                    "gyerekekSzama, megjegyzes, foglalasTipus, asztalSzam, " +
+                    "teremSzam, ugyfelId FROM Foglalas WHERE Foglalas.datum = ?";
 
     public List<Foglalas> foglalas_Lekerdezes_Funkcio_Adott_nappra(LocalDateTime datum) {
 
@@ -417,8 +432,6 @@ public class Database_and_Functions {
         if (foglalasLekerdezes.getFOGLALAS_TIPUS_QUERY() == FoglalasTipus.Foglalas.getValue()){
             foglalas = new Foglalas(foglalasLekerdezes.getFOGLALAS_DATUM_QUERY(),
                     foglalasLekerdezes.getFOGLALAS_SZEMELYEKSZAMA_QUERY());
-
-
         }
         else if(foglalasLekerdezes.getFOGLALAS_TIPUS_QUERY() == FoglalasTipus.AsztalFoglalas.getValue()){
 

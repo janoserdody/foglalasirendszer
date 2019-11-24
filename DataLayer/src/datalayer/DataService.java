@@ -121,7 +121,7 @@ public class DataService implements IDataService {
     }
 
     public Foglalas GetFogalas(int Id) {
-        return database.foglalas_Lekerdezes_Funkcio(Id);
+        return (Foglalas) database.foglalas_Lekerdezes_Funkcio(Id);
     }
 
     public boolean RemoveFoglalas(int Id) {
@@ -135,7 +135,7 @@ public class DataService implements IDataService {
     }
 
     public boolean ModifyFoglalas(Foglalas foglalas) {
-        FoglalasTipus foglalasTipus;
+        /*FoglalasTipus foglalasTipus;
         foglalasTipus = FoglalasTipus.Foglalas;
         database.updateFoglalas(
                 foglalas.getId(),
@@ -145,7 +145,40 @@ public class DataService implements IDataService {
                 foglalas.getGyerekekSzama(),
                 foglalas.getMegjegyzes());
 
+        return false;*/
+
+        int id = 0;
+
+        int asztalSzam = 0;
+
+        int teremSzam = 0;
+
+        FoglalasTipus foglalasTipus;
+
+        if (foglalas instanceof AsztalFoglalas){
+            foglalasTipus = FoglalasTipus.AsztalFoglalas;
+
+            asztalSzam = ((AsztalFoglalas) foglalas).getAsztalSzam();
+        }
+        else if (foglalas instanceof TeremFoglalas){
+            foglalasTipus = FoglalasTipus.TeremFoglalas;
+
+            teremSzam = ((TeremFoglalas) foglalas).getTeremSzam();
+        }
+        else {
+            foglalasTipus = FoglalasTipus.Foglalas;
+        }
+
+        database.updateFoglalas(
+                foglalas.getId(),
+                foglalas.getDatum(),
+                foglalas.getSzemelyekSzama(),
+                foglalas.getEtelallergia(),
+                foglalas.getGyerekekSzama(),
+                foglalas.getMegjegyzes());
+
         return false;
+
     }
 
     public boolean InsertFoglalas(Foglalas foglalas) {
