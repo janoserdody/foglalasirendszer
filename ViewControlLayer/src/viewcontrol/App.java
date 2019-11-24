@@ -15,7 +15,7 @@ public class App {
     private UgyfelekUI ugyfelekNezet;
     private CalendarUI calendarNezet;
     private UjUgyfelBeviteleUI ujUgyfelNezet;
-    private AsztalokUI asztalokNezet;
+    private UgyfelAdatModositasUI asztalokNezet;
     private Framework framework;
 
     // constructor
@@ -24,7 +24,7 @@ public class App {
             UgyfelekUI ugyfelekNezet,
             CalendarUI calendarNezet,
             UjUgyfelBeviteleUI ujUgyfelNezet,
-            AsztalokUI asztalokNezet,
+            UgyfelAdatModositasUI asztalokNezet,
             Framework framework) {
         this.foglalasNezet = foglalasNezet;
         this.ugyfelekNezet = ugyfelekNezet;
@@ -81,7 +81,7 @@ public class App {
         JMenuItem menuItemUgyelek = new JMenuItem("Ügyfelek listája");
         JMenuItem menuItemNaptar = new JMenuItem("Foglalási naptár");
         JMenuItem menuItemUjUgyfel = new JMenuItem("Új ügyfél bevitele");
-        JMenuItem menuItemAsztalok = new JMenuItem("Asztalok nézet");
+        JMenuItem menuItemAsztalok = new JMenuItem("Ügyfél adat módosítás");
 
         addMenuItemFoglalas(menuItemFoglalas);
         addMenuItemUgyfelek(menuItemUgyelek);

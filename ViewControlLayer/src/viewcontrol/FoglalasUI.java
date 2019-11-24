@@ -215,6 +215,7 @@ public class FoglalasUI {
 
                     framework.hozzaadUgyfel(saveUgyfel(foglalas));
 
+                    JOptionPane.showMessageDialog(null, "Sikeres mentés!");
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "Nincs helyesen kitöltve!");
@@ -297,11 +298,12 @@ public class FoglalasUI {
         String gyerSzama=(String)gySzamaComboBox.getSelectedItem();
         gyerekekSzama = Integer.parseInt(gyerSzama);
 
+        String megszolitasa=(String)jComboBox.getSelectedItem();
         Ugyfel ugyfel = null;
 
         if (gyerekekSzama > 0){
             ugyfel = new CsaladosUgyfel(
-                    "MR.",
+                    megszolitasa,
                     keresztNevTextfield.getText(),
                     vezetekNevTextfield.getText(),
                     emailTextfield.getText(),
@@ -310,7 +312,7 @@ public class FoglalasUI {
         }
         else
         {
-            ugyfel = new Ugyfel("MR.",
+            ugyfel = new Ugyfel(megszolitasa,
                     keresztNevTextfield.getText(),
                     vezetekNevTextfield.getText(),
                     emailTextfield.getText(),
@@ -318,7 +320,7 @@ public class FoglalasUI {
             );
         }
 
-        String megszolitasa=(String) jComboBox.getSelectedItem();
+
 
         ugyfel.setMegszolitas(megszolitasa);
 

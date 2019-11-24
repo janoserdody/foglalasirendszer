@@ -1,7 +1,10 @@
 package viewcontrol;
 
 import modellayer.Framework;
-
+import common.Allergia;
+import common.CsaladosUgyfel;
+import common.Foglalas;
+import common.Ugyfel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -127,7 +130,37 @@ public class UjUgyfelBeviteleUI {
 
         ujUgyfel.add(ujUgyfelBevitelePanel);
 
+        keszButton.addMouseListener(new MouseAdapter() {
+            public void mouseReleased(MouseEvent e) {
+                super.mouseReleased(e);
+
+
+
+                framework.hozzaadUgyfel(saveUgyfel());
+                JOptionPane.showMessageDialog(null, "Sikeres mentés!");
+
+            }
+        });
+
     }
+
+    private Ugyfel saveUgyfel(){
+
+        Ugyfel ugyfel = null;
+
+        StringBuilder value=new StringBuilder();
+        value.append(telComboBox.getSelectedItem().toString());
+        value.append(telefonTextfield.getText());
+        String telefon=value.toString();
+
+        String megszolitasa=(String)jComboBox.getSelectedItem();
+
+        ugyfel=new Ugyfel(megszolitasa,keresztNevTextfield.getText(),vezetekNevTextfield.getText(),
+                emailTextfield.getText(),telefon);
+
+        return ugyfel;
+    }
+
 
     public JFrame getUjUgyfel() {
 

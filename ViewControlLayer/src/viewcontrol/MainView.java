@@ -10,7 +10,7 @@ public class MainView {
 
     private CalendarUI calendarNezet;
 
-    private AsztalokUI asztalokNezet;
+    private UgyfelAdatModositasUI asztalokNezet;
 
     private UjUgyfelBeviteleUI ujUgyfelNezet;
 
@@ -30,7 +30,7 @@ public class MainView {
 
         ujUgyfelNezet = new UjUgyfelBeviteleUI(framework);
 
-        asztalokNezet = new AsztalokUI(framework);
+        asztalokNezet = new UgyfelAdatModositasUI(framework);
 
         fooldal = new App(
                 foglalasNezet,

@@ -9,25 +9,35 @@ public class UgyfelekUI {
 
     private JPanel ugyfelekPane;
     private JList listUgyfelek;
+    private JButton btnUgyfelAdatokMegynyitasa;
     private JFrame ugyfelekListaja;
     private Framework framework;
+    private JScrollPane scrollPane;
 
     private JLabel title;
 
     public  UgyfelekUI(Framework framework){
         this.framework = framework;
         ugyfelekListaja = new JFrame("Ügyfelek listája");
-        /*ugyfelekPane=new JPanel();
-        ugyfelekListaja.getContentPane();
-        ugyfelekPane.setLayout(null);*/
+
 
         title=new JLabel("Ügyfél lista");
-        title.setBounds(350,20,200,35);
+        title.setBounds(450,20,200,35);
         title.setFont(new Font("Arial",Font.BOLD,30));
 
-        ugyfelekListaja.add(title);
+        btnUgyfelAdatokMegynyitasa=new JButton("Ügyfél adatok megnyitása");
+        btnUgyfelAdatokMegynyitasa.setBounds(400,700,250,30);
+
 
         listUgyfelek.setListData(framework.getUgyfelNevekListaja());
+        listUgyfelek.setBounds(200,100,600,500);
+        ugyfelekPane=new JPanel();
+        ugyfelekPane.setLayout(null);
+
+
+        ugyfelekPane.add(title);
+        ugyfelekPane.add(listUgyfelek);
+        ugyfelekPane.add(btnUgyfelAdatokMegynyitasa);
     }
 
     public void UgyfelekInicializalas(){
