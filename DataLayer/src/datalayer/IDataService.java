@@ -5,6 +5,7 @@ import common.Ugyfel;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public interface IDataService {
     //  beszúr egy ügyfelet az adatbázisba

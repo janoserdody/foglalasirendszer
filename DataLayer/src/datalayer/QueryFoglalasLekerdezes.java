@@ -30,6 +30,37 @@ public class QueryFoglalasLekerdezes {
     private Integer FOGLALAS_GYEREKEKSZAMA_QUERY;
     private String FOGLALAS_MEGJEGYZES_QUERY;
 
+    public Integer getFOGLALAS_TEREMSZAM_QUERY() {
+        return FOGLALAS_TEREMSZAM_QUERY;
+    }
+
+    public void setFOGLALAS_TEREMSZAM_QUERY(Integer FOGLALAS_TEREMSZAM_QUERY) {
+        this.FOGLALAS_TEREMSZAM_QUERY = FOGLALAS_TEREMSZAM_QUERY;
+    }
+
+    private Integer FOGLALAS_TEREMSZAM_QUERY;
+
+
+    public Integer getFOGLALAS_ASZTALSZAM_QUERY() {
+        return FOGLALAS_ASZTALSZAM_QUERY;
+    }
+
+    public void setFOGLALAS_ASZTALSZAM_QUERY(Integer FOGLALAS_ASZTALSZAM_QUERY) {
+        this.FOGLALAS_ASZTALSZAM_QUERY = FOGLALAS_ASZTALSZAM_QUERY;
+    }
+
+    private Integer FOGLALAS_ASZTALSZAM_QUERY;
+
+    public Integer getFOGLALAS_TIPUS_QUERY() {
+        return FOGLALAS_TIPUS_QUERY;
+    }
+
+    public void setFOGLALAS_TIPUS_QUERY(Integer FOGLALAS_TIPUS_QUERY) {
+        this.FOGLALAS_TIPUS_QUERY = FOGLALAS_TIPUS_QUERY;
+    }
+
+    private Integer FOGLALAS_TIPUS_QUERY;
+
     public Integer getFOGLALAS_UGYFEL_ID() {
         return FOGLALAS_UGYFEL_ID;
     }

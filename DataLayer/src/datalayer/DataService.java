@@ -4,6 +4,7 @@ import common.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataService implements IDataService {
 
@@ -64,13 +65,11 @@ public class DataService implements IDataService {
     }
 
     public Ugyfel GetUgyfel(String keresztNev, String vezetekNev) {
-        database.Ugyfel_Lekerdezes_Funkcio_Keresztnev_Vezeteknev(keresztNev, vezetekNev);
-        return null;
+        return database.Ugyfel_Lekerdezes_Funkcio_Keresztnev_Vezeteknev(keresztNev, vezetekNev);
     }
 
     public Ugyfel GetUgyfel(String telefon) {
-        database.Ugyfel_Lekerdezes_Funkcio_Telefonszam(telefon);
-        return null;
+        return database.Ugyfel_Lekerdezes_Funkcio_Telefonszam(telefon);
     }
 
     public boolean ModifyUgyfel(Ugyfel ugyfel) {
@@ -119,12 +118,10 @@ public class DataService implements IDataService {
 
     public ArrayList<Integer> ReadAllUgyfelId() {
         return database.Ugyfel_Lekerdezes_Funkcio_UgyfelID();
-        //Ugyfel_Lekerdezes_Funkcio_UgyfelID vissza ad egy tömböt, tömb elemek első mezője az ID
     }
 
     public Foglalas GetFogalas(int Id) {
-        database.foglalas_Lekerdezes_Funkcio(Id);
-        return null;
+        return database.foglalas_Lekerdezes_Funkcio(Id);
     }
 
     public boolean RemoveFoglalas(int Id) {
@@ -137,8 +134,6 @@ public class DataService implements IDataService {
         return null;
     }
 
-    //Itt nem tudom miért nem fogadja el a get-ket?
-    // Azért nem, mert LocalDateTime típus a foglalás időpontja, és nem java.sql.Date
     public boolean ModifyFoglalas(Foglalas foglalas) {
         FoglalasTipus foglalasTipus;
         foglalasTipus = FoglalasTipus.Foglalas;
