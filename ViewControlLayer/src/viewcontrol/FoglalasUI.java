@@ -320,8 +320,6 @@ public class FoglalasUI {
             );
         }
 
-
-
         ugyfel.setMegszolitas(megszolitasa);
 
         ugyfel.setFoglalas(foglalas);
