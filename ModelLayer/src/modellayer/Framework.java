@@ -25,14 +25,10 @@ public class Framework implements IFramework{
         dataService = new DataService(localTimeZone);
 
         ugyfelLista = new ArrayList<Ugyfel>();
-        //ugyfelLista.add(new Ugyfel("Kisasszony","Gabi", "Kis", "jhgfjhgf@freemail.hu", "1234567"));
-        //ugyfelLista.add(new Ugyfel("Úrhölgy","Julcsi", "Nagy", "uzuzt@freemail.hu", "9879654"));
+        
     }
 
-    public  void hozzaadUgyfel2(Ugyfel ugyfel){
-        dataService.InsertUgyfel(ugyfel);
-        ugyfelLista.add(ugyfel);
-    }
+
 
     public void hozzaadUgyfel(Ugyfel ugyfel){
         dataService.InsertUgyfel(ugyfel);

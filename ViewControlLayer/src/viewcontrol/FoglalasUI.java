@@ -181,7 +181,7 @@ public class FoglalasUI {
         megjegyzesTextArea.setBounds(400,560,adatokSize.width,70);
 
         elkuldButton=new JButton("Foglalás hozzáadása");
-        elkuldButton.setBounds(350,660,280,40);
+        elkuldButton.setBounds(400,660,280,40);
 
         foglalasPanel.add(title);
         foglalasPanel.add(vezetekNevLabel);

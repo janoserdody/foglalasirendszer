@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="536642a4-b5bd-4162-b334-39e639bf7172" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelAdatModositasUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java" beforeDir="false" afterPath="$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/AsztalokUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelAdatModositasUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/AsztalokUI.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelAdatModositasUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelAdatModositasUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelBeviteleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelBeviteleUI.java" afterDir="false" />
     </list>
@@ -92,7 +86,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574616180543" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/source/foglalasirendszer2" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -182,6 +176,8 @@
       <workItem from="1574618576296" duration="9143000" />
       <workItem from="1574627810585" duration="97000" />
       <workItem from="1574627926049" duration="74000" />
+      <workItem from="1574628016372" duration="202000" />
+      <workItem from="1574795683770" duration="6232000" />
     </task>
     <task id="LOCAL-00001" summary="DataService és Framework vázlat">
       <created>1570482350414</created>

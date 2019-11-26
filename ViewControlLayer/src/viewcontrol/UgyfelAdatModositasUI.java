@@ -30,6 +30,12 @@ public class UgyfelAdatModositasUI {
     private JLabel telefonLabel;
     private JComboBox telComboBox;
     private JTextField telefonTextfield;
+    private JLabel gyerekekSzamaLabel;
+    private JComboBox gySzamaComboBox;
+    private JLabel lblCegnev;
+    private JTextField cegnevTextField;
+    private JLabel lblSzamlaCim;
+    private JTextField szamlacimTextfield;
     private JButton btnAdatokModositasa;
 
 
@@ -45,9 +51,7 @@ public class UgyfelAdatModositasUI {
 
         Font iFont=new Font("Arial",Font.ITALIC,20);
 
-        title=new JLabel("Ügyfél adatok módosítása");
-        title.setBounds(350,20,400,35);
-        title.setFont(new Font("Arial",Font.BOLD,30));
+
 
         /*
         ImageIcon background=new ImageIcon("tableview.jpg");
@@ -68,56 +72,85 @@ public class UgyfelAdatModositasUI {
 
 
         title=new JLabel("Ügyfél adat módosítás");
-        title.setBounds(350,40,cimSize.width,cimSize.height);
+        title.setBounds(350,20,cimSize.width,cimSize.height);
         title.setFont(new Font("Arial",Font.BOLD,30));
 
 
         megszolitasLabel=new JLabel("Megszólítás kiválasztása:");
-        megszolitasLabel.setBounds(30,170,adatokSize.width,adatokSize.height);
+        megszolitasLabel.setBounds(30,140,adatokSize.width,adatokSize.height);
         megszolitasLabel.setFont(adatokFont);
 
         jComboBox=new JComboBox();
         jComboBox.addItem("id");
         jComboBox.addItem("ifj");
         jComboBox.addItem("dr");
-        jComboBox.setBounds(400,170,50,adatokSize.height);
+        jComboBox.setBounds(400,140,50,adatokSize.height);
 
         vezetekNevLabel=new JLabel("Vezetéknév:");
-        vezetekNevLabel.setBounds(30,240,adatokSize.width,adatokSize.height);
+        vezetekNevLabel.setBounds(30,200,adatokSize.width,adatokSize.height);
         vezetekNevLabel.setFont(adatokFont);
 
         vezetekNevTextfield=new JTextField();
-        vezetekNevTextfield.setBounds(400,240,adatokSize.width,adatokSize.height);
+        vezetekNevTextfield.setBounds(400,200,adatokSize.width,adatokSize.height);
 
         keresztNevLabel=new JLabel("Keresztnév:");
-        keresztNevLabel.setBounds(30,310,adatokSize.width,adatokSize.height);
+        keresztNevLabel.setBounds(30,260,adatokSize.width,adatokSize.height);
         keresztNevLabel.setFont(adatokFont);
 
         keresztNevTextfield=new JTextField();
-        keresztNevTextfield.setBounds(400,310,adatokSize.width,adatokSize.height);
+        keresztNevTextfield.setBounds(400,260,adatokSize.width,adatokSize.height);
 
         emailLabel=new JLabel("E-mail:");
-        emailLabel.setBounds(30,380,adatokSize.width,adatokSize.height);
+        emailLabel.setBounds(30,320,adatokSize.width,adatokSize.height);
         emailLabel.setFont(adatokFont);
 
         emailTextfield=new JTextField();
-        emailTextfield.setBounds(400,380,adatokSize.width,adatokSize.height);
+        emailTextfield.setBounds(400,320,adatokSize.width,adatokSize.height);
 
         telefonLabel=new JLabel("Telefon:");
-        telefonLabel.setBounds(30,450,adatokSize.width,adatokSize.height);
+        telefonLabel.setBounds(30,380,adatokSize.width,adatokSize.height);
         telefonLabel.setFont(adatokFont);
 
         telComboBox=new JComboBox();
         telComboBox.addItem("20");
         telComboBox.addItem("30");
         telComboBox.addItem("70");
-        telComboBox.setBounds(400,450,100,25);
+        telComboBox.setBounds(400,380,100,25);
 
         telefonTextfield=new JTextField();
-        telefonTextfield.setBounds(520,450,230,adatokSize.height);
+        telefonTextfield.setBounds(520,380,230,adatokSize.height);
+
+        gyerekekSzamaLabel=new JLabel("Gyerekek száma:");
+        gyerekekSzamaLabel.setBounds(30,440,adatokSize.width,adatokSize.height);
+        gyerekekSzamaLabel.setFont(adatokFont);
+
+        gySzamaComboBox=new JComboBox();
+        gySzamaComboBox.addItem("0");
+        gySzamaComboBox.addItem("1");
+        gySzamaComboBox.addItem("2");
+        gySzamaComboBox.addItem("3");
+        gySzamaComboBox.addItem("4");
+        gySzamaComboBox.addItem("5");
+        gySzamaComboBox.addItem("6");
+        gySzamaComboBox.addItem("7");
+        gySzamaComboBox.setBounds(400,440,100,25);
+
+        lblCegnev=new JLabel("Cégnév:");
+        lblCegnev.setBounds(30,500,adatokSize.width,adatokSize.height);
+        lblCegnev.setFont(adatokFont);
+
+        cegnevTextField=new JTextField();
+        cegnevTextField.setBounds(400,500,adatokSize.width,adatokSize.height);
+
+        lblSzamlaCim=new JLabel("Számlázási cím:");
+        lblSzamlaCim.setBounds(30,560,adatokSize.width,adatokSize.height);
+        lblSzamlaCim.setFont(adatokFont);
+
+        szamlacimTextfield=new JTextField();
+        szamlacimTextfield.setBounds(400,560,adatokSize.width,adatokSize.height);
 
         btnAdatokModositasa=new JButton("Adatok mentése");
-        btnAdatokModositasa.setBounds(395,600,280,40);
+        btnAdatokModositasa.setBounds(400,650,280,40);
 
         asztalokPanel.add(title);
         asztalokPanel.add(title);
@@ -132,6 +165,12 @@ public class UgyfelAdatModositasUI {
         asztalokPanel.add(telefonLabel);
         asztalokPanel.add(telComboBox);
         asztalokPanel.add(telefonTextfield);
+        asztalokPanel.add(gyerekekSzamaLabel);
+        asztalokPanel.add(gySzamaComboBox);
+        asztalokPanel.add(lblCegnev);
+        asztalokPanel.add(cegnevTextField);
+        asztalokPanel.add(lblSzamlaCim);
+        asztalokPanel.add(szamlacimTextfield);
         asztalokPanel.add(btnAdatokModositasa);
     }
 
