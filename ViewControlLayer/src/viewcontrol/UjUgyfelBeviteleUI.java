@@ -173,8 +173,11 @@ public class UjUgyfelBeviteleUI {
             public void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);
 
-                framework.hozzaadUgyfel(saveUgyfel());
-                JOptionPane.showMessageDialog(null, "Sikeres mentés!");
+                if (ValidFoglalas()){
+                    framework.hozzaadUgyfel(saveUgyfel());
+                    JOptionPane.showMessageDialog(null, "Sikeres mentés!");
+                }
+                
             }
         });
 
@@ -206,7 +209,7 @@ public class UjUgyfelBeviteleUI {
                     telefon,
                     gyerekekSzama);
         }
-        else if(cegnev!=null){
+        else if("".equals(cegnev)){
             ugyfel=new CegesUgyfel(
                     megszolitasa,
                     keresztNevTextfield.getText(),
@@ -236,6 +239,41 @@ public class UjUgyfelBeviteleUI {
 
         return ugyfel;
     }
+
+
+
+
+    private boolean ValidFoglalas(){
+        boolean valid=true;
+        if(vezetekNevTextfield.getText().trim().isEmpty()||keresztNevTextfield.getText().trim().isEmpty()||telefonTextfield.getText().trim().isEmpty()||
+                emailTextfield.getText().trim().isEmpty()){
+            valid=false;
+            JOptionPane.showMessageDialog(null,"Minden mezőt ki kell tölteni!");
+        }
+        else {
+            String telefon = telefonTextfield.getText();
+            int num = 0;
+            for (char c : telefon.toCharArray()) {
+                if (Character.isDigit(c)) {
+                    num += 1;
+                } else {
+                    valid = false;
+                    JOptionPane.showMessageDialog(null, "Telefon formátuma nem megfelelő!");
+                }
+            }
+            if (num != 7) {
+                valid = false;
+                JOptionPane.showMessageDialog(null, "Telefon formátuma nem megfelelő!");
+            }
+            String email = emailTextfield.getText();
+            if (!email.contains("@") || !email.contains(".")) {
+                valid = false;
+                JOptionPane.showMessageDialog(null, "E-mail formátuma nem megfelelő!");
+            }
+        }
+        return valid;
+    }
+
 
     public JFrame getUjUgyfel() {
 
