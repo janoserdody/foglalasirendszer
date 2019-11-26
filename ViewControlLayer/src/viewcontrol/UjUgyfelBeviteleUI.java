@@ -177,7 +177,7 @@ public class UjUgyfelBeviteleUI {
                     framework.hozzaadUgyfel(saveUgyfel());
                     JOptionPane.showMessageDialog(null, "Sikeres mentés!");
                 }
-                
+
             }
         });
 
@@ -209,7 +209,7 @@ public class UjUgyfelBeviteleUI {
                     telefon,
                     gyerekekSzama);
         }
-        else if("".equals(cegnev)){
+        else if(!cegnevTextField.getText().trim().isEmpty()){
             ugyfel=new CegesUgyfel(
                     megszolitasa,
                     keresztNevTextfield.getText(),
