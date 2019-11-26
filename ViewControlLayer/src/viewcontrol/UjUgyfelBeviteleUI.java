@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalDate;
 
 public class UjUgyfelBeviteleUI {
     private String megszolitas;
@@ -134,11 +135,8 @@ public class UjUgyfelBeviteleUI {
             public void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);
 
-
-
                 framework.hozzaadUgyfel(saveUgyfel());
                 JOptionPane.showMessageDialog(null, "Sikeres mentés!");
-
             }
         });
 
@@ -158,13 +156,45 @@ public class UjUgyfelBeviteleUI {
         ugyfel=new Ugyfel(megszolitasa,keresztNevTextfield.getText(),vezetekNevTextfield.getText(),
                 emailTextfield.getText(),telefon);
 
+        ugyfel.setUtolsoLatogatas(LocalDate.now());
+
         return ugyfel;
     }
-
 
     public JFrame getUjUgyfel() {
 
         return ujUgyfel;
+    }
+
+    private Ugyfel saveUgyfel2(){
+        Ugyfel ugyfel = null;
+
+//        if (gyerekekSzama > 0){
+//            ugyfel = new CsaladosUgyfel(
+//                    megszolitasa,
+//                    keresztNevTextfield.getText(),
+//                    vezetekNevTextfield.getText(),
+//                    emailTextfield.getText(),
+//                    telefon,
+//                    gyerekekSzama);
+//        }
+//        else
+//        {
+//            ugyfel = new Ugyfel(megszolitasa,
+//                    keresztNevTextfield.getText(),
+//                    vezetekNevTextfield.getText(),
+//                    emailTextfield.getText(),
+//                    telefon
+//            );
+//        }
+//
+//        ugyfel.setMegszolitas(megszolitasa);
+//
+//        ugyfel.setFoglalas(foglalas);
+
+        ugyfel.setUtolsoLatogatas(LocalDate.now());
+
+        return ugyfel;
     }
 
     private boolean ValidForm(){

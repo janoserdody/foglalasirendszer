@@ -39,6 +39,11 @@ public class Framework implements IFramework{
 
         Foglalas foglalas = ugyfel.getFoglalas();
 
+        if (foglalas == null){
+            ugyfelLista.add(ugyfel);
+            return;
+        }
+
         foglalas.setUgyfelId(ugyfel.getId());
 
         dataService.InsertFoglalas(foglalas);
