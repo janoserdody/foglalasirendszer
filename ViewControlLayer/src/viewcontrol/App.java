@@ -15,8 +15,9 @@ public class App {
     private UgyfelekUI ugyfelekNezet;
     private CalendarUI2 calendarNezet;
     private UjUgyfelBeviteleUI ujUgyfelNezet;
-    private UgyfelAdatModositasUI asztalokNezet;
+    private UgyfelAdatModositasUI modositasNezet;
     private Framework framework;
+    private ViewHelper viewHelper;
 
     // constructor
     public App(
@@ -30,13 +31,14 @@ public class App {
         this.ugyfelekNezet = ugyfelekNezet;
         this.calendarNezet = calendarNezet;
         this.ujUgyfelNezet = ujUgyfelNezet;
-        this.asztalokNezet = asztalokNezet;
+        this.modositasNezet = asztalokNezet;
         this.framework = framework;
         frame = new JFrame("App");
         frame.setContentPane(this.panelMain);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        viewHelper = new ViewHelper();
 
         addButtonAction();
 
@@ -54,7 +56,7 @@ public class App {
         buttonMsg.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                displayFrame(foglalasNezet.getFoglalas(),
+                viewHelper.displayFrame(foglalasNezet.getFoglalas(),
                         foglalasNezet.getFoglalasPanel());
             }
         });
@@ -66,14 +68,6 @@ public class App {
         UIManager.put("MenuItem.font", f);
     }
 
-    private void displayFrame(JFrame frame, JPanel panel) {
-        frame.setContentPane(panel);
-        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-        frame.setSize(1000,800);
-    }
-
     private JMenu getjMenu() {
         JMenu menu = new JMenu("Főmenü");
         menu.setSize(800,20);
@@ -81,19 +75,19 @@ public class App {
         JMenuItem menuItemUgyelek = new JMenuItem("Ügyfelek listája");
         JMenuItem menuItemNaptar = new JMenuItem("Foglalási naptár");
         JMenuItem menuItemUjUgyfel = new JMenuItem("Új ügyfél bevitele");
-        JMenuItem menuItemAsztalok = new JMenuItem("Ügyfél adat módosítás");
+        JMenuItem menuItemUgyfelAdatModositas = new JMenuItem("Ügyfél adat módosítás");
 
         addMenuItemFoglalas(menuItemFoglalas);
         addMenuItemUgyfelek(menuItemUgyelek);
         addMenuItemNaptar(menuItemNaptar);
         addMenuUjUgyfel(menuItemUjUgyfel);
-        addMenuAsztalok(menuItemAsztalok);
+        addMenuModositas(menuItemUgyfelAdatModositas);
 
         menu.add(menuItemFoglalas);
         menu.add(menuItemUgyelek);
         menu.add(menuItemNaptar);
         menu.add(menuItemUjUgyfel);
-        menu.add(menuItemAsztalok);
+        menu.add(menuItemUgyfelAdatModositas);
         return menu;
     }
 
@@ -101,7 +95,7 @@ public class App {
         menuItemUgyfelek.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                displayFrame(ugyfelekNezet.getUgyfelekListaja(),
+                viewHelper.displayFrame(ugyfelekNezet.getUgyfelekListaja(),
                         ugyfelekNezet.getUgyfelekPane());
                 ugyfelekNezet.UgyfelekInicializalas();
             }
@@ -112,7 +106,7 @@ public class App {
         menuItemNaptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                displayFrame(calendarNezet.getCalendar(),
+                viewHelper.displayFrame(calendarNezet.getCalendar(),
                         calendarNezet.getCalendarPanel());
             }
         });
@@ -122,18 +116,18 @@ public class App {
         menuItemUjUgyfel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                displayFrame(ujUgyfelNezet.getUjUgyfel(),
+                viewHelper.displayFrame(ujUgyfelNezet.getUjUgyfel(),
                         ujUgyfelNezet.getUjUgyfelBevitelePanel());
             }
         });
     }
 
-    private void addMenuAsztalok(JMenuItem menuItemAsztalok) {
+    private void addMenuModositas(JMenuItem menuItemAsztalok) {
         menuItemAsztalok.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                displayFrame(asztalokNezet.getAsztalok(),
-                        asztalokNezet.getAsztalokPanel());
+                viewHelper.displayFrame(modositasNezet.getModositas(),
+                        modositasNezet.getModositasPanel());
             }
         });
     }
@@ -142,7 +136,7 @@ public class App {
         menuItemFoglalas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                displayFrame(foglalasNezet.getFoglalas(),
+                viewHelper.displayFrame(foglalasNezet.getFoglalas(),
                         foglalasNezet.getFoglalasPanel());
             }
         });

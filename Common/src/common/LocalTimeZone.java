@@ -13,6 +13,4 @@ public class LocalTimeZone {
     public LocalTimeZone(){
         localTimeZoneId = ZoneId.of("Europe/Budapest");
     }
-
-
 }

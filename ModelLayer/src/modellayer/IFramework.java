@@ -10,7 +10,11 @@ import java.util.ArrayList;
 public interface IFramework {
     void hozzaadUgyfel(Ugyfel ugyfel);
 
-    void torolUgyfel(Ugyfel ugyfel);
+    boolean modositUgyfel(Ugyfel ugyfel);
+
+    boolean torolUgyfel(Ugyfel ugyfel);
+
+    boolean torolUgyfel(int id);
 
     ArrayList<Ugyfel> getUgyfelLista();
 
@@ -20,9 +24,9 @@ public interface IFramework {
 
     boolean beolvasOsszesUgyfelId();
 
-    ArrayList<Integer> beolvasEgyNapFoglalasok(LocalDateTime date);
+    String[][] getFoglalasokListaja(LocalDate fromDate, LocalDate toDate);
 
-    ArrayList<Foglalas> beolvasIntervallumFoglalasok(LocalDateTime fromDate, LocalDateTime toDate);
+    ArrayList<Integer> GetUgyfelIdLista();
 
-    public String[][] getFoglalasokListaja(LocalDate fromDate, LocalDate toDate);
+    Ugyfel GetUgyfel(int id);
 }

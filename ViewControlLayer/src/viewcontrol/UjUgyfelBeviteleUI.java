@@ -15,10 +15,6 @@ public class UjUgyfelBeviteleUI {
     private String vezetekNev;
     private String email;
     private String telefon;
-    //private Foglalas foglalas;
-    //private int utolsoSzamla;
-    //private int osszesSzamla;
-    //private Date utolsoLatogatas;
 
     private Framework framework;
     private JFrame ujUgyfel;
@@ -65,11 +61,9 @@ public class UjUgyfelBeviteleUI {
         Dimension adatokSize=new Dimension();
         adatokSize.setSize(350,25);
 
-
         title=new JLabel("Új ügyfél hozzáadása");
         title.setBounds(350,20,cimSize.width,cimSize.height);
         title.setFont(new Font("Arial",Font.BOLD,30));
-
 
         megszolitasLabel=new JLabel("Megszólítás kiválasztása:");
         megszolitasLabel.setBounds(30,140,adatokSize.width,adatokSize.height);
@@ -177,14 +171,11 @@ public class UjUgyfelBeviteleUI {
                     framework.hozzaadUgyfel(saveUgyfel());
                     JOptionPane.showMessageDialog(null, "Sikeres mentés!");
                 }
-
             }
         });
-
     }
 
     private Ugyfel saveUgyfel(){
-
 
         StringBuilder value=new StringBuilder();
         value.append(telComboBox.getSelectedItem().toString());
@@ -240,9 +231,6 @@ public class UjUgyfelBeviteleUI {
         return ugyfel;
     }
 
-
-
-
     private boolean ValidFoglalas(){
         boolean valid=true;
         if(vezetekNevTextfield.getText().trim().isEmpty()||keresztNevTextfield.getText().trim().isEmpty()||telefonTextfield.getText().trim().isEmpty()||
@@ -274,7 +262,6 @@ public class UjUgyfelBeviteleUI {
         return valid;
     }
 
-
     public JFrame getUjUgyfel() {
 
         return ujUgyfel;
@@ -282,29 +269,6 @@ public class UjUgyfelBeviteleUI {
 
     private Ugyfel saveUgyfel2(){
         Ugyfel ugyfel = null;
-
-//        if (gyerekekSzama > 0){
-//            ugyfel = new CsaladosUgyfel(
-//                    megszolitasa,
-//                    keresztNevTextfield.getText(),
-//                    vezetekNevTextfield.getText(),
-//                    emailTextfield.getText(),
-//                    telefon,
-//                    gyerekekSzama);
-//        }
-//        else
-//        {
-//            ugyfel = new Ugyfel(megszolitasa,
-//                    keresztNevTextfield.getText(),
-//                    vezetekNevTextfield.getText(),
-//                    emailTextfield.getText(),
-//                    telefon
-//            );
-//        }
-//
-//        ugyfel.setMegszolitas(megszolitasa);
-//
-//        ugyfel.setFoglalas(foglalas);
 
         ugyfel.setUtolsoLatogatas(LocalDate.now());
 

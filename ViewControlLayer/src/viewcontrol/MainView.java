@@ -10,7 +10,7 @@ public class MainView {
 
     private CalendarUI2 calendarNezet;
 
-    private UgyfelAdatModositasUI asztalokNezet;
+    private UgyfelAdatModositasUI modositasNezet;
 
     private UjUgyfelBeviteleUI ujUgyfelNezet;
 
@@ -22,22 +22,22 @@ public class MainView {
 
         framework = new Framework();
 
+        modositasNezet = new UgyfelAdatModositasUI(framework);
+
         foglalasNezet = new FoglalasUI(framework);
 
-        ugyfelekNezet = new UgyfelekUI(framework);
+        ugyfelekNezet = new UgyfelekUI(framework, modositasNezet);
 
         calendarNezet = new CalendarUI2(framework);
 
         ujUgyfelNezet = new UjUgyfelBeviteleUI(framework);
-
-        asztalokNezet = new UgyfelAdatModositasUI(framework);
 
         fooldal = new App(
                 foglalasNezet,
                 ugyfelekNezet,
                 calendarNezet,
                 ujUgyfelNezet,
-                asztalokNezet,
+                modositasNezet,
                 framework);
     }
 }

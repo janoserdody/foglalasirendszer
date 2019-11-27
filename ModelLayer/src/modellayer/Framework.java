@@ -7,8 +7,8 @@ import datalayer.DataService;
 import datalayer.IDataService;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,13 +28,10 @@ public class Framework implements IFramework{
         dataService = new DataService(localTimeZone);
 
         ugyfelLista = new ArrayList<Ugyfel>();
-        
     }
 
-
-
     public void hozzaadUgyfel(Ugyfel ugyfel){
-        dataService.InsertUgyfel(ugyfel);
+        dataService.insertUgyfel(ugyfel);
 
         Foglalas foglalas = ugyfel.getFoglalas();
 
@@ -45,13 +42,24 @@ public class Framework implements IFramework{
 
         foglalas.setUgyfelId(ugyfel.getId());
 
-        dataService.InsertFoglalas(foglalas);
+        dataService.insertFoglalas(foglalas);
 
         ugyfelLista.add(ugyfel);
     }
 
-    public void torolUgyfel(Ugyfel ugyfel){
+    public boolean modositUgyfel(Ugyfel ugyfel){
+        return dataService.modifyUgyfel(ugyfel);
+    }
+
+    public boolean torolUgyfel(Ugyfel ugyfel){
         ugyfelLista.remove(ugyfel);
+        return dataService.removeUgyfel(ugyfel.getId());
+    }
+
+    public boolean torolUgyfel(int id){
+        Ugyfel ugyfel = dataService.getUgyfel(id);
+        ugyfelLista.remove(ugyfel);
+        return dataService.removeUgyfel(id);
     }
 
     public ArrayList<Ugyfel> getUgyfelLista() {
@@ -59,11 +67,10 @@ public class Framework implements IFramework{
             return ugyfelLista;
         }
 
-        ArrayList<Integer> idList = dataService.ReadAllUgyfelId();
-
+        ArrayList<Integer> idList = dataService.readAllUgyfelId();
 
         for (int id : idList){
-        ugyfelLista.add(dataService.GetUgyfel(id));
+        ugyfelLista.add(dataService.getUgyfel(id));
         }
 
         return ugyfelLista;
@@ -85,6 +92,15 @@ public class Framework implements IFramework{
         return nevLista;
     }
 
+    public Ugyfel GetUgyfel(int id){
+        return  dataService.getUgyfel(id);
+    }
+
+    public ArrayList<Integer> GetUgyfelIdLista(){
+        ArrayList<Integer> idList = dataService.readAllUgyfelId();
+        return idList;
+    }
+
     public String[][] getFoglalasokListaja(LocalDate fromDate, LocalDate toDate){
         getUgyfelLista();
 
@@ -95,7 +111,7 @@ public class Framework implements IFramework{
         LocalDate startDay = fromDate;
 
         for (int i = 0; i < interval.getDays(); i++ ){
-            foglalasLista.addAll(dataService.ReadAllFoglalasForOneDay(startDay));
+            foglalasLista.addAll(dataService.readAllFoglalasForOneDay(startDay));
             startDay = startDay.plusDays(1);
         }
 
@@ -105,8 +121,9 @@ public class Framework implements IFramework{
 
         for (Foglalas foglalas: foglalasLista
              ) {
-            result[x][0] = foglalas.getDatum().toLocalDate().toString();
-            Ugyfel ugyfel = dataService.GetUgyfel(foglalas.getUgyfelId());
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            result[x][0] = foglalas.getDatum().format(formatter);
+            Ugyfel ugyfel = dataService.getUgyfel(foglalas.getUgyfelId());
             result[x][1] = ugyfel.getMegszolitas() + " " +
                     ugyfel.getVezetekNev() + " " +
                     ugyfel.getKeresztNev();
@@ -123,36 +140,8 @@ public class Framework implements IFramework{
 
     public boolean beolvasOsszesUgyfelId(){
 
-        boolean result = ugyfelIdLista.addAll(dataService.ReadAllUgyfelId());
+        boolean result = ugyfelIdLista.addAll(dataService.readAllUgyfelId());
 
         return result;
-    }
-
-    public ArrayList<Integer> beolvasEgyNapFoglalasok(LocalDateTime date){
-
-        return null;
-    }
-
-    public ArrayList<Foglalas> beolvasIntervallumFoglalasok(LocalDateTime fromDate, LocalDateTime toDate) {
-
-        LocalDateTime date = fromDate;
-
-        ArrayList<Integer> foglalasokIntervallum = new ArrayList<>();
-
-        do {
-            foglalasokIntervallum.addAll(beolvasEgyNapFoglalasok(date));
-
-            date = date.plusDays(1);
-
-        } while (date.isBefore(toDate));
-
-        ArrayList<Foglalas> foglalasok = new ArrayList<>();
-
-        for (Integer foglalasId: foglalasokIntervallum
-             ) {
-            foglalasok.add(dataService.GetFogalas(foglalasId));
-        }
-
-        return foglalasok;
     }
 }

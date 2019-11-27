@@ -1,22 +1,20 @@
 package viewcontrol;
 
+import common.CegesUgyfel;
+import common.CsaladosUgyfel;
+import common.Ugyfel;
 import modellayer.Framework;
 
 import javax.swing.*;
 import java.awt.*;
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.util.Arrays;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class UgyfelAdatModositasUI {
 
-    private String asztalKod;
-    private int szabadAsztalSzam;
-
-
     private Framework framework;
-    private JFrame asztalok;
-    private JPanel asztalokPanel;
+    private JFrame modositas;
+    private JPanel modositasPanel;
 
     private JLabel title;
     private JLabel megszolitasLabel;
@@ -37,31 +35,19 @@ public class UgyfelAdatModositasUI {
     private JLabel lblSzamlaCim;
     private JTextField szamlacimTextfield;
     private JButton btnAdatokModositasa;
-
+    private int ugyfelId;
+    private Ugyfel ugyfel;
 
     public UgyfelAdatModositasUI(Framework framework){
         this.framework = framework;
-        asztalok = new JFrame("Asztalok");
-        asztalokPanel=new JPanel();
-        asztalok.getContentPane();
-        asztalokPanel.setLayout(null);
+        modositas = new JFrame("Ügyfél adatok módosítása");
+        modositasPanel =new JPanel();
+        modositas.getContentPane();
+        modositasPanel.setLayout(null);
 
         String[] kodArray={"A2","A4","A5","A6","A7","A8"};
 
-
         Font iFont=new Font("Arial",Font.ITALIC,20);
-
-
-
-        /*
-        ImageIcon background=new ImageIcon("tableview.jpg");
-        Image img=background.getImage();
-        Image temp=img.getScaledInstance(800,500,Image.SCALE_SMOOTH);
-        background=new ImageIcon(temp);
-        JLabel back=new JLabel(background);
-        back.setLayout(null);
-        back.setBounds(90,110,800,500);*/
-
 
         Font adatokFont=new Font("Arial",Font.BOLD,20);
 
@@ -70,11 +56,9 @@ public class UgyfelAdatModositasUI {
         Dimension adatokSize=new Dimension();
         adatokSize.setSize(350,25);
 
-
         title=new JLabel("Ügyfél adat módosítás");
         title.setBounds(350,20,cimSize.width,cimSize.height);
         title.setFont(new Font("Arial",Font.BOLD,30));
-
 
         megszolitasLabel=new JLabel("Megszólítás kiválasztása:");
         megszolitasLabel.setBounds(30,140,adatokSize.width,adatokSize.height);
@@ -152,41 +136,130 @@ public class UgyfelAdatModositasUI {
         btnAdatokModositasa=new JButton("Adatok mentése");
         btnAdatokModositasa.setBounds(400,650,280,40);
 
-        asztalokPanel.add(title);
-        asztalokPanel.add(title);
-        asztalokPanel.add(megszolitasLabel);
-        asztalokPanel.add(jComboBox);
-        asztalokPanel.add(vezetekNevLabel);
-        asztalokPanel.add(vezetekNevTextfield);
-        asztalokPanel.add(keresztNevLabel);
-        asztalokPanel.add(keresztNevTextfield);
-        asztalokPanel.add(emailLabel);
-        asztalokPanel.add(emailTextfield);
-        asztalokPanel.add(telefonLabel);
-        asztalokPanel.add(telComboBox);
-        asztalokPanel.add(telefonTextfield);
-        asztalokPanel.add(gyerekekSzamaLabel);
-        asztalokPanel.add(gySzamaComboBox);
-        asztalokPanel.add(lblCegnev);
-        asztalokPanel.add(cegnevTextField);
-        asztalokPanel.add(lblSzamlaCim);
-        asztalokPanel.add(szamlacimTextfield);
-        asztalokPanel.add(btnAdatokModositasa);
+        btnAdatokModositasa.addMouseListener(new MouseAdapter() {
+            public void mouseReleased(MouseEvent e) {
+                super.mouseReleased(e);
+
+                boolean sikeresModositas = false;
+
+               if (ugyfel != null){
+                   sikeresModositas = framework.modositUgyfel(ugyfel);
+               }
+                if (sikeresModositas){
+                    JOptionPane.showMessageDialog(null, "Sikeres módosítás!");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Sikertelen módosítás");
+                }
+            }
+        });
+
+        modositasPanel.add(title);
+        modositasPanel.add(title);
+        modositasPanel.add(megszolitasLabel);
+        modositasPanel.add(jComboBox);
+        modositasPanel.add(vezetekNevLabel);
+        modositasPanel.add(vezetekNevTextfield);
+        modositasPanel.add(keresztNevLabel);
+        modositasPanel.add(keresztNevTextfield);
+        modositasPanel.add(emailLabel);
+        modositasPanel.add(emailTextfield);
+        modositasPanel.add(telefonLabel);
+        modositasPanel.add(telComboBox);
+        modositasPanel.add(telefonTextfield);
+        modositasPanel.add(gyerekekSzamaLabel);
+        modositasPanel.add(gySzamaComboBox);
+        modositasPanel.add(lblCegnev);
+        modositasPanel.add(cegnevTextField);
+        modositasPanel.add(lblSzamlaCim);
+        modositasPanel.add(szamlacimTextfield);
+        modositasPanel.add(btnAdatokModositasa);
     }
 
-    public JFrame getAsztalok() {
-        return asztalok;
+    public JFrame getModositas() {
+        return modositas;
     }
 
-    public void setAsztalok(JFrame asztalok) {
-        this.asztalok = asztalok;
+    public void setModositas(JFrame modositas) {
+        this.modositas = modositas;
     }
 
-    public JPanel getAsztalokPanel() {
-        return asztalokPanel;
+    public JPanel getModositasPanel() {
+        return modositasPanel;
     }
 
-    public void setAsztalokPanel(JPanel asztalokPanel) {
-        this.asztalokPanel = asztalokPanel;
+    public void setModositasPanel(JPanel modositasPanel) {
+        this.modositasPanel = modositasPanel;
+    }
+
+    public int getUgyfelId() {
+        return ugyfelId;
+    }
+
+    public void setUgyfelId(int ugyfelId) {
+        this.ugyfelId = ugyfelId;
+        ugyfel = framework.GetUgyfel(ugyfelId);
+
+        jComboBox.setSelectedIndex(getIndexMegszolitas(ugyfel.getMegszolitas()));
+
+        vezetekNevTextfield.setText(ugyfel.getVezetekNev());
+
+        keresztNevTextfield.setText(ugyfel.getKeresztNev());
+
+        emailTextfield.setText(ugyfel.getEmail());
+
+        telefonTextfield.setText(ugyfel.getTelefon());
+
+        telComboBox.setSelectedIndex(getIndexTelefon(ugyfel.getTelefon()));
+
+        if (ugyfel instanceof CsaladosUgyfel){
+            gySzamaComboBox.setSelectedIndex(((CsaladosUgyfel)ugyfel).getGyerekekSzama());
+        }
+
+        if (ugyfel instanceof CegesUgyfel){
+            szamlacimTextfield.setText(((CegesUgyfel)ugyfel).getSzamlazasiCim());
+            cegnevTextField.setText(((CegesUgyfel)ugyfel).getCegNev());
+        }
+    }
+
+    private int getIndexMegszolitas(String megszolitas){
+        if (megszolitas == null || megszolitas.isEmpty())
+        {
+            return 0;
+        }
+        int index = 0;
+        switch (megszolitas){
+            case "id": index = 0;
+            break;
+            case  "ifj": index = 1;
+            break;
+            case  "dr": index = 2;
+            break;
+            default: index = 0;
+            break;
+        }
+        return index;
+    }
+
+    private  int getIndexTelefon(String telefon){
+        if (telefon.length() < 2)
+        {
+            return 0;
+        }
+
+        String firstTwo = telefon.substring(0,2);
+        int index = 0;
+        switch (firstTwo){
+            case "20": index = 0;
+            break;
+            case  "30": index = 1;
+            break;
+            case "70": index = 2;
+            break;
+            default: index = 0;
+            break;
+        }
+        return index;
     }
 }

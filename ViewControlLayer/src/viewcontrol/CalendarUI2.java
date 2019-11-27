@@ -31,7 +31,6 @@ public class CalendarUI2 {
 
     private String[][] data;
 
-
     public  CalendarUI2(Framework framework){
         this.framework = framework;
         calendarPanel = new JPanel();
@@ -101,8 +100,6 @@ public class CalendarUI2 {
         sp.setSize(700,400);
         calendarPanel.add(sp);
     }
-
-
 
     public JPanel getCalendarPanel() {
         return calendarPanel;

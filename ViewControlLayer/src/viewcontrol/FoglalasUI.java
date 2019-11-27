@@ -108,7 +108,6 @@ public class FoglalasUI {
         telComboBox.addItem("70");
         telComboBox.setBounds(400,260,100,25);
 
-
         telefonTextfield=new JTextField();
         telefonTextfield.setBounds(520,260,230,adatokSize.height);
 
@@ -156,8 +155,6 @@ public class FoglalasUI {
         allComboBox.addItem("Nincs");
         allComboBox.setBounds(400,460,100,adatokSize.height);
 
-
-
         etelAllergiaTextfield=new JTextField();
         etelAllergiaTextfield.setBounds(400,460,adatokSize.width,adatokSize.height);
 
@@ -175,7 +172,6 @@ public class FoglalasUI {
         gySzamaComboBox.addItem("6");
         gySzamaComboBox.addItem("7");
         gySzamaComboBox.setBounds(400,510,100,25);
-
 
         megjegyzesTextArea=new JTextArea("Megjegyzés...");
         megjegyzesTextArea.setBounds(400,560,adatokSize.width,70);
@@ -205,7 +201,6 @@ public class FoglalasUI {
         foglalasPanel.add(elkuldButton);
         foglalasPanel.add(emailLabel);
         foglalasPanel.add(emailTextfield);
-
 
         elkuldButton.addMouseListener(new MouseAdapter() {
             public void mouseReleased(MouseEvent e) {
@@ -254,8 +249,6 @@ public class FoglalasUI {
         }
         return valid;
     }
-
-
 
     public JFrame getFoglalas() {
         return foglalas;

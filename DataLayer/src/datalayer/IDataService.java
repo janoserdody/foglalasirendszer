@@ -10,36 +10,36 @@ import java.util.List;
 
 public interface IDataService {
     //  beszúr egy ügyfelet az adatbázisba
-    boolean InsertUgyfel(Ugyfel ugyfel);
+    boolean insertUgyfel(Ugyfel ugyfel);
 
     // Beolvassa egy ügyfél adatait az adatbázisból
-    Ugyfel GetUgyfel(int Id);
+    Ugyfel getUgyfel(int Id);
 
-    Ugyfel GetUgyfel(String keresztNev, String vezetekNev);
+    Ugyfel getUgyfel(String keresztNev, String vezetekNev);
 
-    Ugyfel GetUgyfel(String telefon);
+    Ugyfel getUgyfel(String telefon);
 
     // Módosítja egy ügyfél adatait
-    boolean ModifyUgyfel(Ugyfel ugyfel);
+    boolean modifyUgyfel(Ugyfel ugyfel);
 
     // Töröl egy ügyfelet az adatbázisból
-    boolean RemoveUgyfel(int Id);
+    boolean removeUgyfel(int Id);
 
     // Beolvassa egy tömbbe az összes ügyfél ID-ét
-    ArrayList<Integer> ReadAllUgyfelId();
+    ArrayList<Integer> readAllUgyfelId();
 
     // Beszúrja egy foglalás adatait az adatbázisba
-    boolean InsertFoglalas(Foglalas foglalas);
+    boolean insertFoglalas(Foglalas foglalas);
 
     // Beolvassa egy foglalás adatait az adatbázisból
-    Foglalas GetFogalas(int Id);
+    Foglalas getFogalas(int Id);
 
     // Módosítja egy foglalás adatait
-    boolean ModifyFoglalas(Foglalas foglalas);
+    boolean modifyFoglalas(Foglalas foglalas);
 
     // Töröl egy foglalást az adatbázisból
-    boolean RemoveFoglalas(int Id);
+    boolean removeFoglalas(int Id);
 
     // Beolvassa egy adott napra eső összes foglalás Id-eit
-    List<Foglalas> ReadAllFoglalasForOneDay(LocalDate date);
+    List<Foglalas> readAllFoglalasForOneDay(LocalDate date);
 }
