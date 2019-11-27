@@ -2,6 +2,7 @@ package datalayer;
 
 import common.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -129,9 +130,8 @@ public class DataService implements IDataService {
         return false;
     }
 
-    public ArrayList<Foglalas> ReadAllFoglalasForOneDay(LocalDateTime date) {
-        database.foglalas_Lekerdezes_Funkcio_Adott_nappra(date);
-        return null;
+    public List<Foglalas> ReadAllFoglalasForOneDay(LocalDate date) {
+        return database.foglalas_Lekerdezes_Funkcio_Adott_nappra(date);
     }
 
     public boolean ModifyFoglalas(Foglalas foglalas) {

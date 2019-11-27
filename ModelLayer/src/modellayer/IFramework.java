@@ -3,6 +3,7 @@ package modellayer;
 import common.Foglalas;
 import common.Ugyfel;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -22,4 +23,6 @@ public interface IFramework {
     ArrayList<Integer> beolvasEgyNapFoglalasok(LocalDateTime date);
 
     ArrayList<Foglalas> beolvasIntervallumFoglalasok(LocalDateTime fromDate, LocalDateTime toDate);
+
+    public String[][] getFoglalasokListaja(LocalDate fromDate, LocalDate toDate);
 }

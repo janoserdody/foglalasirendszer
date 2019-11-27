@@ -13,7 +13,7 @@ public class App {
     private JFrame frame;
     private FoglalasUI foglalasNezet;
     private UgyfelekUI ugyfelekNezet;
-    private CalendarUI calendarNezet;
+    private CalendarUI2 calendarNezet;
     private UjUgyfelBeviteleUI ujUgyfelNezet;
     private UgyfelAdatModositasUI asztalokNezet;
     private Framework framework;
@@ -22,7 +22,7 @@ public class App {
     public App(
             FoglalasUI foglalasNezet,
             UgyfelekUI ugyfelekNezet,
-            CalendarUI calendarNezet,
+            CalendarUI2 calendarNezet,
             UjUgyfelBeviteleUI ujUgyfelNezet,
             UgyfelAdatModositasUI asztalokNezet,
             Framework framework) {

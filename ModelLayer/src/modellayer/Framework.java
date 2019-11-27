@@ -6,8 +6,11 @@ import common.Ugyfel;
 import datalayer.DataService;
 import datalayer.IDataService;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Framework implements IFramework{
 
@@ -84,6 +87,38 @@ public class Framework implements IFramework{
         }
 
         return nevLista;
+    }
+
+    public String[][] getFoglalasokListaja(LocalDate fromDate, LocalDate toDate){
+        getUgyfelLista();
+
+        List<Foglalas> foglalasLista = new ArrayList<>();
+
+        Period interval = Period.between(fromDate, toDate);
+
+        LocalDate startDay = fromDate;
+
+        for (int i = 0; i < interval.getDays(); i++ ){
+            foglalasLista.addAll(dataService.ReadAllFoglalasForOneDay(startDay));
+            startDay = startDay.plusDays(1);
+        }
+
+        String[][] result = new String[foglalasLista.size()][3];
+
+        int x = 0;
+
+        for (Foglalas foglalas: foglalasLista
+             ) {
+            result[x][0] = foglalas.getDatum().toLocalDate().toString();
+            Ugyfel ugyfel = dataService.GetUgyfel(foglalas.getUgyfelId());
+            result[x][1] = ugyfel.getMegszolitas() + " " +
+                    ugyfel.getVezetekNev() + " " +
+                    ugyfel.getKeresztNev();
+
+            result[x][2] = ugyfel.getTelefon();
+            x++;
+        }
+        return result;
     }
  
     public void setUgyfelLista(ArrayList<Ugyfel> ugyfelLista) {

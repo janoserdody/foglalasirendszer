@@ -8,7 +8,7 @@ public class MainView {
 
     private UgyfelekUI ugyfelekNezet;
 
-    private CalendarUI calendarNezet;
+    private CalendarUI2 calendarNezet;
 
     private UgyfelAdatModositasUI asztalokNezet;
 
@@ -26,7 +26,7 @@ public class MainView {
 
         ugyfelekNezet = new UgyfelekUI(framework);
 
-        calendarNezet = new CalendarUI(framework);
+        calendarNezet = new CalendarUI2(framework);
 
         ujUgyfelNezet = new UjUgyfelBeviteleUI(framework);
 

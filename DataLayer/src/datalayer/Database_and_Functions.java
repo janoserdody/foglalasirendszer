@@ -17,6 +17,7 @@ import java.sql.Date;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.time.LocalDateTime;
 
@@ -381,15 +382,24 @@ public class Database_and_Functions {
     public static final String QUERY_LEKERESFOGLALAS_ADOTT_NAPRA =
             "SELECT id, datum, szemelyekSzama, etelallergia, " +
                     "gyerekekSzama, megjegyzes, foglalasTipus, asztalSzam, " +
-                    "teremSzam, ugyfelId FROM Foglalas WHERE Foglalas.datum = ?";
+                    "teremSzam, ugyfelId FROM Foglalas WHERE Foglalas.datum > ? AND Foglalas.datum < ?";
 
-    public List<Foglalas> foglalas_Lekerdezes_Funkcio_Adott_nappra(LocalDateTime datum) {
+    public List<Foglalas> foglalas_Lekerdezes_Funkcio_Adott_nappra(LocalDate datum) {
+
+        LocalDateTime datumStart = datum.atStartOfDay();
+        LocalDateTime datumPlusOne = datum.plusDays(1).atStartOfDay();
 
         QueryFoglalasLekerdezes aktualisFoglalas = new QueryFoglalasLekerdezes();
 
         try {
             Connection conn = this.connect();
             PreparedStatement pstmt = conn.prepareStatement(QUERY_LEKERESFOGLALAS_ADOTT_NAPRA);
+
+            pstmt.setTimestamp(1, new java.sql.Timestamp(datumStart.atZone(localTimeZone.getLocalTimeZoneId()).toInstant()
+                    .toEpochMilli()));
+            pstmt.setTimestamp(2, new java.sql.Timestamp(datumPlusOne.atZone(localTimeZone.getLocalTimeZoneId()).toInstant()
+                    .toEpochMilli()));
+
             ResultSet results = pstmt.executeQuery();
 
             List<QueryFoglalasLekerdezes> foglalasok = new ArrayList<>();
