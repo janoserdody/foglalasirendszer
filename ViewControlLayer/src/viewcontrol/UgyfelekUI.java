@@ -13,6 +13,7 @@ public class UgyfelekUI {
     private JFrame ugyfelekListaja;
     private Framework framework;
     private JScrollPane scrollPane;
+    private JButton btnDelete;
 
     private JLabel title;
 
@@ -26,7 +27,10 @@ public class UgyfelekUI {
         title.setFont(new Font("Arial",Font.BOLD,30));
 
         btnUgyfelAdatokMegynyitasa=new JButton("Ügyfél adatok megnyitása");
-        btnUgyfelAdatokMegynyitasa.setBounds(400,700,250,30);
+        btnUgyfelAdatokMegynyitasa.setBounds(250,700,200,30);
+
+        btnDelete=new JButton("Ügyfél törlése");
+        btnDelete.setBounds(500,700,200,30);
 
 
         listUgyfelek.setListData(framework.getUgyfelNevekListaja());
@@ -38,6 +42,7 @@ public class UgyfelekUI {
         ugyfelekPane.add(title);
         ugyfelekPane.add(listUgyfelek);
         ugyfelekPane.add(btnUgyfelAdatokMegynyitasa);
+        ugyfelekPane.add(btnDelete);
     }
 
     public void UgyfelekInicializalas(){
