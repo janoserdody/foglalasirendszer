@@ -117,6 +117,10 @@ public class Framework implements IFramework{
 
         String[][] result = new String[foglalasLista.size()][3];
 
+        if (foglalasLista.size() == 0){
+            return result;
+        }
+
         int x = 0;
 
         for (Foglalas foglalas: foglalasLista
@@ -124,11 +128,13 @@ public class Framework implements IFramework{
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             result[x][0] = foglalas.getDatum().format(formatter);
             Ugyfel ugyfel = dataService.getUgyfel(foglalas.getUgyfelId());
-            result[x][1] = ugyfel.getMegszolitas() + " " +
-                    ugyfel.getVezetekNev() + " " +
-                    ugyfel.getKeresztNev();
+            if (ugyfel != null) {
+                result[x][1] = ugyfel.getMegszolitas() + " " +
+                        ugyfel.getVezetekNev() + " " +
+                        ugyfel.getKeresztNev();
 
-            result[x][2] = ugyfel.getTelefon();
+                result[x][2] = ugyfel.getTelefon();
+            }
             x++;
         }
         return result;

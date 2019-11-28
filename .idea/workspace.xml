@@ -7,10 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="536642a4-b5bd-4162-b334-39e639bf7172" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/foglalasirendszer2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foglalasok.db" beforeDir="false" afterPath="$PROJECT_DIR$/Foglalasok.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Foglalasok.db.sqbpro" beforeDir="false" afterPath="$PROJECT_DIR$/Foglalasok.db.sqbpro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java" beforeDir="false" afterPath="$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/CalendarUI2.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelAdatModositasUI.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelBeviteleUI.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelFelviteleUI.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ViewControlLayer/META-INF/ViewControlLayer.kotlin_module" beforeDir="false" />
     </list>
+    <ignored path="D:\source\foglalasirendszer2\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,36 +56,38 @@
     <session id="29899385">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.25" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="3" />
-          <entry key="form" value="6" />
-          <entry key="java" value="86" />
+          <entry key="form" value="9" />
+          <entry key="java" value="92" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
-          <entry key="GUI_DESIGNER_FORM" value="6" />
-          <entry key="JAVA" value="86" />
+          <entry key="GUI_DESIGNER_FORM" value="9" />
+          <entry key="JAVA" value="92" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5793" />
+          <entry key="java" value="6762" />
           <entry key="txt" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5793" />
+          <entry key="JAVA" value="6762" />
           <entry key="PLAIN_TEXT" value="41" />
         </counts>
       </usages-collector>
@@ -80,50 +95,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelBeviteleUI.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4488">
-              <caret line="271" selection-start-line="271" selection-end-line="271" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelFelviteleUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4080">
-              <caret line="251" selection-start-line="251" selection-end-line="251" />
+            <state relative-caret-position="118">
+              <caret line="75" selection-start-line="75" selection-end-line="75" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3718#3719#0" expanded="true" />
+                <element signature="e#3753#3754#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelAdatModositasUI.java">
+        <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/MainView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="4301">
+              <caret line="276" column="19" selection-start-line="276" selection-start-column="19" selection-end-line="276" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,36 +123,54 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1156">
-              <caret line="73" column="60" selection-start-line="73" selection-start-column="52" selection-end-line="73" selection-end-column="60" />
+            <state relative-caret-position="1615">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.form">
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="121" selection-start-line="121" selection-end-line="121" />
+            <state relative-caret-position="322">
+              <caret line="136" column="13" selection-start-line="136" selection-start-column="13" selection-end-line="136" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3759#3760#0" expanded="true" />
+                <element signature="e#3805#3806#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/CalendarUI2.java">
+        <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/IDataService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1496">
-              <caret line="102" selection-start-line="102" selection-end-line="102" />
+            <state relative-caret-position="272">
+              <caret line="22" column="24" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="95" column="44" selection-start-line="95" selection-start-column="44" selection-end-line="95" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3632#3633#0" expanded="true" />
+                <element signature="e#3680#3681#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -187,12 +197,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getid</find>
-      <find>etel</find>
-      <find>telefon</find>
-      <find>mr</find>
-      <find>addMenuItemUgyfelek</find>
-      <find>ugyfelekNezet</find>
       <find>ugyfel</find>
       <find>tipus</find>
       <find>fogla</find>
@@ -217,6 +221,12 @@
       <find>aszta</find>
       <find>beolv</find>
       <find>foglalás</find>
+      <find>btnUgyfelAdatokMegynyitasa</find>
+      <find>toro</find>
+      <find>removeUgyfel</find>
+      <find>modifyUgyfel</find>
+      <find>modo</find>
+      <find>model</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -232,24 +242,24 @@
         <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/DatePicker.java" />
         <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/DatePickerFX.java" />
         <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/CalendarUI2.form" />
-        <option value="$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java" />
         <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/SharedListSelectionHandler.java" />
         <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/ViewHelper.java" />
-        <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.java" />
         <option value="$PROJECT_DIR$/DataLayer/src/datalayer/IDataService.java" />
         <option value="$PROJECT_DIR$/Common/src/common/DateLabelFormatter.java" />
         <option value="$PROJECT_DIR$/Common/src/common/LocalTimeZone.java" />
-        <option value="$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java" />
         <option value="$PROJECT_DIR$/ModelLayer/src/modellayer/IFramework.java" />
-        <option value="$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java" />
         <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/Main.java" />
         <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/MainView.java" />
         <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/CalendarUI2.java" />
-        <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java" />
         <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelAdatModositasUI.java" />
-        <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.java" />
         <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelBeviteleUI.java" />
         <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.form" />
+        <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java" />
+        <option value="$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java" />
+        <option value="$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java" />
+        <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.java" />
+        <option value="$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java" />
+        <option value="$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.java" />
       </list>
     </option>
   </component>
@@ -272,7 +282,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -345,56 +354,15 @@
             </path>
             <path>
               <item name="foglalasirendszer2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ViewControlLayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="viewcontrol" type="462c0819:PsiDirectoryNode" />
-              <item name="CalendarUI2" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="foglalasirendszer2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ViewControlLayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="viewcontrol" type="462c0819:PsiDirectoryNode" />
-              <item name="FoglalasUI" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="foglalasirendszer2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ViewControlLayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="viewcontrol" type="462c0819:PsiDirectoryNode" />
-              <item name="UgyfelAdatModositasUI" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="foglalasirendszer2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ViewControlLayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="viewcontrol" type="462c0819:PsiDirectoryNode" />
-              <item name="UgyfelekUI" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="foglalasirendszer2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ViewControlLayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="viewcontrol" type="462c0819:PsiDirectoryNode" />
-              <item name="UjUgyfelBeviteleUI" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="foglalasirendszer2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ViewControlLayer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="viewcontrol" type="462c0819:PsiDirectoryNode" />
-              <item name="UjUgyfelFelviteleUI" type="e9f4de52:FormNode" />
-            </path>
-            <path>
-              <item name="foglalasirendszer2" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -410,15 +378,15 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="233" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="435" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574895775755" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574977167626" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/JDatePicker" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
@@ -511,7 +479,9 @@
       <workItem from="1574627926049" duration="74000" />
       <workItem from="1574795592742" duration="782000" />
       <workItem from="1574796430842" duration="35561000" />
-      <workItem from="1574927601811" duration="1297000" />
+      <workItem from="1574927601811" duration="5009000" />
+      <workItem from="1574978131796" duration="4520000" />
+      <workItem from="1574982702964" duration="628000" />
     </task>
     <task id="LOCAL-00001" summary="DataService és Framework vázlat">
       <created>1570482350414</created>
@@ -622,12 +592,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37644000" />
+    <option name="totallyTimeSpent" value="46504000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-7" width="1231" height="735" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29632792" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24594364" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -637,12 +608,12 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32890365" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32890365" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32890365" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3986711" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32890365" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32890365" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32890365" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
@@ -738,7 +709,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java</url>
-          <line>121</line>
+          <line>125</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -750,9 +721,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="jar://D:/win10programs/java/src.zip!/java/sql/Date.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -760,16 +728,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/7zOC9964B11/FXDatePickerInSwingExample.java" />
     <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/DatePicker.java" />
     <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/DatePickerFX.java" />
     <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/CalendarUI.java" />
-    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/CalendarUI2.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="jar://$PROJECT_DIR$/JDatePicker/jdatepicker-1.3.4.jar!/org/jdatepicker/DateModel.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -883,27 +845,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="285" column="16" selection-start-line="285" selection-start-column="16" selection-end-line="285" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-514">
-          <caret line="158" column="21" selection-start-line="158" selection-start-column="21" selection-end-line="158" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/IDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/QueryFoglalasLekerdezes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1415">
@@ -932,13 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="113" selection-start-line="113" selection-end-line="113" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UjUgyfelBeviteleUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4488">
@@ -950,16 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4080">
-          <caret line="251" selection-start-line="251" selection-end-line="251" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -977,20 +901,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.java">
+    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.form" />
+    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/CalendarUI2.form" />
+    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/FoglalasUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="73" column="60" selection-start-line="73" selection-start-column="52" selection-end-line="73" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/CalendarUI2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
+        <state relative-caret-position="1122">
+          <caret line="77" column="41" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/win10programs/java/src.zip!/java/awt/Dimension.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="63" column="15" selection-start-line="63" selection-start-column="15" selection-end-line="63" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/Database_and_Functions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4301">
+          <caret line="276" column="19" selection-start-line="276" selection-start-column="19" selection-end-line="276" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1615">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/IDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1003,16 +959,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ModelLayer/src/modellayer/Framework.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="121" selection-start-line="121" selection-end-line="121" />
+        <state relative-caret-position="322">
+          <caret line="136" column="13" selection-start-line="136" selection-start-column="13" selection-end-line="136" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3759#3760#0" expanded="true" />
+            <element signature="e#3805#3806#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/CalendarUI2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-160">
+          <caret line="76" column="48" lean-forward="true" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/App.form">
-      <provider selected="true" editor-type-id="ui-designer" />
+    <entry file="file://$PROJECT_DIR$/DataLayer/src/datalayer/DataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="95" column="44" selection-start-line="95" selection-start-column="44" selection-end-line="95" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3632#3633#0" expanded="true" />
+            <element signature="e#3680#3681#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewControlLayer/src/viewcontrol/UgyfelekUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
+          <folding>
+            <element signature="e#3718#3719#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

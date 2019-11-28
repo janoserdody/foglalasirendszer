@@ -42,7 +42,7 @@ public class Database_and_Functions {
      */
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:d:\\source\\foglalasirendszer2\\Foglalasok.db";
+        String url = "jdbc:sqlite:d:\\source\\foglalasirendszer2\\Foglalasok3.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -76,8 +76,8 @@ public class Database_and_Functions {
         int id = 0;
 
         String sql = "INSERT INTO Ugyfel " +
-                        "(megszolitas, keresztNev, vezetekNev, email, telefon," +
-                        " utolsoSzamla, osszesSzamla, utolsoLatogatas, cegNev, szamlazasiCim, gyerekekSzama, ugyfelTipus) " +
+                "(megszolitas, keresztNev, vezetekNev, email, telefon," +
+                " utolsoSzamla, osszesSzamla, utolsoLatogatas, cegNev, szamlazasiCim, gyerekekSzama, ugyfelTipus) " +
                 "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
 //        valueOf(String s) : This method converts a string in JDBC date escape format to a Date value using
@@ -106,13 +106,48 @@ public class Database_and_Functions {
                 if (rs.next())
                     id = rs.getInt(1);
             }
-
+            if (!CloseConnection(rs, conn, pstmt)) {
+                id = 0;
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return 0;
         }
+
         return id;
     }
+
+
+    private boolean CloseConnection(ResultSet rs, Connection conn, PreparedStatement pstmt) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                return false;
+            }
+        }
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (SQLException e) {
+                    PrintErrorMessage(e);
+                    return false;
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+        private void PrintErrorMessage(SQLException e){
+            System.out.println(e.getMessage());
+        }
 
     public int insertFoglalas(FoglalasTipus foglalasTipus, LocalDateTime datum, int szemelyekSzama, Allergia etelallergia,
                               int gyerekekSzama, String megjegyzes, int asztalSzam, int teremSzam, int ugyfelId) {
@@ -144,6 +179,9 @@ public class Database_and_Functions {
                 if (rs.next())
                     id = rs.getInt(1);
             }
+            if (!CloseConnection(rs, conn, pstmt)) {
+                id = 0;
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return 0;
@@ -166,7 +204,10 @@ public class Database_and_Functions {
             // execute the delete statement
             pstmt.executeUpdate();
 
-        } catch (SQLException e) {
+            CloseConnection(null, conn, pstmt);
+
+        }
+        catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -182,6 +223,7 @@ public class Database_and_Functions {
             // execute the delete statement
             pstmt.executeUpdate();
             System.out.println(id + " azonsítojú foglalás eltávolitva.");
+            CloseConnection(null, conn, pstmt);
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -198,14 +240,17 @@ public class Database_and_Functions {
             pstmt.setInt(1, teremSzam);
             // execute the delete statement
             pstmt.executeUpdate();
+            CloseConnection(null, conn, pstmt);
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public void deleteUgyfel(int id) {
+    public boolean deleteUgyfel(int id) {
         String sql = "DELETE FROM Ugyfel WHERE id = ?";
+
+        boolean result = true;
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -215,9 +260,12 @@ public class Database_and_Functions {
             // execute the delete statement
             pstmt.executeUpdate();
             System.out.println(id + " azonsítojú ügyfél eltávolitva.");
+            result = CloseConnection(null, conn, pstmt);
+            return result;
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return false;
         }
     }
 
@@ -275,6 +323,7 @@ public class Database_and_Functions {
             if (rowAffected == 1) {
                 result = true;
             }
+            CloseConnection(null, conn, pstmt);
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -303,6 +352,7 @@ public class Database_and_Functions {
 
             // update
             pstmt.executeUpdate();
+            CloseConnection(null, conn, pstmt);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -353,6 +403,7 @@ public class Database_and_Functions {
 
                 foglalasList.add(foglalas);
             }
+            CloseConnection(results, conn, pstmt);
 
             return foglalasList;
 
@@ -427,6 +478,8 @@ public class Database_and_Functions {
                 foglalasList.add(foglalas);
             }
 
+            CloseConnection(results, conn, pstmt);
+
             return foglalasList;
 
 
@@ -500,6 +553,8 @@ public class Database_and_Functions {
                 aktualis_Ugyfel.setAKTUALIS_UGYFEL_UGYFEL_TIPUS(UgyfelTipus.valueOf(results.getInt(13)));
 
                 ugyfel = CopyUgyfelAdatok(aktualis_Ugyfel, ugyfel);
+
+            CloseConnection(results, conn, pstmt);
 
             return ugyfel;
 
@@ -594,6 +649,8 @@ public class Database_and_Functions {
 
             ugyfel = CopyUgyfelAdatok(aktualis_Ugyfel, ugyfel);
 
+            CloseConnection(results, conn, pstmt);
+
             return ugyfel;
 
 
@@ -632,6 +689,7 @@ public class Database_and_Functions {
                 lekert_ugyfelek.add(aktualis_Ugyfel.getAKTUALIS_UGYFEL_ID());
             }
             System.out.println(Arrays.toString(lekert_ugyfelek.toArray()));
+            CloseConnection(results, conn, pstmt);
             return lekert_ugyfelek;
 
 

@@ -95,9 +95,9 @@ public class App {
         menuItemUgyfelek.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ugyfelekNezet.ugyfelekInicializalas();
                 viewHelper.displayFrame(ugyfelekNezet.getUgyfelekListaja(),
                         ugyfelekNezet.getUgyfelekPane());
-                ugyfelekNezet.UgyfelekInicializalas();
             }
         });
     }

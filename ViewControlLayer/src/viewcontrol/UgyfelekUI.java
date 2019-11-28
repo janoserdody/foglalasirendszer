@@ -21,6 +21,7 @@ public class UgyfelekUI {
     private JLabel title;
     private ListSelectionModel listSelectionModel;
     private ViewHelper viewHelper;
+    private DefaultListModel model;
 
     public  UgyfelekUI(Framework framework, UgyfelAdatModositasUI modositasNezet){
         this.framework = framework;
@@ -28,21 +29,24 @@ public class UgyfelekUI {
         ugyfelekListaja = new JFrame("Ügyfelek listája");
         viewHelper = new ViewHelper();
 
+        model = new DefaultListModel();
+
         title=new JLabel("Ügyfél lista");
         title.setBounds(450,20,200,35);
         title.setFont(new Font("Arial",Font.BOLD,30));
 
         btnUgyfelAdatokMegynyitasa=new JButton("Ügyfél adatok megnyitása");
-        btnUgyfelAdatokMegynyitasa.setBounds(250,700,200,30);
+        btnUgyfelAdatokMegynyitasa.setBounds(250,600,200,30);
 
         btnDelete=new JButton("Ügyfél törlése");
-        btnDelete.setBounds(500,700,200,30);
+        btnDelete.setBounds(500,600,200,30);
 
-        listUgyfelek = new JList();
+        getUgyfelekToModel();
+
+        listUgyfelek = new JList(model);
 
         listSelectionModel = listUgyfelek.getSelectionModel();
 
-        listUgyfelek.setListData(framework.getUgyfelNevekListaja());
         listUgyfelek.setBounds(200,100,600,500);
         ugyfelekPane=new JPanel();
         ugyfelekPane.setLayout(null);
@@ -75,6 +79,10 @@ public class UgyfelekUI {
 
                 boolean sikeresTorles = framework.torolUgyfel(ugyfelIdLista.get(selectedIndex));
 
+                model.remove(selectedIndex);
+
+                ugyfelekInicializalas();
+
                 if (sikeresTorles){
                     JOptionPane.showMessageDialog(null, "Sikeres törlés!");
                 }
@@ -91,9 +99,22 @@ public class UgyfelekUI {
         ugyfelekPane.add(btnDelete);
     }
 
-    public void UgyfelekInicializalas(){
-        listUgyfelek.removeAll();
-        listUgyfelek.setListData(framework.getUgyfelNevekListaja());
+    public void ugyfelekInicializalas(){
+        if (listUgyfelek != null){
+            model = (DefaultListModel) listUgyfelek.getModel();
+            model.clear();
+            getUgyfelekToModel();
+            listUgyfelek.updateUI();
+            ugyfelekPane.updateUI();
+        }
+    }
+
+    private void getUgyfelekToModel(){
+        String[] data = framework.getUgyfelNevekListaja();
+        for (String item: data
+        ) {
+            model.addElement(item);
+        }
     }
 
     public JPanel getUgyfelekPane() {

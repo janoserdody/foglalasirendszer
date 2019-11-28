@@ -112,8 +112,7 @@ public class DataService implements IDataService {
     }
 
     public boolean removeUgyfel(int Id) {
-        database.deleteUgyfel(Id);
-        return false;
+        return database.deleteUgyfel(Id);
     }
 
     public ArrayList<Integer> readAllUgyfelId() {
