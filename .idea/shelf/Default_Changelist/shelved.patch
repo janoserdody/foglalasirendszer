@@ -1,0 +1,13 @@
+Index: foglalasirendszer.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- foglalasirendszer.properties	(date 1574967753483)
++++ foglalasirendszer.properties	(date 1574967753483)
+@@ -0,0 +1,4 @@
++path.variable.kotlin_bundled=D\:\\win10programs\\IntelliJ IDEA 2018.2\\plugins\\Kotlin\\kotlinc
++path.variable.maven_repository=C\:\\Users\\ZRCKRI\\.m2\\repository
++jdk.home.1.8=D\:/win10programs/java
++javac2.instrumentation.includeJavaRuntime=false
+\ No newline at end of file

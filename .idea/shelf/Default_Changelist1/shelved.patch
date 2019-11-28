@@ -1,0 +1,489 @@
+Index: foglalasirendszer.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- foglalasirendszer.xml	(date 1574967753468)
++++ foglalasirendszer.xml	(date 1574967753468)
+@@ -0,0 +1,480 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project name="foglalasirendszer2" default="all">
++  
++  
++  <property file="foglalasirendszer.properties"/>
++  <!-- Uncomment the following property if no tests compilation is needed -->
++  <!-- 
++  <property name="skip.tests" value="true"/>
++   -->
++  
++  <!-- Compiler options -->
++  
++  <property name="compiler.debug" value="on"/>
++  <property name="compiler.generate.no.warnings" value="off"/>
++  <property name="compiler.args" value=""/>
++  <property name="compiler.max.memory" value="700m"/>
++  <patternset id="ignored.files">
++    <exclude name="**/*.hprof/**"/>
++    <exclude name="**/*.pyc/**"/>
++    <exclude name="**/*.pyo/**"/>
++    <exclude name="**/*.rbc/**"/>
++    <exclude name="**/*.yarb/**"/>
++    <exclude name="**/*~/**"/>
++    <exclude name="**/.DS_Store/**"/>
++    <exclude name="**/.git/**"/>
++    <exclude name="**/.hg/**"/>
++    <exclude name="**/.svn/**"/>
++    <exclude name="**/CVS/**"/>
++    <exclude name="**/__pycache__/**"/>
++    <exclude name="**/_svn/**"/>
++    <exclude name="**/vssver.scc/**"/>
++    <exclude name="**/vssver2.scc/**"/>
++  </patternset>
++  <patternset id="library.patterns">
++    <include name="*.egg"/>
++    <include name="*.jar"/>
++    <include name="*.ear"/>
++    <include name="*.swc"/>
++    <include name="*.war"/>
++    <include name="*.zip"/>
++    <include name="*.ane"/>
++  </patternset>
++  <patternset id="compiler.resources">
++    <exclude name="**/?*.java"/>
++    <exclude name="**/?*.form"/>
++    <exclude name="**/?*.class"/>
++    <exclude name="**/?*.groovy"/>
++    <exclude name="**/?*.scala"/>
++    <exclude name="**/?*.flex"/>
++    <exclude name="**/?*.kt"/>
++    <exclude name="**/?*.clj"/>
++    <exclude name="**/?*.aj"/>
++  </patternset>
++  
++  <!-- JDK definitions -->
++  
++  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
++  <path id="jdk.classpath.1.8">
++    <fileset dir="${jdk.home.1.8}">
++      <include name="jre/lib/charsets.jar"/>
++      <include name="jre/lib/deploy.jar"/>
++      <include name="jre/lib/ext/access-bridge-64.jar"/>
++      <include name="jre/lib/ext/cldrdata.jar"/>
++      <include name="jre/lib/ext/dnsns.jar"/>
++      <include name="jre/lib/ext/jaccess.jar"/>
++      <include name="jre/lib/ext/jfxrt.jar"/>
++      <include name="jre/lib/ext/localedata.jar"/>
++      <include name="jre/lib/ext/nashorn.jar"/>
++      <include name="jre/lib/ext/sunec.jar"/>
++      <include name="jre/lib/ext/sunjce_provider.jar"/>
++      <include name="jre/lib/ext/sunmscapi.jar"/>
++      <include name="jre/lib/ext/sunpkcs11.jar"/>
++      <include name="jre/lib/ext/zipfs.jar"/>
++      <include name="jre/lib/javaws.jar"/>
++      <include name="jre/lib/jce.jar"/>
++      <include name="jre/lib/jfr.jar"/>
++      <include name="jre/lib/jfxswt.jar"/>
++      <include name="jre/lib/jsse.jar"/>
++      <include name="jre/lib/management-agent.jar"/>
++      <include name="jre/lib/plugin.jar"/>
++      <include name="jre/lib/resources.jar"/>
++      <include name="jre/lib/rt.jar"/>
++    </fileset>
++  </path>
++  
++  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
++  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
++  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
++  
++  
++  <!-- Project Libraries -->
++  
++  <path id="library.sqlite-jdbc-3.27.2.1.classpath">
++    <pathelement location="${basedir}/Connect/sqlite-jdbc-3.27.2.1.jar"/>
++    <pathelement location="${basedir}/JDatePicker/jdatepicker-1.3.4.jar"/>
++  </path>
++  <!-- Register Custom Compiler Taskdefs -->
++  <property name="javac2.home" value="${idea.home}/lib"/>
++  <path id="javac2.classpath">
++    <fileset dir="${javac2.home}">
++      <include name="javac2.jar"/>
++      <include name="jdom.jar"/>
++      <include name="asm-all*.jar"/>
++      <include name="forms-*.jar"/>
++    </fileset>
++  </path>
++  <target name="register.custom.compilers">
++    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
++    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
++  </target>
++  
++  <!-- Modules -->
++  
++  
++  <!-- Module Common -->
++  
++  <dirname property="module.common.basedir" file="${ant.file}"/>
++  
++  
++  <property name="module.jdk.home.common" value="${project.jdk.home}"/>
++  <property name="module.jdk.bin.common" value="${project.jdk.bin}"/>
++  <property name="module.jdk.classpath.common" value="${project.jdk.classpath}"/>
++  
++  <property name="compiler.args.common" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
++  
++  <property name="common.output.dir" value="${module.common.basedir}/out/production/Common"/>
++  <property name="common.testoutput.dir" value="${module.common.basedir}/out/test/Common"/>
++  
++  <path id="common.module.bootclasspath">
++    <!-- Paths to be included in compilation bootclasspath -->
++  </path>
++  
++  <path id="common.module.production.classpath">
++    <path refid="${module.jdk.classpath.common}"/>
++    <pathelement location="${basedir}/../../sqlite-jdbc-3.27.2.1.jar"/>
++  </path>
++  
++  <path id="common.runtime.production.module.classpath">
++    <pathelement location="${common.output.dir}"/>
++    <pathelement location="${basedir}/../../sqlite-jdbc-3.27.2.1.jar"/>
++  </path>
++  
++  <path id="common.module.classpath">
++    <path refid="${module.jdk.classpath.common}"/>
++    <pathelement location="${common.output.dir}"/>
++    <pathelement location="${basedir}/../../sqlite-jdbc-3.27.2.1.jar"/>
++  </path>
++  
++  <path id="common.runtime.module.classpath">
++    <pathelement location="${common.testoutput.dir}"/>
++    <pathelement location="${common.output.dir}"/>
++    <pathelement location="${basedir}/../../sqlite-jdbc-3.27.2.1.jar"/>
++  </path>
++  
++  
++  <patternset id="excluded.from.module.common">
++    <patternset refid="ignored.files"/>
++  </patternset>
++  
++  <patternset id="excluded.from.compilation.common">
++    <patternset refid="excluded.from.module.common"/>
++  </patternset>
++  
++  <path id="common.module.sourcepath">
++    <dirset dir="${module.common.basedir}/Common">
++      <include name="src"/>
++    </dirset>
++  </path>
++  
++  
++  <target name="compile.module.common" depends="compile.module.common.production,compile.module.common.tests" description="Compile module Common"/>
++  
++  <target name="compile.module.common.production" depends="register.custom.compilers" description="Compile module Common; production classes">
++    <mkdir dir="${common.output.dir}"/>
++    <javac2 destdir="${common.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.common}/javac">
++      <compilerarg line="${compiler.args.common}"/>
++      <bootclasspath refid="common.module.bootclasspath"/>
++      <classpath refid="common.module.production.classpath"/>
++      <src refid="common.module.sourcepath"/>
++      <patternset refid="excluded.from.compilation.common"/>
++    </javac2>
++    
++    <copy todir="${common.output.dir}">
++      <fileset dir="${module.common.basedir}/Common/src">
++        <patternset refid="compiler.resources"/>
++        <type type="file"/>
++      </fileset>
++    </copy>
++  </target>
++  
++  <target name="compile.module.common.tests" depends="register.custom.compilers,compile.module.common.production" description="compile module Common; test classes" unless="skip.tests"/>
++  
++  <target name="clean.module.common" description="cleanup module">
++    <delete dir="${common.output.dir}"/>
++    <delete dir="${common.testoutput.dir}"/>
++  </target>
++  
++  
++  <!-- Module DataLayer -->
++  
++  <dirname property="module.datalayer.basedir" file="${ant.file}"/>
++  
++  
++  <property name="module.jdk.home.datalayer" value="${project.jdk.home}"/>
++  <property name="module.jdk.bin.datalayer" value="${project.jdk.bin}"/>
++  <property name="module.jdk.classpath.datalayer" value="${project.jdk.classpath}"/>
++  
++  <property name="compiler.args.datalayer" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
++  
++  <property name="datalayer.output.dir" value="${module.datalayer.basedir}/out/production/DataLayer"/>
++  <property name="datalayer.testoutput.dir" value="${module.datalayer.basedir}/out/test/DataLayer"/>
++  
++  <path id="datalayer.module.bootclasspath">
++    <!-- Paths to be included in compilation bootclasspath -->
++  </path>
++  
++  <path id="datalayer.module.production.classpath">
++    <path refid="${module.jdk.classpath.datalayer}"/>
++    <pathelement location="${common.output.dir}"/>
++    <path refid="library.sqlite-jdbc-3.27.2.1.classpath"/>
++  </path>
++  
++  <path id="datalayer.runtime.production.module.classpath">
++    <pathelement location="${datalayer.output.dir}"/>
++    <path refid="common.runtime.production.module.classpath"/>
++    <path refid="library.sqlite-jdbc-3.27.2.1.classpath"/>
++  </path>
++  
++  <path id="datalayer.module.classpath">
++    <path refid="${module.jdk.classpath.datalayer}"/>
++    <pathelement location="${datalayer.output.dir}"/>
++    <pathelement location="${common.testoutput.dir}"/>
++    <pathelement location="${common.output.dir}"/>
++    <path refid="library.sqlite-jdbc-3.27.2.1.classpath"/>
++  </path>
++  
++  <path id="datalayer.runtime.module.classpath">
++    <pathelement location="${datalayer.testoutput.dir}"/>
++    <pathelement location="${datalayer.output.dir}"/>
++    <path refid="common.runtime.module.classpath"/>
++    <path refid="library.sqlite-jdbc-3.27.2.1.classpath"/>
++  </path>
++  
++  
++  <patternset id="excluded.from.module.datalayer">
++    <patternset refid="ignored.files"/>
++  </patternset>
++  
++  <patternset id="excluded.from.compilation.datalayer">
++    <patternset refid="excluded.from.module.datalayer"/>
++  </patternset>
++  
++  <path id="datalayer.module.sourcepath">
++    <dirset dir="${module.datalayer.basedir}/DataLayer">
++      <include name="src"/>
++    </dirset>
++  </path>
++  
++  
++  <target name="compile.module.datalayer" depends="compile.module.datalayer.production,compile.module.datalayer.tests" description="Compile module DataLayer"/>
++  
++  <target name="compile.module.datalayer.production" depends="register.custom.compilers,compile.module.common" description="Compile module DataLayer; production classes">
++    <mkdir dir="${datalayer.output.dir}"/>
++    <javac2 destdir="${datalayer.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.datalayer}/javac">
++      <compilerarg line="${compiler.args.datalayer}"/>
++      <bootclasspath refid="datalayer.module.bootclasspath"/>
++      <classpath refid="datalayer.module.production.classpath"/>
++      <src refid="datalayer.module.sourcepath"/>
++      <patternset refid="excluded.from.compilation.datalayer"/>
++    </javac2>
++    
++    <copy todir="${datalayer.output.dir}">
++      <fileset dir="${module.datalayer.basedir}/DataLayer/src">
++        <patternset refid="compiler.resources"/>
++        <type type="file"/>
++      </fileset>
++    </copy>
++  </target>
++  
++  <target name="compile.module.datalayer.tests" depends="register.custom.compilers,compile.module.datalayer.production" description="compile module DataLayer; test classes" unless="skip.tests"/>
++  
++  <target name="clean.module.datalayer" description="cleanup module">
++    <delete dir="${datalayer.output.dir}"/>
++    <delete dir="${datalayer.testoutput.dir}"/>
++  </target>
++  
++  
++  <!-- Module ModelLayer -->
++  
++  <dirname property="module.modellayer.basedir" file="${ant.file}"/>
++  
++  
++  <property name="module.jdk.home.modellayer" value="${project.jdk.home}"/>
++  <property name="module.jdk.bin.modellayer" value="${project.jdk.bin}"/>
++  <property name="module.jdk.classpath.modellayer" value="${project.jdk.classpath}"/>
++  
++  <property name="compiler.args.modellayer" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
++  
++  <property name="modellayer.output.dir" value="${module.modellayer.basedir}/out/production/ModelLayer"/>
++  <property name="modellayer.testoutput.dir" value="${module.modellayer.basedir}/out/test/ModelLayer"/>
++  
++  <path id="modellayer.module.bootclasspath">
++    <!-- Paths to be included in compilation bootclasspath -->
++  </path>
++  
++  <path id="modellayer.module.production.classpath">
++    <path refid="${module.jdk.classpath.modellayer}"/>
++    <pathelement location="${common.output.dir}"/>
++    <pathelement location="${datalayer.output.dir}"/>
++  </path>
++  
++  <path id="modellayer.runtime.production.module.classpath">
++    <pathelement location="${modellayer.output.dir}"/>
++    <path refid="common.runtime.production.module.classpath"/>
++    <path refid="datalayer.runtime.production.module.classpath"/>
++  </path>
++  
++  <path id="modellayer.module.classpath">
++    <path refid="${module.jdk.classpath.modellayer}"/>
++    <pathelement location="${modellayer.output.dir}"/>
++    <pathelement location="${common.testoutput.dir}"/>
++    <pathelement location="${common.output.dir}"/>
++    <pathelement location="${datalayer.testoutput.dir}"/>
++    <pathelement location="${datalayer.output.dir}"/>
++  </path>
++  
++  <path id="modellayer.runtime.module.classpath">
++    <pathelement location="${modellayer.testoutput.dir}"/>
++    <pathelement location="${modellayer.output.dir}"/>
++    <path refid="common.runtime.module.classpath"/>
++    <path refid="datalayer.runtime.module.classpath"/>
++  </path>
++  
++  
++  <patternset id="excluded.from.module.modellayer">
++    <patternset refid="ignored.files"/>
++  </patternset>
++  
++  <patternset id="excluded.from.compilation.modellayer">
++    <patternset refid="excluded.from.module.modellayer"/>
++  </patternset>
++  
++  <path id="modellayer.module.sourcepath">
++    <dirset dir="${module.modellayer.basedir}/ModelLayer">
++      <include name="src"/>
++    </dirset>
++  </path>
++  
++  
++  <target name="compile.module.modellayer" depends="compile.module.modellayer.production,compile.module.modellayer.tests" description="Compile module ModelLayer"/>
++  
++  <target name="compile.module.modellayer.production" depends="register.custom.compilers,compile.module.common,compile.module.datalayer" description="Compile module ModelLayer; production classes">
++    <mkdir dir="${modellayer.output.dir}"/>
++    <javac2 destdir="${modellayer.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.modellayer}/javac">
++      <compilerarg line="${compiler.args.modellayer}"/>
++      <bootclasspath refid="modellayer.module.bootclasspath"/>
++      <classpath refid="modellayer.module.production.classpath"/>
++      <src refid="modellayer.module.sourcepath"/>
++      <patternset refid="excluded.from.compilation.modellayer"/>
++    </javac2>
++    
++    <copy todir="${modellayer.output.dir}">
++      <fileset dir="${module.modellayer.basedir}/ModelLayer/src">
++        <patternset refid="compiler.resources"/>
++        <type type="file"/>
++      </fileset>
++    </copy>
++  </target>
++  
++  <target name="compile.module.modellayer.tests" depends="register.custom.compilers,compile.module.modellayer.production" description="compile module ModelLayer; test classes" unless="skip.tests"/>
++  
++  <target name="clean.module.modellayer" description="cleanup module">
++    <delete dir="${modellayer.output.dir}"/>
++    <delete dir="${modellayer.testoutput.dir}"/>
++  </target>
++  
++  
++  <!-- Module ViewControlLayer -->
++  
++  <dirname property="module.viewcontrollayer.basedir" file="${ant.file}"/>
++  
++  
++  <property name="module.jdk.home.viewcontrollayer" value="${project.jdk.home}"/>
++  <property name="module.jdk.bin.viewcontrollayer" value="${project.jdk.bin}"/>
++  <property name="module.jdk.classpath.viewcontrollayer" value="${project.jdk.classpath}"/>
++  
++  <property name="compiler.args.viewcontrollayer" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
++  
++  <property name="viewcontrollayer.output.dir" value="${module.viewcontrollayer.basedir}/out/production/ViewControlLayer"/>
++  <property name="viewcontrollayer.testoutput.dir" value="${module.viewcontrollayer.basedir}/out/test/ViewControlLayer"/>
++  
++  <path id="viewcontrollayer.module.bootclasspath">
++    <!-- Paths to be included in compilation bootclasspath -->
++  </path>
++  
++  <path id="viewcontrollayer.module.production.classpath">
++    <path refid="${module.jdk.classpath.viewcontrollayer}"/>
++    <pathelement location="${modellayer.output.dir}"/>
++    <pathelement location="${common.output.dir}"/>
++    <path refid="library.sqlite-jdbc-3.27.2.1.classpath"/>
++  </path>
++  
++  <path id="viewcontrollayer.runtime.production.module.classpath">
++    <pathelement location="${viewcontrollayer.output.dir}"/>
++    <path refid="modellayer.runtime.production.module.classpath"/>
++    <path refid="common.runtime.production.module.classpath"/>
++    <path refid="library.sqlite-jdbc-3.27.2.1.classpath"/>
++  </path>
++  
++  <path id="viewcontrollayer.module.classpath">
++    <path refid="${module.jdk.classpath.viewcontrollayer}"/>
++    <pathelement location="${viewcontrollayer.output.dir}"/>
++    <pathelement location="${modellayer.testoutput.dir}"/>
++    <pathelement location="${modellayer.output.dir}"/>
++    <pathelement location="${common.testoutput.dir}"/>
++    <pathelement location="${common.output.dir}"/>
++    <path refid="library.sqlite-jdbc-3.27.2.1.classpath"/>
++  </path>
++  
++  <path id="viewcontrollayer.runtime.module.classpath">
++    <pathelement location="${viewcontrollayer.testoutput.dir}"/>
++    <pathelement location="${viewcontrollayer.output.dir}"/>
++    <path refid="modellayer.runtime.module.classpath"/>
++    <path refid="common.runtime.module.classpath"/>
++    <path refid="library.sqlite-jdbc-3.27.2.1.classpath"/>
++  </path>
++  
++  
++  <patternset id="excluded.from.module.viewcontrollayer">
++    <patternset refid="ignored.files"/>
++  </patternset>
++  
++  <patternset id="excluded.from.compilation.viewcontrollayer">
++    <patternset refid="excluded.from.module.viewcontrollayer"/>
++  </patternset>
++  
++  <path id="viewcontrollayer.module.sourcepath">
++    <dirset dir="${module.viewcontrollayer.basedir}/ViewControlLayer">
++      <include name="src"/>
++    </dirset>
++  </path>
++  
++  
++  <target name="compile.module.viewcontrollayer" depends="compile.module.viewcontrollayer.production,compile.module.viewcontrollayer.tests" description="Compile module ViewControlLayer"/>
++  
++  <target name="compile.module.viewcontrollayer.production" depends="register.custom.compilers,compile.module.modellayer,compile.module.common" description="Compile module ViewControlLayer; production classes">
++    <mkdir dir="${viewcontrollayer.output.dir}"/>
++    <javac2 destdir="${viewcontrollayer.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.viewcontrollayer}/javac">
++      <compilerarg line="${compiler.args.viewcontrollayer}"/>
++      <bootclasspath refid="viewcontrollayer.module.bootclasspath"/>
++      <classpath refid="viewcontrollayer.module.production.classpath"/>
++      <src refid="viewcontrollayer.module.sourcepath"/>
++      <patternset refid="excluded.from.compilation.viewcontrollayer"/>
++    </javac2>
++    
++    <copy todir="${viewcontrollayer.output.dir}">
++      <fileset dir="${module.viewcontrollayer.basedir}/ViewControlLayer/src">
++        <patternset refid="compiler.resources"/>
++        <type type="file"/>
++      </fileset>
++    </copy>
++  </target>
++  
++  <target name="compile.module.viewcontrollayer.tests" depends="register.custom.compilers,compile.module.viewcontrollayer.production" description="compile module ViewControlLayer; test classes" unless="skip.tests"/>
++  
++  <target name="clean.module.viewcontrollayer" description="cleanup module">
++    <delete dir="${viewcontrollayer.output.dir}"/>
++    <delete dir="${viewcontrollayer.testoutput.dir}"/>
++  </target>
++  
++  <target name="init" description="Build initialization">
++    <!-- Perform any build initialization in this target -->
++  </target>
++  
++  <target name="clean" depends="clean.module.common, clean.module.datalayer, clean.module.modellayer, clean.module.viewcontrollayer" description="cleanup all"/>
++  
++  <target name="build.modules" depends="init, clean, compile.module.common, compile.module.datalayer, compile.module.modellayer, compile.module.viewcontrollayer" description="build all modules"/>
++  
++  <target name="all" depends="build.modules" description="build all"/>
++</project>
+\ No newline at end of file
