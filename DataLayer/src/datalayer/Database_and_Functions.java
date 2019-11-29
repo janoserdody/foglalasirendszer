@@ -42,7 +42,7 @@ public class Database_and_Functions {
      */
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:d:\\source\\foglalasirendszer2\\Foglalasok3.db";
+        String url = "jdbc:sqlite:d:\\source\\foglalasirendszer2\\Foglalasok.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);

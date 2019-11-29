@@ -81,8 +81,6 @@ public class UgyfelekUI {
 
                 model.remove(selectedIndex);
 
-                ugyfelekInicializalas();
-
                 if (sikeresTorles){
                     JOptionPane.showMessageDialog(null, "Sikeres törlés!");
                 }
@@ -102,7 +100,7 @@ public class UgyfelekUI {
     public void ugyfelekInicializalas(){
         if (listUgyfelek != null){
             model = (DefaultListModel) listUgyfelek.getModel();
-            model.clear();
+            model.removeAllElements();
             getUgyfelekToModel();
             listUgyfelek.updateUI();
             ugyfelekPane.updateUI();
